@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+} */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.myContainer {
+  @apply w-[92%] mx-auto;
+}
+
+.willSimplyFadeIn {
+  animation: simplefadeinanimation 0.3s ease-in-out forwards;
+}
+
+@keyframes simplefadeinanimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
