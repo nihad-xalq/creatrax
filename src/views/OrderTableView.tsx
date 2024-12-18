@@ -52,7 +52,9 @@ export const OrderTableView = () => {
                 {order.id}{" "}
               </div>
               <div className="px-4 py-3 border-r">{order.taskName}</div>
-              <div className="px-4 py-3 border-r">{order.description}</div>
+              <div className="px-4 py-3 border-r text-sm">
+                {order.description}
+              </div>
               <div className="px-4 py-3 border-r">
                 <span
                   className={`px-2 py-1 rounded text-xs font-semibold w-full block text-center ${
@@ -67,31 +69,26 @@ export const OrderTableView = () => {
                 </span>
               </div>
               <div className="px-4 py-3 border-r text-sm">{order.assignee}</div>
-              <div className="px-4 py-3 border-r">{order.startDate}</div>
-              <div className="px-4 py-3 border-r">{order.dueDate}</div>
-              <div className="px-4 py-3 border-r">
+              <div className="px-4 py-3 border-r text-sm">
+                {order.startDate}
+              </div>
+              <div className="px-4 py-3 border-r text-sm">{order.dueDate}</div>
+              <div className="px-4 py-3 border-r text-sm">
                 <span
                   className={`px-2 py-1 rounded text-xs font-semibold block text-center border ${
-                    order.status === "Pending"
+                    order.status === "İcra edilir"
                       ? "bg-yellow-100 text-yellow-600 border-yellow-300"
-                      : order.status === "In Progress"
-                      ? "bg-blue-100 text-blue-600 border-blue-300"
+                      : order.status === "Gözləmədə"
+                      ? "bg-purple-100 text-purple-500 border-purple-200"
                       : "bg-green-200 text-green-600 border-green-300"
                   }`}
                 >
                   {order.status}
                 </span>
               </div>
-              {/* <div className="px-4 py-3 border-r text-sm text-gray-600 flex flex-row justify-between items-center">
+              <div className="px-4 py-3 border-r text-sm text-gray-600 flex flex-row justify-between items-center">
                 {order.comments}
-                <button
-                  type="button"
-                  className="willSimplyFadeIn hidden group-hover:flex flex-col items-center gap-0 p-1 hover:bg-black/10 transition duration-200 rounded-full"
-                  onClick={handleOpenEditModal}
-                >
-                  <MdOutlineModeEditOutline className="w-4 h-4" />
-                </button>
-              </div> */}
+              </div>
             </div>
           ))}
         </div>
