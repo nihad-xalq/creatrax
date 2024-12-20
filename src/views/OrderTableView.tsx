@@ -3,6 +3,7 @@
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { orders } from "@/lib/mockData";
 import React, { useMemo } from "react";
+import { Order } from "@/types/ordersTypes";
 
 type OrderTableViewProps = {
   sortKey: string;
@@ -35,7 +36,11 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
     if (sortKey) {
       filteredOrders = filteredOrders.sort((a, b) => {
         if (sortKey === "priority") {
-          const priorityOrder = { Yüksək: 1, Orta: 2, Aşağı: 3 };
+          const priorityOrder: { [key in Order["priority"]]: number } = {
+            Yüksək: 1,
+            Orta: 2,
+            Aşağı: 3,
+          };
           return priorityOrder[a.priority] - priorityOrder[b.priority];
         } else if (sortKey === "status") {
           return a.status.localeCompare(b.status);
@@ -88,7 +93,9 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
                 </div>
                 {order.id}{" "}
               </div>
-              <div className="px-4 py-3 border-r text-sm font-medium">{order.taskName}</div>
+              <div className="px-4 py-3 border-r text-sm font-medium">
+                {order.taskName}
+              </div>
               <div className="px-4 py-3 border-r text-sm">
                 {order.description}
               </div>

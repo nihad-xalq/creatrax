@@ -1,5 +1,9 @@
+import { Client } from "@/types/clientsTypes";
+import { Order } from "@/types/ordersTypes";
+import { AboutText } from "@/types/aboutTextsTypes";
+
 // Clients
-export const clients = [
+export const clients: Client[] = [
   {
     id: 1,
     name: "AzTexno MMC",
@@ -174,7 +178,7 @@ export const clients = [
 ];
 
 // Orders
-export const orders = [
+export const orders: Order[] = [
   {
     id: 1,
     taskName: "Yeni Loqonun Dizaynı",
@@ -264,7 +268,7 @@ export const orders = [
 ];
 
 // About
-export const aboutTexts = [
+export const aboutTexts: AboutText[] = [
   {
     id: 1,
     title: "Portalın Ümumi Məlumatı",
