@@ -1,10 +1,10 @@
-"use client"; // Ensure this runs on the client-side
+"use client";
 
-import { useState } from "react";
-import { Logo } from "../reusable/Logo";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiMenu, FiX } from "react-icons/fi"; // Burger and close icons
+import { FiMenu, FiX } from "react-icons/fi";
+import { Logo } from "../reusable/Logo";
+import { useState } from "react";
+import Link from "next/link";
 
 interface HeaderLinksTypes {
   title: string;
@@ -19,15 +19,14 @@ const headerLinks: HeaderLinksTypes[] = [
 ];
 
 export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle menu
-  const pathname = usePathname(); // Get the current path
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen); // Toggle menu
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <header className="bg-slate-800 py-4 text-white relative">
       <div className="header_inner myContainer flex items-center justify-between">
-        {/* Logo */}
         <Link href="/" className="header_left w-1/4 lg:w-1/12">
           <Logo />
         </Link>
@@ -54,10 +53,10 @@ export const Header = () => {
                 <Link
                   key={title}
                   href={href}
-                  className={`block text-lg text-white py-2 px-4 rounded-md hover:bg-white/10 transition ${
+                  className={`block text-base text-white py-2 px-4 rounded-md hover:bg-white/10 transition ${
                     isActive ? "bg-white/20 font-semibold" : ""
                   }`}
-                  onClick={() => setIsMenuOpen(false)} // Close menu on link click
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {title}
                 </Link>
@@ -67,14 +66,14 @@ export const Header = () => {
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-1">
           {headerLinks.map(({ title, href }) => {
             const isActive = pathname === href;
             return (
               <Link
                 key={title}
                 href={href}
-                className={`text-white py-2 px-4 hover:bg-white/10 rounded-md transition ${
+                className={`text-white text-sm py-2 px-4 hover:bg-white/10 rounded-md transition ${
                   isActive ? "bg-white/20 font-semibold" : ""
                 }`}
               >
@@ -89,7 +88,7 @@ export const Header = () => {
       {isMenuOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-30 lg:hidden"
-          onClick={toggleMenu} // Close menu on overlay click
+          onClick={toggleMenu}
         ></div>
       )}
     </header>

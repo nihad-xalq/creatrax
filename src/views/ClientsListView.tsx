@@ -14,7 +14,7 @@ export const ClientsListView = () => {
     <div className="overflow-x-auto rounded-lg">
       <div className="shadow-md rounded-lg">
         {/* Table Header */}
-        <div className="grid grid-cols-[0.2fr_0.4fr_0.4fr_0.4fr_0.5fr_0.4fr_0.2fr_0.3fr_0.8fr] bg-gray-800 text-white font-medium text-xs md:text-sm rounded-t-lg">
+        <div className="grid grid-cols-[0.15fr_0.4fr_0.35fr_0.4fr_0.5fr_0.4fr_0.2fr_0.25fr_1fr] bg-gray-800 text-white font-medium text-xs md:text-sm rounded-t-lg">
           {[
             "ID",
             "Müştəri adı",
@@ -24,7 +24,7 @@ export const ClientsListView = () => {
             "Telefon",
             "Gəlir (₼)",
             // "Status",
-            "Son əlaqə tarixi",
+            "Son söhbət",
             "Qeydlər",
           ].map((header) => (
             <div key={header} className="px-4 py-2 border-r">
@@ -37,7 +37,7 @@ export const ClientsListView = () => {
           {clients.map((client, index) => (
             <div
               key={client.id}
-              className={`group grid grid-cols-[0.2fr_0.4fr_0.4fr_0.4fr_0.5fr_0.4fr_0.2fr_0.3fr_0.8fr] border-b ${
+              className={`group grid grid-cols-[0.15fr_0.4fr_0.35fr_0.4fr_0.5fr_0.4fr_0.2fr_0.25fr_1fr] border-b ${
                 index % 2 === 0 ? "bg-gray-50" : "bg-white"
               }`}
             >
@@ -55,7 +55,7 @@ export const ClientsListView = () => {
                 </div>
                 {client.id}
               </div>
-              <div className="px-4 py-3 border-r text-sm font-medium truncate">
+              <div className="px-4 py-3 border-r text-sm font-medium truncate my-auto">
                 {client.name}
               </div>
               <div className="px-4 py-3 border-r text-sm flex flex-row items-center justify-center text-center">
@@ -64,10 +64,10 @@ export const ClientsListView = () => {
               <div className="px-4 py-3 border-r text-sm flex flex-row items-center justify-center text-center">
                 {client.contactPerson}
               </div>
-              <div className="px-4 py-3 border-r truncate text-sm">
+              <div className="px-4 py-3 border-r truncate text-sm flex items-center">
                 {client.email}
               </div>
-              <div className="px-4 py-3 border-r text-sm">
+              <div className="px-4 py-3 border-r text-sm flex items-center">
                 {client.phoneNumber}
               </div>
               <div className="px-4 py-3 border-r text-sm flex flex-row items-center justify-center text-center">
@@ -88,7 +88,10 @@ export const ClientsListView = () => {
                 {client.lastInteractionDate}
               </div>
 
-              <div className="px-4 py-3 border-r group flex flex-row justify-between items-center gap-1 text-sm text-gray-600 font-light">
+              <div
+                title={client.notes}
+                className="px-4 py-3 border-r group text-sm text-gray-600 font-light my-auto truncate"
+              >
                 {client.notes}
               </div>
             </div>
