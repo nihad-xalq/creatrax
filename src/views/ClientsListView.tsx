@@ -7,7 +7,7 @@ import React from "react";
 export const ClientsListView = () => {
   const handleOpenEditModal = (id: number) => {
     // Open edit modal
-    console.log(`Edit modal opened for client ID: ${id}`);
+    console.log(`Edit: ${id}`);
   };
 
   return (
