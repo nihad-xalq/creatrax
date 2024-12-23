@@ -2,23 +2,28 @@
 
 import { OrderTableView } from "@/views/OrderTableView";
 import { FiFilter, FiSearch } from "react-icons/fi";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import { useState } from "react";
 
-const sortOptions = [
+interface SortOptionsTypes {
+  value: string;
+  label: string;
+}
+
+const sortOptions: SortOptionsTypes[] = [
   { value: "priority", label: "Priority" },
   { value: "status", label: "Status" },
 ];
 
 export default function OrdersPage() {
-  const [sortKey, setSortKey] = useState(null);
+  const [sortKey, setSortKey] = useState<SortOptionsTypes | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSortChange = (selectedOption) => {
-    setSortKey(selectedOption);
+  const handleSortChange = (newValue: SingleValue<SortOptionsTypes>) => {
+    setSortKey(newValue);
   };
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
@@ -58,7 +63,10 @@ export default function OrdersPage() {
       </div>
 
       {/* Order Table View */}
-      <OrderTableView sortKey={sortKey?.value} searchQuery={searchQuery} />
+      <OrderTableView
+        sortKey={sortKey?.value || ""}
+        searchQuery={searchQuery}
+      />
     </div>
   );
 }
