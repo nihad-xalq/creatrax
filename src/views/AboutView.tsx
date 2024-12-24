@@ -10,7 +10,8 @@ export const AboutView = () => {
             return (
               <li
                 key={t.id}
-                className="flex flex-col bg-gray-200 py-2 px-4 rounded-lg"
+                className="flex flex-col bg-gray-50 py-4 px-4 rounded-lg"
+                style={{ boxShadow: "0px 0px 3px 3px rgba(0, 0, 0, 0.1)" }}
               >
                 <h2 className="text-xl font-semibold">{t.title}</h2>
                 <p className="text-md font-normal">{t.content}</p>

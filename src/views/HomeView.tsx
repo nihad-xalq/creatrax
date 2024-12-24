@@ -31,15 +31,16 @@ export const HomeView = () => {
       <div className="home_inner flex flex-col items-center gap-12">
         <div className="home-top_content flex flex-col items-center justify-center gap-3">
           <h1 className="text-5xl text-center font-semibold">
-            Welcome to CreaTrax!
+            CreaTrax-a xoş gəlmisiniz!
           </h1>
           <p className="text-md text-center font-normal w-full lg:w-3/4 mx-auto">
-            CreaTrax is a modern, user-friendly inventory management system
-            designed to help small businesses streamline their operations.
+            CreaTrax kiçik bizneslərə öz əməliyyatlarını asanlaşdırmağa kömək
+            etmək üçün nəzərdə tutulmuş müasir, istifadəçi dostu stoklama
+            idarəetmə sistemidir.
           </p>
         </div>
 
-        <div className="form_container border border-gray-300 p-3 rounded-lg w-full lg:w-1/4 mx-auto">
+        <div className="form_container border border-gray-300 p-3 rounded-lg w-full lg:w-1/5 mx-auto">
           <CFormProvider methods={methods} onSubmit={handleSubmit}>
             <div className="space-y-4">
               <InputTextField
@@ -57,12 +58,13 @@ export const HomeView = () => {
               <div className="flex flex-row justify-center items-center">
                 <input
                   type="submit"
-                  value="Göndər"
-                  className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
+                  value="Daxil ol"
+                  className="w-full bg-gradient-to-tl from-[#20C943] to-[#15B6B0] text-white font-semibold py-3 px-4 rounded-lg transition-colors cursor-pointer"
                 />
               </div>
             </div>
           </CFormProvider>
+          {/* <Image  /> */}
         </div>
       </div>
     </section>
