@@ -138,7 +138,15 @@ export const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="border-t border-gray-700 mt-6 pt-4 text-center text-sm text-gray-400">
-          {fullYear} Creadive &copy; Bütün hüquqlar qorunur.
+          {fullYear}{" "}
+          <Link
+            href="https://creadive.az"
+            target="_blank"
+            title="Creadive Agency official website"
+          >
+            Creadive
+          </Link>{" "}
+          &copy; Bütün hüquqlar qorunur.
         </div>
       </div>
     </footer>
