@@ -3,7 +3,7 @@ import { ContactItem } from "@/types/contactTypes";
 import { ContactView } from "@/views/ContactView";
 import { IoShareSocial } from "react-icons/io5";
 
-export const contactData: ContactItem[] = [
+const contactData: ContactItem[] = [
   {
     id: 1,
     icon: <IoMdCall />,
