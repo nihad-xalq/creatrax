@@ -5,9 +5,8 @@ import { clients } from "@/lib/mockData";
 import React from "react";
 
 export const ClientsListView = () => {
-  const handleOpenEditModal = (id: number) => {
-    // Open edit modal
-    console.log(`Edit: ${id}`);
+  const handleOpenEditModal = (clientName: string) => {
+    alert(`Edit: ${clientName}`);
   };
 
   return (
@@ -27,7 +26,7 @@ export const ClientsListView = () => {
             "Son söhbət",
             "Qeydlər",
           ].map((header) => (
-            <div key={header} className="px-4 py-2 border-r">
+            <div key={header} className="px-4 py-2 text-center">
               {header}
             </div>
           ))}
@@ -37,17 +36,17 @@ export const ClientsListView = () => {
           {clients.map((client, index) => (
             <div
               key={client.id}
-              className={`group grid grid-cols-[0.15fr_0.4fr_0.35fr_0.4fr_0.5fr_0.4fr_0.2fr_0.25fr_1fr] border-b ${
+              className={`group grid grid-cols-[0.15fr_0.4fr_0.35fr_0.4fr_0.5fr_0.4fr_0.2fr_0.25fr_1fr] border-b  text-center ${
                 index % 2 === 0 ? "bg-gray-50" : "bg-white"
               }`}
             >
-              <div className="pr-4 pl-2 py-3 border-r flex flex-row items-center justify-center">
+              <div className="pr-4 pl-2 py-3 flex flex-row items-center justify-center">
                 {/* Edit Button */}
                 <div className="invisible group-hover:visible willSimplyFadeIn flex flex-row justify-between items-center gap-1 w-full transition duration-200">
                   <button
                     type="button"
                     title={`${client.name} məlumatlarına düzəliş et`}
-                    onClick={() => handleOpenEditModal(client.id)}
+                    onClick={() => handleOpenEditModal(client.name)}
                     className="text-blue-500 hover:text-blue-700 hover:bg-black/10 rounded-full p-1 transition duration-200"
                   >
                     <MdOutlineModeEditOutline className="w-4 h-4" />
@@ -55,26 +54,24 @@ export const ClientsListView = () => {
                 </div>
                 {client.id}
               </div>
-              <div className="px-4 py-3 border-r text-sm font-medium truncate my-auto">
+              <div className="px-4 py-3 text-sm font-medium truncate my-auto">
                 {client.name}
               </div>
-              <div className="px-4 py-3 border-r text-sm flex flex-row items-center justify-center text-center">
+              <div className="px-4 py-3 text-sm flex flex-row items-center justify-center text-center">
                 {client.industry}
               </div>
-              <div className="px-4 py-3 border-r text-sm flex flex-row items-center justify-center text-center">
+              <div className="px-4 py-3 text-sm flex flex-row items-center justify-center text-center">
                 {client.contactPerson}
               </div>
-              <div className="px-4 py-3 border-r truncate text-sm">
-                {client.email}
-              </div>
-              <div className="px-4 py-3 border-r text-sm flex items-center">
+              <div className="px-4 py-3 truncate text-sm">{client.email}</div>
+              <div className="px-4 py-3 text-sm flex items-center">
                 {client.phoneNumber}
               </div>
-              <div className="px-4 py-3 border-r text-sm flex flex-row items-center justify-center text-center">
+              <div className="px-4 py-3 text-sm flex flex-row items-center justify-center text-center">
                 {client.revenueGenerated}
               </div>
               {/* <div
-                className={`px-4 py-3 border-r text-center ${
+                className={`px-4 py-3 text-center ${
                   client.status === "Aktiv"
                     ? "text-green-600 font-semibold"
                     : client.status === "Gözləmədə"
@@ -84,13 +81,13 @@ export const ClientsListView = () => {
               >
                 {client.status}
               </div> */}
-              <div className="px-4 py-3 border-r text-sm flex flex-row items-center justify-center text-center">
+              <div className="px-4 py-3 text-sm flex flex-row items-center justify-center text-center">
                 {client.lastInteractionDate}
               </div>
 
               <div
                 title={client.notes}
-                className="px-4 py-3 border-r group text-xs text-gray-600 font-light my-auto truncate"
+                className="px-4 py-3 group text-xs text-gray-600 font-light my-auto truncate"
               >
                 {client.notes}
               </div>

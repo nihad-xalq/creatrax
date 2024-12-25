@@ -39,9 +39,9 @@ export default function OrdersPage() {
               value={sortKey}
               onChange={handleSortChange}
               placeholder={
-                <div className="flex flex-row items-center gap-2">
-                  <FiFilter className="text-base" />
-                  Sort by:
+                <div className="flex flex-row items-center gap-2 text-sm">
+                  <FiFilter />
+                  Sırala:
                 </div>
               }
               className="w-52"

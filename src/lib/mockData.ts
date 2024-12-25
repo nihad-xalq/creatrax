@@ -273,42 +273,56 @@ export const aboutTexts: AboutText[] = [
     id: 1,
     title: "Portalın Ümumi Məlumatı",
     content:
-      "Bu portal müştəri və sifariş idarəçiliyini optimallaşdırmaq üçün hazırlanıb, irəliləyişi izləmək, performansı monitorinq etmək və interaktiv qrafiklər və panellər vasitəsilə məlumatları analiz etmək üçün vasitələr təklif edir.",
+      "Bu portal müştəri və sifariş idarəçiliyini optimallaşdırmaq üçün hazırlanıb, irəliləyişi izləmək, performansı monitorinq etmək və interaktiv qrafiklər və panellər vasitəsilə məlumatları analiz etmək üçün vasitələr təklif edir. Portal sadə interfeys və intuitiv funksionallıq ilə hər səviyyədə istifadəçilər üçün uyğunlaşdırılıb. Onun məqsədi şirkətlərin çeviklik və idarəetmə keyfiyyətini artırmaqdan ibarətdir.",
   },
   {
     id: 2,
     title: "Missiya və Vizyon",
     content:
-      "Bizim missiyamız istifadəçi dostu platforma təqdim edərək bizneslərə vəzifə idarəçiliyini və məlumat izləməsini asanlaşdırmaqdır. Vizyonumuz isə effektiv və miqyaslana bilən biznes əməliyyatları üçün əsas həllə çevrilməkdir.",
+      "Bizim missiyamız istifadəçi dostu platforma təqdim edərək bizneslərə vəzifə idarəçiliyini və məlumat izləməsini asanlaşdırmaqdır. Vizyonumuz isə effektiv və miqyaslana bilən biznes əməliyyatları üçün əsas həllə çevrilməkdir. Biz inanırıq ki, texnologiya vasitəsilə hər bir biznes daha məhsuldar və təşkilanmış ola bilər, bu da ümumi məqsədlərə çatmaqda yardımcı olacaqdır.",
   },
   {
     id: 3,
     title: "Əsas Xüsusiyyətlər",
     content:
-      "Portalda sifariş izləmə, müştəri idarəçiliyi, prioritet vəzifələrin təyin edilməsi, real vaxt yenilikləri və ətraflı analitika kimi funksiyalar mövcuddur. Bu vasitələr bizneslərin təşkilatlanmasını və effektivliyini artırmağa kömək edir.",
+      "Portalda sifariş izləmə, müştəri idarəçiliyi, prioritet vəzifələrin təyin edilməsi, real vaxt yenilikləri və ətraflı analitika kimi funksiyalar mövcuddur. Bu vasitələr bizneslərin təşkilanmasını və effektivliyini artırmağa kömək edir. Eyni zamanda, şirkətlərin ehtiyaclarına uyğun özəlləşdirilə bilən modulların tətbiqi portalı daha universal edir.",
   },
   {
     id: 4,
     title: "Analitika və İcmallar",
     content:
-      "Quraşdırılmış qrafiklər və məlumat vizualizasiyası vasitələri ilə bu portal bizneslərə performans metriklərini effektiv şəkildə izləmək və məlumatlı qərarlar qəbul etmək üçün hərəkətə keçə bilən icmallar təqdim edir.",
+      "Quraşdırılmış qrafiklər və məlumat vizualizasiyası vasitələri ilə bu portal bizneslərə performans metriklərini effektiv şəkildə izləmək və məlumatlı qərarlar qəbul etmək üçün hərəkətə keçə bilən icmallar təqdim edir. Məlumatlar real vaxtda yenilənir və bu, şirkətlərə daha çevik planlama imkanı yaradan unikal üsul təqdim edir.",
   },
   {
     id: 5,
     title: "Fərdiləşdirilə Bilənlik",
     content:
-      "Portal yüksək səviyyədə fərdiləşdirilə bilər, bu da bizneslərin interfeysi və funksiyaları öz ehtiyaclarına uyğunlaşdırmasını təmin edir və müxtəlif iş axınlarına və sahələrə uyğunlaşmasını asanlaşdırır.",
+      "Portal yüksək səviyyədə fərdiləşdirilə bilər, bu da bizneslərin interfeysi və funksiyaları öz ehtiyaclarına uyğunlaşdırmasını təmin edir və mütərəqqi şirkət idarəetməsini asanlaşdırır. Həmçinin, fərdi sahələrə xas çözümlər əlavə edərək portaldan daha çox yararlanmaq mümkün olur.",
   },
   {
     id: 6,
     title: "Dəstək və Resurslar",
     content:
-      "Bizim peşəkar dəstək komandamız onboarding, problemlərin həlli və funksiyaların fərdiləşdirilməsi ilə bağlı kömək etmək üçün mövcuddur. Portaldan maksimum yararlanmaq üçün ətraflı sənədlərimizdən istifadə edin.",
+      "Bizim peşəkar dəstək komandamız onboarding, problemlərin həlli və funksiyaların fərdiləşdirilməsi ilə bağlı kömək etmək üçün mövcuddur. Portaldan maksimum yararlanmaq üçün ətraflı sənədlərmizdən istifadə edin. Həmçinin, video təlimatlar və tez-tez verilən suallar portalı daha istifadəyönlü edir.",
   },
   {
     id: 7,
     title: "Gələcək Genişlənmə",
     content:
-      "Gələcəkdə bu portal SaaS məhsulu olaraq satışa təqdim ediləcək. Daha geniş biznes ehtiyaclarına uyğun yeni xüsusiyyətlər və təkmilləşdirmələrlə bağlı yenilikləri izləyin.",
+      "Gələcəkdə bu portal SaaS məhsulu olaraq satışa təqdim ediləcək. Daha geniş biznes ehtiyaclarına uyğun yeni xüsusiyyətlər və təkmilləşdirmələrlə bağlı yenilikləri izləyin. Həmçinin, istifadəçi rəyləri əsasında portalı davamlı olaraq yeniləməyə davam edirik ki, o, daha çox sahə üçün istifadə edilə bilsin.",
+  },
+  {
+    id: 8,
+    title: "İnteqrasiya və Uyğunluq",
+    content:
+      "Portal digər biznes alətləri və sistemləri ilə asanlıqla inteqrasiya edilə bilər. Bu, məlumatların bir yerdə saxlanmasını və fərqli platformalar arasında effektiv əməkdaşlığı təmin edir. API dəstəyi və xüsusi inteqrasiya seçimləri şirkətlərin çevikliyini artırır.",
+  },
+  {
+    id: 9,
+    title: "Təhlükəsizlik və Məxfilik",
+    content:
+      "Portal ən yüksək təhlükəsizlik standartlarına uyğun olaraq hazırlanıb. Məlumatların şifrələnməsi, çoxsəviyyəli doğrulama və mütəmadi təhlükəsizlik yoxlamaları ilə istifadəçilərin məlumatlarının məxfiliyi təmin edilir. Həmçinin, təhlükəsizlik hadisələrinə qərşı qısa zamanda reaksiya vermə sistemi mövcuddur.",
   },
 ];
+
+

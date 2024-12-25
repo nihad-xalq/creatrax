@@ -1,5 +1,5 @@
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaX } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import { JSX } from "react";
 
@@ -30,12 +30,16 @@ const quickLinks: QuickLinks[] = [
     href: "/about",
   },
   {
-    title: "Xidmətlər",
-    href: "/services",
-  },
-  {
     title: "Bizimlə əlaqə",
     href: "/contact",
+  },
+  {
+    title: "İstifadə Bələdçisi",
+    href: "/guide",
+  },
+  {
+    title: "Məxfilik Siyasəti",
+    href: "/privacy-policy",
   },
 ];
 
@@ -50,27 +54,32 @@ const contactDatas: ContactDatas[] = [
     value: "info@creadive.az",
     href: "mailto:info@creadive.az",
   },
+  {
+    title: "Address",
+    value: "Baku, Azerbaijan",
+    href: "https://maps.app.goo.gl/Auq3Whto3PBHawdc7",
+  },
 ];
 
 const socialMediaAccounts: SocialMediaAccounts[] = [
   {
     name: "Facebook",
-    url: "https://www.facebook.com/",
+    url: "https://www.facebook.com/creadive.az",
     icon: <FaFacebook className="w-5 h-5" />,
   },
   {
     name: "Instagram",
-    url: "https://www.instagram.com/",
+    url: "https://instagram.com/creadive.az",
     icon: <FaInstagram className="w-5 h-5" />,
   },
   {
-    name: "Twitter",
-    url: "https://www.twitter.com/",
-    icon: <FaX className="w-5 h-5" />,
+    name: "X",
+    url: "https://x.com/creadive_az",
+    icon: <FaXTwitter className="w-5 h-5" />,
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/",
+    url: "https://www.linkedin.com/company/creadive-az",
     icon: <FaLinkedin className="w-5 h-5" />,
   },
 ];
@@ -81,7 +90,7 @@ export const Footer = () => {
   return (
     <footer className="bg-slate-800 text-white pt-12 pb-4">
       <div className="footer_inner myContainer mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-6">
           {/* Column 1: About Section */}
           <div>
             <h2 className="text-lg font-semibold mb-2">Haqqımızda</h2>
@@ -114,14 +123,12 @@ export const Footer = () => {
               {contactDatas.map((data, index) => {
                 return (
                   <li key={index} className="text-sm text-gray-300 font-light">
-                    <Link href={data.href}>
-                      {data.title}: {data.value}
-                    </Link>
+                    {data.title}: <Link href={data.href}>{data.value}</Link>
                   </li>
                 );
               })}
 
-              <li className="text-sm text-gray-300 font-light mt-3">
+              <li className="text-sm text-gray-300 font-light mt-6">
                 <div className="grid grid-cols-4 gap-3 w-max">
                   {socialMediaAccounts.map((social, index) => {
                     return (

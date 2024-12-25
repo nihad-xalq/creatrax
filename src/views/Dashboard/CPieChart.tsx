@@ -1,7 +1,6 @@
 import {
   PieChart,
   Pie,
-  // Sector,
   Cell,
   ResponsiveContainer,
   Tooltip,
@@ -40,8 +39,7 @@ const renderCustomizedLabel = ({
   innerRadius,
   outerRadius,
   percent,
-}: // index,
-RenderLabelProps) => {
+}: RenderLabelProps) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -61,8 +59,8 @@ RenderLabelProps) => {
 
 export const CPieChart = () => {
   return (
-    <ResponsiveContainer width="100%" aspect={3} className="text-sm">
-      <PieChart width={400} height={400}>
+    <ResponsiveContainer width="100%" aspect={2}>
+      <PieChart>
         <Pie
           data={data}
           cx="50%"

@@ -10,11 +10,15 @@ export const AboutView = () => {
             return (
               <li
                 key={t.id}
-                className="flex flex-col bg-gray-50 py-4 px-4 rounded-lg"
-                style={{ boxShadow: "0px 0px 3px 3px rgba(0, 0, 0, 0.1)" }}
+                className="flex flex-col bg-white py-6 px-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow duration-200"
               >
-                <h2 className="text-xl font-semibold">{t.title}</h2>
-                <p className="text-md font-normal">{t.content}</p>
+                <h2 className="text-2xl font-bold text-gray-800 mb-2 flex items-center">
+                  <span className="inline-block w-2 h-8 bg-blue-500 mr-3 rounded-sm"></span>
+                  {t.title}
+                </h2>
+                <p className="text-md font-normal text-gray-600 leading-relaxed">
+                  {t.content}
+                </p>
               </li>
             );
           })}
