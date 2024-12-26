@@ -1,15 +1,13 @@
 import { EmployeeDetailsView } from "@/views/EmployeeDetailsView";
 import { employeesData } from "@/lib/employeesData";
 
-interface EmployeeDetailsPageProps {
+export default function EmployeeDetailsPage({
+  params,
+}: {
   params: {
     id: string;
   };
-}
-
-export default function EmployeeDetailsPage({
-  params,
-}: EmployeeDetailsPageProps) {
+}) {
   const employee = employeesData.find((emp) => emp.id === Number(params.id));
 
   if (!employee) {
