@@ -1,7 +1,14 @@
 import { EmployeeDetailsView } from "@/views/EmployeeDetailsView";
 import { employeesData } from "@/lib/employeesData";
+import { FC } from "react";
 
-export default function EmployeeDetailsPage({ params }) {
+interface EmployeeDetailsPageProps {
+  params: {
+    id: string;
+  };
+}
+
+const EmployeeDetailsPage: FC<EmployeeDetailsPageProps> = ({ params }) => {
   const employee = employeesData.find((emp) => emp.id === Number(params.id));
 
   console.log(typeof params);
@@ -17,4 +24,6 @@ export default function EmployeeDetailsPage({ params }) {
       </div>
     </section>
   );
-}
+};
+
+export default EmployeeDetailsPage;
