@@ -1,17 +1,12 @@
+"use client";
+
 import { EmployeeDetailsView } from "@/views/EmployeeDetailsView";
 import { employeesData } from "@/lib/employeesData";
-import { FC } from "react";
+import { useParams } from "next/navigation";
 
-interface EmployeeDetailsPageProps {
-  params: {
-    id: string;
-  };
-}
-
-const EmployeeDetailsPage: FC<EmployeeDetailsPageProps> = ({ params }) => {
+const EmployeeDetailsPage = () => {
+  const params = useParams<{ id: string }>();
   const employee = employeesData.find((emp) => emp.id === Number(params.id));
-
-  console.log(typeof params);
 
   if (!employee) {
     return <div className="text-center mt-20">İşçi tapılmadı</div>;
