@@ -94,12 +94,13 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
               >
                 Daha Ətraflı
               </Link>
-              <button
+              <Link
+                href={`mailto:${employee.email}`}
                 className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-                onClick={() => alert(`Contacting ${employee.name}`)}
+                // onClick={() => alert(`Contacting ${employee.name}`)}
               >
                 Əlaqə Saxla
-              </button>
+              </Link>
             </div>
           </li>
         ))}
