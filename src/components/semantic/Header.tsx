@@ -16,7 +16,7 @@ const headerLinks: HeaderLinksTypes[] = [
   { title: "Müştərilər", href: "/clients" },
   { title: "Statistikalar", href: "/dashboard" },
   { title: "İşçilər", href: "/employees" },
-  // { title: "Əlaqə", href: "/contact" },
+  { title: "Filiallar", href: "/branches" },
 ];
 
 export const Header = () => {
