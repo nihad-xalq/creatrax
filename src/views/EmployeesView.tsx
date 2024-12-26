@@ -115,11 +115,11 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
           >
             {isAllLoaded ? (
               <div className="flex flex-row items-center gap-2">
-                View Less <FiMinus />
+                Daha Az Gör <FiMinus />
               </div>
             ) : (
               <div className="flex flex-row items-center gap-2">
-                Load More <FiPlus />
+                Daha Çox Göstər <FiPlus />
               </div>
             )}
           </button>
