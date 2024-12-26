@@ -22,7 +22,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full bg-gradient-to-br from-gray-50 to-gray-100">
+    <html
+      lang="en"
+      className="h-full bg-gradient-to-br from-gray-50 to-gray-100"
+    >
       <body
         className={`${poppins.className} antialiased flex flex-col justify-between h-full`}
       >

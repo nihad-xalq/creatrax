@@ -122,7 +122,7 @@ export const Footer = () => {
             <ul className="flex flex-col gap-1">
               {contactDatas.map((data, index) => {
                 return (
-                  <li key={index} className="text-sm text-gray-300 font-light">
+                  <li key={index} className="text-xs text-gray-300 font-light">
                     {data.title}: <Link href={data.href}>{data.value}</Link>
                   </li>
                 );

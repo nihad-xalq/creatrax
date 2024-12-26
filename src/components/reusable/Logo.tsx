@@ -9,6 +9,7 @@ export const Logo = () => {
       height={0}
       sizes="100vw"
       className="w-full h-full"
+      priority
     />
   );
 };

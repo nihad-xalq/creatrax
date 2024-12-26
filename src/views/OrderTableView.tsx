@@ -99,7 +99,10 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
               </div>
 
               {/* Task Name Column */}
-              <div className="px-4 py-3 border-r text-sm font-medium truncate" title={order.taskName}>
+              <div
+                className="px-4 py-3 border-r text-sm font-medium truncate"
+                title={order.taskName}
+              >
                 {order.taskName}
               </div>
 
