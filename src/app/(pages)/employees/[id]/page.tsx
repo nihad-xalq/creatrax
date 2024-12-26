@@ -4,7 +4,7 @@ import { EmployeeDetailsView } from "@/views/EmployeeDetailsView";
 import { employeesData } from "@/lib/employeesData";
 import { useParams } from "next/navigation";
 
-const EmployeeDetailsPage = () => {
+export default function EmployeeDetailsPage() {
   const params = useParams<{ id: string }>();
   const employee = employeesData.find((emp) => emp.id === Number(params.id));
 
@@ -19,6 +19,4 @@ const EmployeeDetailsPage = () => {
       </div>
     </section>
   );
-};
-
-export default EmployeeDetailsPage;
+}
