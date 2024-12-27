@@ -24,19 +24,19 @@ export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
 
   return (
     <div className="">
-      <h1 className="text-4xl font-extrabold mb-5 text-gray-900">
-        Filiallar
-      </h1>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <h1 className="text-4xl font-extrabold mb-5 text-gray-900">Filiallar</h1>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {data.slice(0, visibleCount).map((branch) => (
           <li
             key={branch.id}
-            className="willSimplyFadeIn bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300"
+            className="willSimplyFadeIn bg-white p-5 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300"
           >
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-2">
               {branch.name}
             </h2>
-            <p className="text-md text-gray-700 mb-4">{branch.location}</p>
+            <p className="text-md text-gray-700 font-light mb-2">
+              {branch.location}
+            </p>
             <Link
               href={`/branches/${branch.id}`}
               className="text-blue-500 hover:underline"

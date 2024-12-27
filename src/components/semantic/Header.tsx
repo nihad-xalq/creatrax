@@ -27,8 +27,8 @@ export const Header = () => {
 
   return (
     <header className="bg-slate-800 py-4 text-white relative">
-      <div className="header_inner myContainer flex items-center justify-between">
-        <Link href="/" className="header_left w-1/4 lg:w-1/12">
+      <div className="header_inner myContainer flex items-center justify-between lg:justify-center px-4 lg:px-0">
+        <Link href="/" className="header_left w-2/5 lg:w-1/12">
           <Logo />
         </Link>
 
@@ -43,7 +43,7 @@ export const Header = () => {
 
         {/* Sliding Mobile Menu */}
         <div
-          className={`fixed top-0 right-0 h-screen w-2/3 max-w-xs bg-slate-800 shadow-lg transform transition-transform duration-300 z-40 ${
+          className={`fixed top-0 right-0 h-full w-2/3 max-w-xs bg-slate-800 shadow-lg transform transition-transform duration-300 z-40 ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           } lg:hidden`}
         >

@@ -14,7 +14,7 @@ export default function EmployeeDetailsPage() {
 
   return (
     <section className="">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="px-2">
         <EmployeeDetailsView employee={employee} />
       </div>
     </section>

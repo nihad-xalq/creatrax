@@ -35,7 +35,7 @@ export default function OrdersPage() {
 
   return (
     <div>
-      <div className="mb-5 flex flex-row items-end justify-between">
+      <div className="mb-5 flex flex-col lg:flex-row items-start lg:items-end justify-between">
         <h1 className="text-4xl text-gray-900 font-extrabold">
           Sifarişlər
         </h1>

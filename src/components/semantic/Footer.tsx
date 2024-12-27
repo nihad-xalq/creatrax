@@ -101,7 +101,7 @@ export const Footer = () => {
 
           {/* Column 2: Links */}
           <div>
-            <h2 className="text-lg font-semibold mb-4">Qısa yollar</h2>
+            <h2 className="text-lg font-semibold mb-2 lg:mb-4">Qısa yollar</h2>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => {
                 return (
@@ -118,11 +118,11 @@ export const Footer = () => {
 
           {/* Column 3: Contact Info */}
           <div>
-            <h2 className="text-lg font-semibold mb-4">Bizimlə əlaqə</h2>
+            <h2 className="text-lg font-semibold mb-2 lg:mb-4">Bizimlə əlaqə</h2>
             <ul className="flex flex-col gap-1">
               {contactDatas.map((data, index) => {
                 return (
-                  <li key={index} className="text-xs text-gray-300 font-light">
+                  <li key={index} className="text-sm lg:text-xs text-gray-300 font-light">
                     {data.title}: <Link href={data.href}>{data.value}</Link>
                   </li>
                 );

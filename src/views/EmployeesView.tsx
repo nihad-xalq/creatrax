@@ -32,10 +32,10 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
 
   return (
     <div className="py-3">
-      <div className="flex flex-row items-center justify-between">
+      <div className="flex flex-col lg:flex-row items-center justify-between mb-12 lg:mb-0">
         {/* Header Section */}
-        <div className="text-center flex flex-col items-start gap-3 mb-6">
-          <h1 className="text-4xl font-extrabold text-gray-900">
+        <div className="text-center flex flex-col items-center lg:items-start gap-3 mb-6">
+          <h1 className="text-4xl font-extrabold text-center text-gray-900">
             İşçilər
           </h1>
           <p className="text-gray-600 mt-0 text-lg">
@@ -44,7 +44,7 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
         </div>
 
         {/* Search Section */}
-        <div className="relative min-w-[20rem]">
+        <div className="relative min-w-full lg:min-w-[20rem]">
           <input
             type="text"
             value={searchQuery}
