@@ -31,27 +31,29 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
   const isAllLoaded = visibleCount >= filteredEmployees.length;
 
   return (
-    <div className="px-6 py-12 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
-      {/* Header Section */}
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold text-gray-900">
-          İşçilər Siyahısı
-        </h1>
-        <p className="text-gray-600 mt-4 text-lg">
-          Burada Creadive komandasının üzvlərini tapa bilərsiniz.
-        </p>
-      </div>
+    <div className="py-3">
+      <div className="flex flex-row items-center justify-between">
+        {/* Header Section */}
+        <div className="text-center flex flex-col items-start gap-3 mb-6">
+          <h1 className="text-4xl font-extrabold text-gray-900">
+            İşçilər
+          </h1>
+          <p className="text-gray-600 mt-0 text-lg">
+            Burada Creadive komandasının üzvlərini tapa bilərsiniz.
+          </p>
+        </div>
 
-      {/* Search Section */}
-      <div className="mb-8 max-w-xs mx-auto relative">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Ad və ya Vəzifəyə görə axtarış..."
-          className="w-full py-3 px-4 pl-12 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
-        />
-        <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-300 w-6 h-6" />
+        {/* Search Section */}
+        <div className="relative min-w-[20rem]">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Ad və ya Vəzifəyə görə axtarış..."
+            className="w-full py-3 px-4 pl-12 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+          />
+          <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-300 w-6 h-6" />
+        </div>
       </div>
 
       {/* Employee Grid */}

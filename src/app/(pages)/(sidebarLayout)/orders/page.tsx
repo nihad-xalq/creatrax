@@ -36,7 +36,9 @@ export default function OrdersPage() {
   return (
     <div>
       <div className="mb-5 flex flex-row items-end justify-between">
-        <h1 className="text-4xl font-semibold mb-2">Sifarişlər</h1>
+        <h1 className="text-4xl text-gray-900 font-extrabold">
+          Sifarişlər
+        </h1>
         <div className="filters_wrapper flex flex-row justify-between items-end gap-4 mt-4">
           {isMounted && (
             <div className="sort_wrapper willSimplyFadeIn flex flex-col lg:flex-row items-start gap-2">

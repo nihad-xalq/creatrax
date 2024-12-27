@@ -4,7 +4,7 @@ import { employeesData } from "@/lib/employeesData";
 export default function EmployeesPage() {
   return (
     <section className="">
-      <div className="max-w-8xl mx-auto px-6">
+      <div className="">
         <EmployeesView data={employeesData} />
       </div>
     </section>

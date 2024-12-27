@@ -5,9 +5,9 @@ import { CPieChart } from "./CPieChart";
 
 export const DashboardView = () => {
   return (
-    <section className="dashboard-container bg-gray-50 py-10">
-      <div className="dashboard-inner flex flex-col gap-12 max-w-7xl mx-auto px-6">
-        <h1 className="text-4xl text-center font-semibold text-gray-800">
+    <section className="dashboard-container">
+      <div className="dashboard-inner flex flex-col gap-5 max-w-7xl mx-auto">
+        <h1 className="text-4xl font-extrabold text-gray-900">
           Qrafiklər
         </h1>
 

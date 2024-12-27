@@ -67,7 +67,7 @@ export const Header = () => {
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex items-center gap-1">
+        {/* <nav className="hidden lg:flex items-center gap-1">
           {headerLinks.map(({ title, href }) => {
             const isActive = pathname === href;
             return (
@@ -82,7 +82,7 @@ export const Header = () => {
               </Link>
             );
           })}
-        </nav>
+        </nav> */}
       </div>
 
       {/* Overlay */}

@@ -23,8 +23,8 @@ export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
   const isAllLoaded = visibleCount >= data.length;
 
   return (
-    <div className="px-6 py-12 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
-      <h1 className="text-5xl font-extrabold text-center mb-12 text-gray-900">
+    <div className="">
+      <h1 className="text-4xl font-extrabold mb-5 text-gray-900">
         Filiallar
       </h1>
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
