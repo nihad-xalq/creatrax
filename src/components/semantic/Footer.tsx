@@ -2,6 +2,7 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import { JSX } from "react";
+import { fullYear } from "@/helpers/getTimes";
 
 interface SocialMediaAccounts {
   name: string;
@@ -85,8 +86,6 @@ const socialMediaAccounts: SocialMediaAccounts[] = [
 ];
 
 export const Footer = () => {
-  const fullYear: number = new Date().getFullYear();
-
   return (
     <footer className="bg-slate-800 text-white pt-12 pb-4">
       <div className="footer_inner myContainer mx-auto px-4">
@@ -118,11 +117,16 @@ export const Footer = () => {
 
           {/* Column 3: Contact Info */}
           <div>
-            <h2 className="text-lg font-semibold mb-2 lg:mb-4">Bizimlə əlaqə</h2>
+            <h2 className="text-lg font-semibold mb-2 lg:mb-4">
+              Bizimlə əlaqə
+            </h2>
             <ul className="flex flex-col gap-1">
               {contactDatas.map((data, index) => {
                 return (
-                  <li key={index} className="text-sm lg:text-xs text-gray-300 font-light">
+                  <li
+                    key={index}
+                    className="text-sm lg:text-xs text-gray-300 font-light"
+                  >
                     {data.title}: <Link href={data.href}>{data.value}</Link>
                   </li>
                 );

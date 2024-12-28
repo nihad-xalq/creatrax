@@ -1,8 +1,9 @@
+import { fullYear } from "@/helpers/getTimes";
 import { Navbar } from "./Navbar";
 
 export const Sidebar = () => {
   return (
-    <aside className="fixed top-0 left-0 h-screen bg-gradient-to-tl from-blue-700 via-blue-800 to-emerald-600 shadow-lg w-[250px] hidden lg:flex flex-col items-center p-6">
+    <aside className="fixed top-0 left-0 h-screen bg-gradient-to-tl from-cyan-600 via-blue-800 to-emerald-600 shadow-lg w-[250px] hidden lg:flex flex-col items-center p-6">
       {/* Logo */}
       <div className="flex flex-col items-center text-white mb-8 mt-16">
         <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md mb-1">
@@ -16,7 +17,7 @@ export const Sidebar = () => {
 
       {/* Footer */}
       <div className="mt-auto text-center text-sm text-white">
-        <p>&copy; {new Date().getFullYear()} CreaTrax</p>
+        <p>&copy; {fullYear} Creadive</p>
         <p className="text-gray-300">All Rights Reserved</p>
       </div>
     </aside>
