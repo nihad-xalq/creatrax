@@ -68,7 +68,7 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
             "Status",
             "Şərhlər",
           ].map((header) => (
-            <div key={header} className="px-4 py-2 border-r last:border-none">
+            <div key={header} className="px-4 py-2 border-r last:border-none text-center">
               {header}
             </div>
           ))}
