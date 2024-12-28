@@ -1,5 +1,5 @@
 import { Header } from "@/components/semantic/Header";
-import { Footer } from "@/components/semantic/Footer";
+// import { Footer } from "@/components/semantic/Footer";
 import { Main } from "@/components/semantic/Main";
 import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <Header />
         <Main>{children}</Main>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

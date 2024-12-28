@@ -26,7 +26,7 @@ export const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-slate-800 py-4 text-white relative">
+    <header className="bg-slate-800 py-4 text-white fixed top-0 left-0 w-full z-50 shadow-md">
       <div className="header_inner myContainer flex items-center justify-between lg:justify-center px-4 lg:px-0">
         <Link href="/" className="header_left w-2/5 lg:w-1/12">
           <Logo />
@@ -68,21 +68,21 @@ export const Header = () => {
 
         {/* Desktop Menu */}
         {/* <nav className="hidden lg:flex items-center gap-1">
-          {headerLinks.map(({ title, href }) => {
-            const isActive = pathname === href;
-            return (
-              <Link
-                key={title}
-                href={href}
-                className={`text-white text-sm py-2 px-4 hover:bg-white/10 rounded-md transition ${
-                  isActive ? "bg-white/20 font-semibold" : ""
-                }`}
-              >
-                {title}
-              </Link>
-            );
-          })}
-        </nav> */}
+      {headerLinks.map(({ title, href }) => {
+        const isActive = pathname === href;
+        return (
+          <Link
+            key={title}
+            href={href}
+            className={`text-white text-sm py-2 px-4 hover:bg-white/10 rounded-md transition ${
+              isActive ? "bg-white/20 font-semibold" : ""
+            }`}
+          >
+            {title}
+          </Link>
+        );
+      })}
+    </nav> */}
       </div>
 
       {/* Overlay */}
