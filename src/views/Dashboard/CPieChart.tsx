@@ -59,7 +59,7 @@ const renderCustomizedLabel = ({
 
 export const CPieChart = () => {
   return (
-    <ResponsiveContainer width="100%" aspect={2}>
+    <ResponsiveContainer width={400} aspect={1.6} className="max-w-screen sm:max-w-full">
       <PieChart>
         <Pie
           data={data}

@@ -26,9 +26,9 @@ export const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-slate-800 py-4 text-white fixed top-0 left-0 w-full z-50 shadow-md">
+    <header className="bg-slate-800 py-3 text-white fixed top-0 left-0 w-full z-50 shadow-md">
       <div className="header_inner myContainer flex items-center justify-between lg:justify-center px-4 lg:px-0">
-        <Link href="/" className="header_left w-2/5 lg:w-1/12">
+        <Link href="/" className="header_left w-2/5 lg:w-[11%]">
           <Logo />
         </Link>
 

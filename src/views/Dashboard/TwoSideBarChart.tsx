@@ -21,7 +21,7 @@ const data = [
 
 export const TwoSideBarChart = () => {
   return (
-    <ResponsiveContainer width="100%" aspect={2}>
+    <ResponsiveContainer width={600} aspect={2} className="max-w-full">
       <BarChart
         data={data}
         margin={{ top: 20, right: 30, left: 20, bottom: 5 }}

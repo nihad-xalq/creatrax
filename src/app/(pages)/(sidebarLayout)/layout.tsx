@@ -12,7 +12,7 @@ export default function SidebarLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex flex-row- items-start gap-10 relative">
+    <div className="flex flex-row justify-between items-start gap-10 relative w-full">
       <Sidebar />
       {children}
     </div>

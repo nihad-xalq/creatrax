@@ -12,7 +12,7 @@ export const Main = ({
   const isHome: boolean = pathname === "/";
 
   return (
-    <main className={`py-24 h-full ${isHome ? "flex" : "lg:ml-[250px]"}`}>
+    <main className={`py-24 pt-32 h-full ${isHome ? "flex" : "lg:ml-[250px]"}`}>
       <div className="main_inner myContainer">{children}</div>
     </main>
   );
