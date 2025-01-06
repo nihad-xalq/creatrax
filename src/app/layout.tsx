@@ -1,8 +1,11 @@
 import { Header } from "@/components/semantic/Header";
 // import { Footer } from "@/components/semantic/Footer";
 import { Main } from "@/components/semantic/Main";
+import { MantineProvider } from "@mantine/core";
 import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
+import "@mantine/charts/styles.css";
+import "@mantine/core/styles.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -29,9 +32,11 @@ export default function RootLayout({
       <body
         className={`${poppins.className} antialiased flex flex-col justify-between h-full`}
       >
-        <Header />
-        <Main>{children}</Main>
-        {/* <Footer /> */}
+        <MantineProvider>
+          <Header />
+          <Main>{children}</Main>
+          {/* <Footer /> */}
+        </MantineProvider>
       </body>
     </html>
   );

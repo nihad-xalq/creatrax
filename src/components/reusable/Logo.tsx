@@ -3,7 +3,7 @@ import Image from "next/image";
 export const Logo = () => {
   return (
     <Image
-      src="/test.svg"
+      src="/logo.svg"
       alt="Creadive logo"
       width={0}
       height={0}
