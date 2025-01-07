@@ -85,11 +85,11 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
                   <p className="text-sm text-gray-500">{employee.position}</p>
                 </div>
               </div>
-              <p className="text-md text-gray-700 mb-4 line-clamp-2">
+              <p className="text-md text-gray-700 mb-0 line-clamp-2">
                 {employee.bio}
               </p>
             </div>
-            <div className="p-4 bg-gray-50 rounded-b-xl border-t border-gray-200 flex justify-between items-center">
+            <div className="p-4 py-2 bg-gray-50 rounded-b-xl border-t border-gray-200 flex justify-between items-center">
               <Link
                 href={`/employees/${employee.id}`}
                 className="text-blue-500 hover:underline font-medium"

@@ -10,7 +10,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "CreaTrax",
-  description: "Track your clients and their orders",
+  description: "Track your data!",
 };
 
 const poppins = Poppins({
