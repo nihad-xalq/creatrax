@@ -33,11 +33,11 @@ export const Header = () => {
         {/* <Link href="/" className="header_left w-2/5 lg:w-[11%]">
           <Logo />
         </Link> */}
-        <h1 className="text-black text-2xl font-semibold">
-          Welcome back, {"Nihad Abbasov"}{" "}
+        <h1 className="text-black text-lg font-semibold">
+          Welcome back, {"Nihad"}{" "}
         </h1>
 
-        <div className="text-black flex flex-row items-center gap-3">
+        <div className="text-black flex flex-row items-center gap-5">
           <input
             type="search"
             name="search"
