@@ -1,11 +1,12 @@
 "use client";
 
+import { IoNotificationsOutline } from "react-icons/io5";
 import { usePathname } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
-import { Logo } from "../reusable/Logo";
+// import { Logo } from "../reusable/Logo";
 import { useState } from "react";
 import Link from "next/link";
-import { IoNotificationsOutline } from "react-icons/io5";
+import Image from "next/image";
 
 interface HeaderLinksTypes {
   title: string;
@@ -47,10 +48,20 @@ export const Header = () => {
           <div className="flex flex-row items-center gap-4">
             <IoNotificationsOutline className="w-6 h-6 text-gray-500" />
 
-            <div className="flex flex-row items-center gap-1">
-              <p>PP</p>
-              <p>Nihad Abbasov</p>
-              <p>V</p>
+            <div className="flex flex-row items-center gap-2">
+              <div>
+                <Image
+                  src="/pp.png"
+                  alt="PP"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="w-full h-auto rounded-full"
+                />
+              </div>
+              <p>
+                Nihad Abbasov <span>V</span>
+              </p>
             </div>
           </div>
         </div>
