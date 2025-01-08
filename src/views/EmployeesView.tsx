@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { Employee } from "@/types/employeesTypes";
-import Link from "next/link";
-import Image from "next/image";
 import { FiMinus, FiPlus, FiSearch } from "react-icons/fi";
+import { Employee } from "@/types/employeesTypes";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface EmployeesViewProps {
   data: Employee[];

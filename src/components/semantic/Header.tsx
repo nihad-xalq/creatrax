@@ -5,6 +5,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { Logo } from "../reusable/Logo";
 import { useState } from "react";
 import Link from "next/link";
+import { IoNotificationsOutline } from "react-icons/io5";
 
 interface HeaderLinksTypes {
   title: string;
@@ -26,11 +27,33 @@ export const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-slate-800 py-3 text-white fixed top-0 left-0 w-full z-50 shadow-md">
-      <div className="header_inner myContainer flex items-center justify-between lg:justify-center px-4 lg:px-0">
-        <Link href="/" className="header_left w-2/5 lg:w-[11%]">
+    <header className="py-3 pt-6 text-white w-full z-50">
+      <div className="header_inner myContainer flex items-center justify-between lg:justify-between px-4 lg:px-0 w-full">
+        {/* <Link href="/" className="header_left w-2/5 lg:w-[11%]">
           <Logo />
-        </Link>
+        </Link> */}
+        <h1 className="text-black text-2xl font-semibold">
+          Welcome back, {"Nihad Abbasov"}{" "}
+        </h1>
+
+        <div className="text-black flex flex-row items-center gap-3">
+          <input
+            type="search"
+            name="search"
+            placeholder="Search anything"
+            className="border border-gray-300 p-2 rounded-lg"
+          />
+          <div className="border-r border-r-gray-300 h-5"></div>
+          <div className="flex flex-row items-center gap-4">
+            <IoNotificationsOutline className="w-6 h-6 text-gray-500" />
+
+            <div className="flex flex-row items-center gap-1">
+              <p>PP</p>
+              <p>Nihad Abbasov</p>
+              <p>V</p>
+            </div>
+          </div>
+        </div>
 
         {/* Burger Menu Button */}
         <button
@@ -65,24 +88,6 @@ export const Header = () => {
             })}
           </nav>
         </div>
-
-        {/* Desktop Menu */}
-        {/* <nav className="hidden lg:flex items-center gap-1">
-      {headerLinks.map(({ title, href }) => {
-        const isActive = pathname === href;
-        return (
-          <Link
-            key={title}
-            href={href}
-            className={`text-white text-sm py-2 px-4 hover:bg-white/10 rounded-md transition ${
-              isActive ? "bg-white/20 font-semibold" : ""
-            }`}
-          >
-            {title}
-          </Link>
-        );
-      })}
-    </nav> */}
       </div>
 
       {/* Overlay */}

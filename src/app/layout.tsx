@@ -1,12 +1,10 @@
-import { Header } from "@/components/semantic/Header";
-// import { Footer } from "@/components/semantic/Footer";
-import { Main } from "@/components/semantic/Main";
-import { MantineProvider } from "@mantine/core";
+
 import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
 import "@mantine/charts/styles.css";
 import "@mantine/core/styles.css";
 import "./globals.css";
+import RootLayoutWrapper from "@/components/RootLayoutWrapper";
 
 export const metadata: Metadata = {
   title: "CreaTrax",
@@ -27,16 +25,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full bg-gradient-to-br from-gray-50 to-gray-100"
+      className="bg-[rgba(255,255,255,1)] h-screen overflow-y-auto"
     >
       <body
-        className={`${poppins.className} antialiased flex flex-col justify-between h-full`}
+        className={`${poppins.className} antialiased flex flex-col justify-between h-screen overflow-y-hidden`}
       >
-        <MantineProvider>
-          <Header />
-          <Main>{children}</Main>
-          {/* <Footer /> */}
-        </MantineProvider>
+        <RootLayoutWrapper>{children}</RootLayoutWrapper>
       </body>
     </html>
   );

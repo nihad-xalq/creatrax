@@ -35,8 +35,10 @@ export const Navbar = () => {
           <Link
             key={title}
             href={href}
-            className={`flex items-center gap-3 w-full text-white text-sm py-3 px-4 rounded-lg hover:bg-white/10 transition ${
-              isActive ? "bg-white/30 font-semibold shadow-md" : ""
+            className={`flex items-center gap-3 w-full text-white text-sm py-3 px-4 rounded-lg  transition ${
+              isActive
+                ? "bg-[rgba(24,111,184,1)] font-semibold shadow-md hover:bg-none"
+                : "hover:bg-white/10"
             }`}
           >
             <span className="text-lg">{icon}</span>

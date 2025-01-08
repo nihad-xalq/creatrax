@@ -15,7 +15,7 @@ body {
 }
 
 .myContainer {
-  @apply w-[92%] mx-auto;
+  @apply w-[97%] mx-auto;
 }
 
 .willSimplyFadeIn {

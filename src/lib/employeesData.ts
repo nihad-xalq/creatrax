@@ -26,7 +26,7 @@ export const employeesData: Employee[] = [
     email: "alishheziyev@creadive.az",
     phone: "+994 55 222 22 22",
     bio: "Alış Həziyev, əməliyyat idarəetməsi sahəsində 8 illik təcrübəyə malikdir. O, komanda idarəetməsi və layihələrin effektiv icrası üzrə mütəxəssisdir.",
-    image: "/pp.png",
+    image: null,
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ export const employeesData: Employee[] = [
     email: "nihadabdulalizade@creadive.az",
     phone: "+994 70 555 55 55",
     bio: "Nihad Abduləlizadə, kreativ dizayn və no-code platformaları ilə inkişaf etdirilən həllər üzrə ixtisaslaşıb. O, sürətli prototipləmə və estetik baxımdan cəlbedici layihələr yaradır.",
-    image: "/pp.png",
+    image: null,
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ export const employeesData: Employee[] = [
     email: "shahsultannergizi@creadive.az",
     phone: "+994 70 666 66 66",
     bio: "Şahsultan Nərgiz Səlimi, qrafik dizayn üzrə 7 illik təcrübəyə malikdir. O, kreativ və cəlbedici vizuallar yaratmaq üçün Photoshop və Illustrator-da mükəmməldir.",
-    image: "/pp.png",
+    image: null,
   },
   {
     id: 8,
@@ -71,7 +71,7 @@ export const employeesData: Employee[] = [
     email: "rahibmammadov@creadive.az",
     phone: "+994 70 888 88 88",
     bio: "Rahib Məmmədov, qrafik dizayn sahəsində 4 illik təcrübəyə malikdir. Kreativ dizayn konseptləri və rəqəmsal marketinq vizualları üzrə ixtisaslaşıb.",
-    image: "/pp.png",
+    image: null,
   },
   {
     id: 9,
@@ -98,6 +98,6 @@ export const employeesData: Employee[] = [
     email: "asimanloremzade@creadive.az",
     phone: "+994 70 123 45 67",
     bio: "Asiman Loremzadə, yüksək keyfiyyətli və kreativ reels videoları hazırlamaq üzrə ixtisaslaşıb. O, vizual hekayələr yaratmaq və auditoriyanı cəlb etmək üçün innovativ yanaşma tətbiq edir.",
-    image: "/pp.png",
+    image: null,
   },
 ];
