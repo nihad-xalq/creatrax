@@ -4,6 +4,7 @@ import { OrderTableView } from "@/views/OrderTableView";
 import { FiFilter, FiSearch } from "react-icons/fi";
 import Select, { SingleValue } from "react-select";
 import { useEffect, useState } from "react";
+import { FaPlus } from "react-icons/fa";
 
 interface SortOptionsTypes {
   value: string;
@@ -33,12 +34,24 @@ export default function OrdersPage() {
     setSearchQuery(e.target.value);
   };
 
+  const handleAddNewOrder = () => {
+    alert("Add new order");
+  };
+
   return (
     <div>
-      <div className="mb-5 flex flex-col lg:flex-row items-start lg:items-end justify-between">
-        <h1 className="text-4xl text-gray-900 font-extrabold">
-          Sifarişlər
-        </h1>
+      <div className="mb-8 flex flex-col lg:flex-col items-start lg:items-end justify-between gap-6">
+        <div className="flex flex-row items-center justify-between w-full text-white">
+          <h1 className="text-4xl text-gray-900 font-semibold">Sifarişlər</h1>
+          <button
+            type="button"
+            onClick={handleAddNewOrder}
+            className="bg-[rgba(31,41,55,1)] hover:shadow-[0_3px_0px_1px_rgba(0,0,0,0.5)] py-3 px-8 rounded-[12px] flex flex-row items-center gap-3 transition duration-200"
+          >
+            <FaPlus />
+            Add New Order
+          </button>
+        </div>
         <div className="filters_wrapper flex flex-row justify-between items-end gap-4 mt-4">
           {isMounted && (
             <div className="sort_wrapper willSimplyFadeIn flex flex-col lg:flex-row items-start gap-2">

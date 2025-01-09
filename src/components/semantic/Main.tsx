@@ -14,7 +14,7 @@ export const Main = ({
   return (
     // ${isHome ? "flex" : "lg:ml-[250px]"}
     <main
-      className={`h-screen ${isHome ? "my-auto" : "overflow-y-scroll py-12 pb-32"}`}
+      className={`h-screen ${isHome ? "my-auto" : "overflow-y-scroll py-8 pb-32"}`}
     >
       <div className="main_inner myContainer">{children}</div>
     </main>

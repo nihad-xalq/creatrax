@@ -1,14 +1,18 @@
 import Image from "next/image";
 
-export const Logo = () => {
+interface ILogoProps {
+  styles?: string;
+}
+
+export const Logo: React.FC<ILogoProps> = ({ styles }) => {
   return (
     <Image
-      src="/logo.svg"
+      src="/logo-2.png"
       alt="Creadive logo"
       width={0}
       height={0}
       sizes="100vw"
-      className="w-full h-full"
+      className={`w-[90%] h-auto ${styles}`}
       priority
     />
   );

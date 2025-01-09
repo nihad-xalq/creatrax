@@ -7,6 +7,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { HiOutlineChevronDown } from "react-icons/hi2";
 
 interface HeaderLinksTypes {
   title: string;
@@ -46,7 +47,9 @@ export const Header = () => {
           />
           <div className="border-r border-r-gray-300 h-5"></div>
           <div className="flex flex-row items-center gap-4">
-            <IoNotificationsOutline className="w-6 h-6 text-gray-500" />
+            <div className="p-1 bg-[rgba(246,246,246,1)] rounded-full">
+              <IoNotificationsOutline className="w-5 h-5 text-[rgba(34,34,34,1)]" />
+            </div>
 
             <div className="flex flex-row items-center gap-2">
               <div>
@@ -59,9 +62,8 @@ export const Header = () => {
                   className="w-full h-auto rounded-full"
                 />
               </div>
-              <p>
-                Nihad Abbasov <span>V</span>
-              </p>
+              <p className="font-medium">Nihad A</p>
+              <HiOutlineChevronDown />
             </div>
           </div>
         </div>

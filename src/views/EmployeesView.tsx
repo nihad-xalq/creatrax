@@ -113,7 +113,7 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
         {filteredEmployees.length > 6 && (
           <button
             onClick={handleLoadMore}
-            className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-transform transform hover:scale-105"
+            className="bg-slate-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors duration-300"
           >
             {isAllLoaded ? (
               <div className="flex flex-row items-center gap-2">

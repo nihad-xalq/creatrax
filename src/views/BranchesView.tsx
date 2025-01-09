@@ -50,7 +50,7 @@ export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
       <div className="flex justify-center mt-10">
         <button
           onClick={handleToggle}
-          className="bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors duration-300"
+          className="bg-slate-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors duration-300"
         >
           {isAllLoaded ? (
             <div className="flex flex-row items-center gap-2">

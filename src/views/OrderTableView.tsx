@@ -1,9 +1,11 @@
 "use client";
 
-import { MdOutlineModeEditOutline } from "react-icons/md";
+import { MantineTooltip } from "@/components/ui/MantineTooltip";
+// import { MdOutlineModeEditOutline } from "react-icons/md";
+import { HiOutlineEye } from "react-icons/hi2";
+import { Order } from "@/types/ordersTypes";
 import { orders } from "@/lib/mockData";
 import React, { useMemo } from "react";
-import { Order } from "@/types/ordersTypes";
 
 type OrderTableViewProps = {
   sortKey: string;
@@ -14,9 +16,9 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
   sortKey,
   searchQuery,
 }) => {
-  const handleOpenEditModal = (clientName: string) => {
-    alert(`Edit: ${clientName}`);
-  };
+  // const handleOpenEditModal = (clientName: string) => {
+  //   alert(`Edit: ${clientName}`);
+  // };
 
   // Filter and sort orders based on searchQuery and sortKey
   const filteredAndSortedOrders = useMemo(() => {
@@ -56,7 +58,7 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
     <div className="overflow-x-auto lg:overflow-x-visible rounded-lg">
       <div className=" rounded-lg">
         {/* Header Row */}
-        <div className="grid grid-cols-[0.3fr_1.1fr_2fr_0.5fr_0.6fr_0.5fr_0.5fr_0.6fr_1.5fr] bg-gray-800 text-white font-medium text-sm rounded-lg mb-2">
+        <div className="grid grid-cols-[0.2fr_1.1fr_2fr_0.5fr_0.6fr_0.5fr_0.5fr_0.6fr_0.35fr_0.35fr] bg-[rgba(251,251,251,1)] text-[rgba(127,127,127,1)] font-medium text-sm rounded-lg mb-2">
           {[
             "ID",
             "Tapşırıq Adı",
@@ -67,8 +69,9 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
             "Bit. Tarixi",
             "Status",
             "Şərhlər",
+            "Actions",
           ].map((header) => (
-            <div key={header} className="px-4 py-2 border-r last:border-none text-center">
+            <div key={header} className="px-4 py-3">
               {header}
             </div>
           ))}
@@ -79,13 +82,13 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
           {filteredAndSortedOrders.map((order, index) => (
             <div
               key={order.id}
-              className={`group grid grid-cols-[0.3fr_1.1fr_2fr_0.5fr_0.6fr_0.5fr_0.5fr_0.6fr_1.5fr] border mb-3 rounded-lg transition-transform ${
-                index % 2 === 0 ? "bg-gray-50" : "bg-white"
-              } hover:scale-[1.01] hover:shadow-md`}
+              className={`group grid grid-cols-[0.2fr_1.1fr_2fr_0.5fr_0.6fr_0.5fr_0.5fr_0.6fr_0.35fr_0.35fr] mb-3 rounded-lg ${
+                index % 2 === 0 ? "bg-white" : "bg-gray-50"
+              }`}
             >
               {/* ID Column */}
-              <div className="px-4 py-3 border-r border-l flex items-center gap-2">
-                <div className="invisible group-hover:visible flex justify-between items-center gap-1 w-full transition-opacity duration-200">
+              <div className="px-4 py-3 flex items-center gap-2">
+                {/* <div className="invisible group-hover:visible flex justify-between items-center gap-1 w-full transition-opacity duration-200">
                   <button
                     type="button"
                     title={`${order.taskName} məlumatlarına düzəliş et`}
@@ -94,25 +97,25 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
                   >
                     <MdOutlineModeEditOutline className="w-5 h-5" />
                   </button>
-                </div>
+                </div> */}
                 {order.id}
               </div>
 
               {/* Task Name Column */}
               <div
-                className="px-4 py-3 border-r text-sm font-medium truncate"
+                className="px-4 py-3 text-sm font-medium truncate"
                 title={order.taskName}
               >
                 {order.taskName}
               </div>
 
               {/* Description Column */}
-              <div className="px-4 py-3 border-r text-sm truncate">
+              <div className="px-4 py-3 text-sm truncate">
                 {order.description}
               </div>
 
               {/* Priority Column */}
-              <div className="px-4 py-3 border-r">
+              <div className="px-4 py-3">
                 <span
                   className={`px-2 py-1 rounded-full text-xs font-semibold block text-center ${
                     order.priority === "Yüksək"
@@ -127,18 +130,16 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
               </div>
 
               {/* Assignee Column */}
-              <div className="px-4 py-3 border-r text-sm">{order.assignee}</div>
+              <div className="px-4 py-3 text-sm">{order.assignee}</div>
 
               {/* Start Date Column */}
-              <div className="px-4 py-3 border-r text-sm">
-                {order.startDate}
-              </div>
+              <div className="px-4 py-3 text-sm">{order.startDate}</div>
 
               {/* Due Date Column */}
-              <div className="px-4 py-3 border-r text-sm">{order.dueDate}</div>
+              <div className="px-4 py-3 text-sm">{order.dueDate}</div>
 
               {/* Status Column */}
-              <div className="px-4 py-3 border-r text-sm">
+              <div className="px-4 py-3 text-sm">
                 <span
                   className={`px-2 py-1 rounded text-xs font-semibold block text-center border ${
                     order.status === "İcra edilir"
@@ -153,9 +154,17 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
               </div>
 
               {/* Comments Column */}
-              <div className="px-4 py-3 border-r text-sm text-gray-600 truncate">
-                {order.comments}
+              <div className="text-sm text-gray-600 m-auto">
+                <MantineTooltip
+                  tooltipTriggerBtn={
+                    <HiOutlineEye className="text-black w-6 h-6" />
+                  }
+                  tooltipText={order.comments}
+                />
               </div>
+
+              {/* Actions column */}
+              <div className="text-sm text-gray-600 m-auto">Actions</div>
             </div>
           ))}
         </div>
