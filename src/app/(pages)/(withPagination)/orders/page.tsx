@@ -1,23 +1,12 @@
 "use client";
 
 import { OrderTableView } from "@/views/OrderTableView";
-import { FiFilter, FiSearch } from "react-icons/fi";
-import Select, { SingleValue } from "react-select";
 import { useEffect, useState } from "react";
+import { FiSearch } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa";
-
-interface SortOptionsTypes {
-  value: string;
-  label: string;
-}
-
-const sortOptions: SortOptionsTypes[] = [
-  { value: "priority", label: "Priority" },
-  { value: "status", label: "Status" },
-];
+import { VscSettings } from "react-icons/vsc";
 
 export default function OrdersPage() {
-  const [sortKey, setSortKey] = useState<SortOptionsTypes | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
   const [isMounted, setIsMounted] = useState<boolean | null>(null);
@@ -25,10 +14,6 @@ export default function OrdersPage() {
   useEffect(() => {
     setIsMounted(true);
   }, []);
-
-  const handleSortChange = (newValue: SingleValue<SortOptionsTypes>) => {
-    setSortKey(newValue);
-  };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -55,19 +40,6 @@ export default function OrdersPage() {
         <div className="filters_wrapper flex flex-row justify-between items-end gap-4 mt-4">
           {isMounted && (
             <div className="sort_wrapper willSimplyFadeIn flex flex-col lg:flex-row items-start gap-2">
-              {/* Sort Dropdown */}
-              <Select
-                options={sortOptions}
-                value={sortKey}
-                onChange={handleSortChange}
-                placeholder={
-                  <div className="flex flex-row items-center gap-2 text-sm">
-                    <FiFilter />
-                    Sırala:
-                  </div>
-                }
-                className="w-52"
-              />
               {/* Search Input */}
               <div className="search_wrapper relative">
                 <input
@@ -75,20 +47,26 @@ export default function OrdersPage() {
                   value={searchQuery}
                   onChange={handleSearchChange}
                   placeholder="Sifarişi axtar..."
-                  className="text-sm border rounded px-3 py-2 pl-9 w-full"
+                  className="text-sm border border-[rgba(227,227,227,1)] rounded-[12px] px-3 py-3 pl-9 w-full outline-none focus:ring-1 focus:ring-slate-400 focus:shadow-md transition duration-200"
                 />
-                <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400" />
+                <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-[rgba(136,136,136,1)]" />
               </div>
+
+              {/* Filter */}
+              <button
+                type="button"
+                className="bg-white hover:bg-black/5 py-2.5 px-4 rounded-[12px] flex flex-row items-center justify-between gap-3 border border-[rgba(227,227,227,1)] transition duration-150"
+              >
+                <VscSettings />
+                Filter
+              </button>
             </div>
           )}
         </div>
       </div>
 
       {/* Order Table View */}
-      <OrderTableView
-        sortKey={sortKey?.value || ""}
-        searchQuery={searchQuery}
-      />
+      <OrderTableView searchQuery={searchQuery} />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { IoNotificationsOutline } from "react-icons/io5";
 import { usePathname } from "next/navigation";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiSearch, FiX } from "react-icons/fi";
 // import { Logo } from "../reusable/Logo";
 import { useState } from "react";
 import Link from "next/link";
@@ -39,12 +39,14 @@ export const Header = () => {
         </h1>
 
         <div className="text-black flex flex-row items-center gap-5">
-          <input
-            type="search"
-            name="search"
-            placeholder="Search anything"
-            className="border border-gray-300 p-2 rounded-lg"
-          />
+          <div className="search_wrapper relative">
+            <input
+              type="text"
+              placeholder="Sifarişi axtar..."
+              className="text-sm border border-[rgba(227,227,227,1)] rounded-[12px] px-3 py-3 pl-9 w-full outline-none focus:ring-1 focus:ring-slate-400 focus:shadow-md transition duration-200"
+            />
+            <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-[rgba(136,136,136,1)]" />
+          </div>
           <div className="border-r border-r-gray-300 h-5"></div>
           <div className="flex flex-row items-center gap-4">
             <div className="p-1 bg-[rgba(246,246,246,1)] rounded-full">

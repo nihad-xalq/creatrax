@@ -1,25 +1,18 @@
 "use client";
 
 import { MantineTooltip } from "@/components/ui/MantineTooltip";
-// import { MdOutlineModeEditOutline } from "react-icons/md";
 import { HiOutlineEye } from "react-icons/hi2";
-import { Order } from "@/types/ordersTypes";
+import { BsThreeDots } from "react-icons/bs";
 import { orders } from "@/lib/mockData";
 import React, { useMemo } from "react";
 
 type OrderTableViewProps = {
-  sortKey: string;
   searchQuery: string;
 };
 
 export const OrderTableView: React.FC<OrderTableViewProps> = ({
-  sortKey,
   searchQuery,
 }) => {
-  // const handleOpenEditModal = (clientName: string) => {
-  //   alert(`Edit: ${clientName}`);
-  // };
-
   // Filter and sort orders based on searchQuery and sortKey
   const filteredAndSortedOrders = useMemo(() => {
     let filteredOrders = orders;
@@ -33,32 +26,19 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
           order.description.toLowerCase().includes(lowerCaseQuery)
       );
     }
-
-    // Apply sorting
-    if (sortKey) {
-      filteredOrders = filteredOrders.sort((a, b) => {
-        if (sortKey === "priority") {
-          const priorityOrder: { [key in Order["priority"]]: number } = {
-            Yüksək: 1,
-            Orta: 2,
-            Aşağı: 3,
-          };
-          return priorityOrder[a.priority] - priorityOrder[b.priority];
-        } else if (sortKey === "status") {
-          return a.status.localeCompare(b.status);
-        }
-        return 0;
-      });
-    }
-
     return filteredOrders;
-  }, [searchQuery, sortKey]);
+  }, [searchQuery]);
+
+  const handleOpenActionsMenu = (id: number) => {
+    // Show actions menu for the current order
+    alert(`Open actions menu for order: ${id}`);
+  };
 
   return (
     <div className="overflow-x-auto lg:overflow-x-visible rounded-lg">
       <div className=" rounded-lg">
         {/* Header Row */}
-        <div className="grid grid-cols-[0.2fr_1.1fr_2fr_0.5fr_0.6fr_0.5fr_0.5fr_0.6fr_0.35fr_0.35fr] bg-[rgba(251,251,251,1)] text-[rgba(127,127,127,1)] font-medium text-sm rounded-lg mb-2">
+        <div className="grid grid-cols-[0.2fr_1.1fr_2fr_0.5fr_0.6fr_0.5fr_0.5fr_0.6fr_0.35fr_0.35fr] bg-[rgba(251,251,251,1)] text-[rgba(127,127,127,1)] font-medium text-sm rounded-lg">
           {[
             "ID",
             "Tapşırıq Adı",
@@ -71,58 +51,48 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
             "Şərhlər",
             "Actions",
           ].map((header) => (
-            <div key={header} className="px-4 py-3">
+            <div key={header} className="px-4 py-2">
               {header}
             </div>
           ))}
         </div>
 
         {/* Data Rows */}
-        <div>
+        <div className="font-[500]">
           {filteredAndSortedOrders.map((order, index) => (
             <div
               key={order.id}
-              className={`group grid grid-cols-[0.2fr_1.1fr_2fr_0.5fr_0.6fr_0.5fr_0.5fr_0.6fr_0.35fr_0.35fr] mb-3 rounded-lg ${
+              className={`group grid grid-cols-[0.2fr_1.1fr_2fr_0.5fr_0.6fr_0.5fr_0.5fr_0.6fr_0.35fr_0.35fr] rounded-lg ${
                 index % 2 === 0 ? "bg-white" : "bg-gray-50"
               }`}
             >
               {/* ID Column */}
-              <div className="px-4 py-3 flex items-center gap-2">
-                {/* <div className="invisible group-hover:visible flex justify-between items-center gap-1 w-full transition-opacity duration-200">
-                  <button
-                    type="button"
-                    title={`${order.taskName} məlumatlarına düzəliş et`}
-                    onClick={() => handleOpenEditModal(order.taskName)}
-                    className="text-blue-500 hover:text-blue-700 hover:bg-black/10 rounded-full p-1 transition-colors duration-200"
-                  >
-                    <MdOutlineModeEditOutline className="w-5 h-5" />
-                  </button>
-                </div> */}
+              <div className="px-4 py-1 flex items-center gap-2">
                 {order.id}
               </div>
 
               {/* Task Name Column */}
               <div
-                className="px-4 py-3 text-sm font-medium truncate"
+                className="px-4 py-2 text-sm font-medium truncate my-auto"
                 title={order.taskName}
               >
                 {order.taskName}
               </div>
 
               {/* Description Column */}
-              <div className="px-4 py-3 text-sm truncate">
+              <div className="px-4 py-2 text-sm truncate my-auto">
                 {order.description}
               </div>
 
               {/* Priority Column */}
-              <div className="px-4 py-3">
+              <div className="px-4 py-2 my-auto">
                 <span
-                  className={`px-2 py-1 rounded-full text-xs font-semibold block text-center ${
+                  className={`px-1 py-3 rounded-full text-xs font-semibold block text-center ${
                     order.priority === "Yüksək"
-                      ? "bg-red-100 text-red-600"
+                      ? "bg-[rgba(255,231,231,1)] text-[rgba(254,35,35,1)]"
                       : order.priority === "Orta"
-                      ? "bg-yellow-200 text-yellow-600"
-                      : "bg-gray-200 text-gray-600"
+                      ? "bg-[rgba(255,251,220,1)] text-[rgba(202,138,3,1)]"
+                      : "bg-[rgba(239,239,239,1)] text-[rgba(34,34,34,1)]"
                   }`}
                 >
                   {order.priority}
@@ -130,16 +100,16 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
               </div>
 
               {/* Assignee Column */}
-              <div className="px-4 py-3 text-sm">{order.assignee}</div>
+              <div className="px-4 py-2 text-sm my-auto">{order.assignee}</div>
 
               {/* Start Date Column */}
-              <div className="px-4 py-3 text-sm">{order.startDate}</div>
+              <div className="px-4 py-2 text-sm my-auto">{order.startDate}</div>
 
               {/* Due Date Column */}
-              <div className="px-4 py-3 text-sm">{order.dueDate}</div>
+              <div className="px-4 py-2 text-sm my-auto">{order.dueDate}</div>
 
               {/* Status Column */}
-              <div className="px-4 py-3 text-sm">
+              <div className="px-4 py-2 text-sm my-auto">
                 <span
                   className={`px-2 py-1 rounded text-xs font-semibold block text-center border ${
                     order.status === "İcra edilir"
@@ -164,7 +134,15 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
               </div>
 
               {/* Actions column */}
-              <div className="text-sm text-gray-600 m-auto">Actions</div>
+              <div className="text-sm text-gray-600 m-auto">
+                <button
+                  type="button"
+                  className="block hover:bg-black/10 rounded-full p-1.5 transition duration-200"
+                  onClick={() => handleOpenActionsMenu(order.id)}
+                >
+                  <BsThreeDots className="w-6 h-6" />
+                </button>
+              </div>
             </div>
           ))}
         </div>
