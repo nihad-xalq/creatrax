@@ -30,11 +30,11 @@ export const Header = () => {
 
   return (
     <header className="py-3 pt-6 text-white w-full z-50">
-      <div className="header_inner myContainer flex items-center justify-between lg:justify-between px-4 lg:px-0 w-full">
+      <div className="header_inner myContainer flex flex-col md:flex-row items-start md:items-center justify-between lg:justify-between px-4 lg:px-0 w-full">
         {/* <Link href="/" className="header_left w-2/5 lg:w-[11%]">
           <Logo />
         </Link> */}
-        <h1 className="text-black text-lg font-semibold">
+        <h1 className="text-black text-lg font-semibold mb-3 md:mb-0">
           Welcome back, {"Nihad"}{" "}
         </h1>
 
@@ -50,10 +50,10 @@ export const Header = () => {
           <div className="border-r border-r-gray-300 h-5"></div>
           <div className="flex flex-row items-center gap-4">
             <div className="p-1 bg-[rgba(246,246,246,1)] rounded-full">
-              <IoNotificationsOutline className="w-5 h-5 text-[rgba(34,34,34,1)]" />
+              <IoNotificationsOutline className="w-8 lg:w-5 h-8 lg:h-5 text-[rgba(34,34,34,1)]" />
             </div>
 
-            <div className="flex flex-row items-center gap-2">
+            <div className="flex flex-row items-center gap-2 w-max">
               <div>
                 <Image
                   src="/pp.png"
@@ -61,11 +61,11 @@ export const Header = () => {
                   width={0}
                   height={0}
                   sizes="100vw"
-                  className="w-full h-auto rounded-full"
+                  className="w-12 lg:w-10 h-auto rounded-full"
                 />
               </div>
-              <p className="font-medium">Nihad A</p>
-              <HiOutlineChevronDown />
+              <p className="font-medium hidden sm:block w-full">Nihad A</p>
+              <HiOutlineChevronDown className="w-1/3 lg:w-1/6 h-full" />
             </div>
           </div>
         </div>

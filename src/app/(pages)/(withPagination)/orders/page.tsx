@@ -39,7 +39,7 @@ export default function OrdersPage() {
         </div>
         <div className="filters_wrapper flex flex-row justify-between items-end gap-4 mt-4">
           {isMounted && (
-            <div className="sort_wrapper willSimplyFadeIn flex flex-col lg:flex-row items-start gap-2">
+            <div className="sort_wrapper willSimplyFadeIn flex flex-row lg:flex-row items-start gap-2">
               {/* Search Input */}
               <div className="search_wrapper relative">
                 <input
@@ -55,7 +55,7 @@ export default function OrdersPage() {
               {/* Filter */}
               <button
                 type="button"
-                className="bg-white hover:bg-black/5 py-2.5 px-4 rounded-[12px] flex flex-row items-center justify-between gap-3 border border-[rgba(227,227,227,1)] transition duration-150"
+                className="bg-white hover:bg-black/5 py-2.5 px-4 rounded-[12px] flex flex-row items-center justify-center gap-3 border border-[rgba(227,227,227,1)] transition duration-150"
               >
                 <VscSettings />
                 Filter

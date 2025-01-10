@@ -47,7 +47,7 @@ export const PaginationFooter = () => {
   ];
 
   return (
-    <div className="w-full h-max mx-auto fixed bottom-0 bg-white py-4 left-1/2 right-1/2 -translate-x-1/2 flex flex-row justify-center items-center text-center">
+    <div className="w-full mx-auto fixed bottom-0 bg-white py-4 left-1/2 right-1/2 -translate-x-1/2 flex flex-row justify-center items-center text-center">
       <div className="pagination_inner flex flex-row items-center justify-between gap-3">
         <HiOutlineChevronDoubleLeft
           onClick={() => handlePaginationChangeBySingleArrow("TO_FIRST")}
