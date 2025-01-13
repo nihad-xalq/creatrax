@@ -35,7 +35,7 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
       <div className="flex flex-col lg:flex-row items-center justify-between mb-12 lg:mb-0">
         {/* Header Section */}
         <div className="text-center flex flex-col items-center lg:items-start gap-3 mb-6">
-          <h1 className="text-4xl font-extrabold text-center text-gray-900">
+          <h1 className="text-center text-4xl text-gray-900 font-semibold">
             İşçilər
           </h1>
           <p className="text-gray-600 mt-0 text-lg">

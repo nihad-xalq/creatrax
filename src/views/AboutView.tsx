@@ -4,7 +4,7 @@ export const AboutView = () => {
   return (
     <section className="willFadeFromAbove">
       <div className="about_inner">
-        <h1 className="text-5xl text-center font-semibold mb-12">Haqqımızda</h1>
+        <h1 className="text-center text-4xl text-gray-900 font-semibold mb-12">Haqqımızda</h1>
         <ul className="flex flex-col gap-3">
           {aboutTexts.map((t) => {
             return (

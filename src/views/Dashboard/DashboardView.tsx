@@ -9,7 +9,7 @@ export const DashboardView = () => {
   return (
     <section className="dashboard-container w-full mb-20 willFadeFromAbove">
       <div className="dashboard-inner flex flex-col gap-5 w-full mx-auto">
-        <h1 className="text-4xl font-extrabold text-gray-900">Statistikalar</h1>
+        <h1 className="text-4xl text-gray-900 font-semibold">Statistikalar</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">

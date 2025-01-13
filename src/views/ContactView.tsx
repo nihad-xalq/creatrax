@@ -65,7 +65,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ data }) => {
   return (
     <div className="px-0 lg:px-6 flex flex-col lg:flex-col gap-3 lg:gap-6 willFadeFromAbove">
       {/* Contact Info Section */}
-      <h1 className="text-5xl font-extrabold text-center text-gray-900 mb-4">
+      <h1 className="text-center text-4xl text-gray-900 font-semibold mb-4">
         Bizimlə Əlaqə
       </h1>
       <div className="flex flex-col lg:flex-row gap-6">

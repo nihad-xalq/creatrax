@@ -10,7 +10,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({
 }) => {
   return (
     <div className="px-0 lg:px-6 min-h-screen willFadeFromAbove">
-      <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-6 lg:mb-12 text-gray-900">
+      <h1 className="md:text-5xl text-center mb-6 lg:mb-12 text-4xl text-gray-900 font-semibold">
         Məxfilik Siyasəti
       </h1>
       <ul className="space-y-6 sm:space-y-12">
