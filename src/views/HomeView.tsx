@@ -44,7 +44,7 @@ export const HomeView = () => {
   };
 
   return (
-    <section className="py-8 lg:py-12 flex items-center my-auto h-screen">
+    <section className="py-8 lg:py-12 flex items-center my-auto h-screen willFadeFromAbove">
       <div className="container mx-auto max-w-4xl px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-xl overflow-hidden">
           {/* Visual Section */}

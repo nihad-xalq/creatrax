@@ -7,7 +7,7 @@ interface GuideViewProps {
 
 export const GuideView: React.FC<GuideViewProps> = ({ data }) => {
   return (
-    <section className="lg:px-6">
+    <section className="lg:px-6 willFadeFromAbove">
       <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-4 lg:mb-12 text-gray-900">
         İstifadəçi Rəhbəri
       </h1>

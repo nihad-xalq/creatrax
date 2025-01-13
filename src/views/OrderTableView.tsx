@@ -35,7 +35,7 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
   };
 
   return (
-    <div className="overflow-x-auto lg:overflow-x-visible rounded-lg">
+    <div className="overflow-x-auto lg:overflow-x-visible rounded-lg willFadeFromAbove">
       <div className=" rounded-lg">
         {/* Header Row */}
         <div className="grid grid-cols-[0.2fr_1.1fr_2fr_0.5fr_0.6fr_0.5fr_0.5fr_0.6fr_0.35fr_0.35fr] bg-[rgba(251,251,251,1)] text-[rgba(127,127,127,1)] font-medium text-sm rounded-lg">

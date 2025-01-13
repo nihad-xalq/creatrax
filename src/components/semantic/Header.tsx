@@ -49,8 +49,8 @@ export const Header = () => {
           </div>
           <div className="border-r border-r-gray-300 h-5"></div>
           <div className="flex flex-row items-center gap-4">
-            <div className="p-1 bg-[rgba(246,246,246,1)] rounded-full">
-              <IoNotificationsOutline className="w-8 lg:w-5 h-8 lg:h-5 text-[rgba(34,34,34,1)]" />
+            <div className="group p-1 bg-[rgba(246,246,246,1)] hover:bg-[#525252] rounded-full cursor-pointer transition duration-300">
+              <IoNotificationsOutline className="w-8 lg:w-5 h-8 lg:h-5 text-[rgba(34,34,34,1)] group-hover:text-white" />
             </div>
 
             <div className="flex flex-row items-center gap-2 w-max">

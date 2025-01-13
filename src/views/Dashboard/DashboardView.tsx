@@ -7,7 +7,7 @@ import { MantinePieChart } from "./MantinePieChart";
 
 export const DashboardView = () => {
   return (
-    <section className="dashboard-container w-full mb-20">
+    <section className="dashboard-container w-full mb-20 willFadeFromAbove">
       <div className="dashboard-inner flex flex-col gap-5 w-full mx-auto">
         <h1 className="text-4xl font-extrabold text-gray-900">Statistikalar</h1>
 

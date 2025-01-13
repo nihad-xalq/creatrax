@@ -2,7 +2,7 @@ import { aboutTexts } from "@/lib/mockData";
 
 export const AboutView = () => {
   return (
-    <section>
+    <section className="willFadeFromAbove">
       <div className="about_inner">
         <h1 className="text-5xl text-center font-semibold mb-12">Haqqımızda</h1>
         <ul className="flex flex-col gap-3">

@@ -9,7 +9,7 @@ export const EmployeeDetailsView: React.FC<EmployeeDetailsViewProps> = ({
   employee,
 }) => {
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 lg:p-10 rounded-xl shadow-xl border border-gray-300 max-w-4xl mx-auto">
+    <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 lg:p-10 rounded-xl shadow-xl border border-gray-300 max-w-4xl mx-auto willFadeFromAbove">
       {/* Header Section */}
       <div className="flex flex-col lg:flex-row items-center mb-8 gap-6">
         <div className="text-white flex items-center justify-center rounded-full text-3xl font-bold">

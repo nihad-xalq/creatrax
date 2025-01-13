@@ -31,7 +31,7 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
   const isAllLoaded = visibleCount >= filteredEmployees.length;
 
   return (
-    <div className="py-3">
+    <div className="py-3 willFadeFromAbove">
       <div className="flex flex-col lg:flex-row items-center justify-between mb-12 lg:mb-0">
         {/* Header Section */}
         <div className="text-center flex flex-col items-center lg:items-start gap-3 mb-6">

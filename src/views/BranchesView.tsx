@@ -23,7 +23,7 @@ export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
   const isAllLoaded = visibleCount >= data.length;
 
   return (
-    <div className="">
+    <div className="willFadeFromAbove">
       <h1 className="text-4xl font-extrabold mb-5 text-gray-900">Filiallar</h1>
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {data.slice(0, visibleCount).map((branch) => (

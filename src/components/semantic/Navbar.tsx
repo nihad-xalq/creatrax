@@ -36,8 +36,10 @@ const headerLinks: HeaderLinksTypes[] = [
   {
     section: "Help & Support",
     items: [
-      { title: "Help Center", href: "/help", icon: <FaQuestionCircle /> },
-      { title: "Settings", href: "/settings", icon: <FaCog /> },
+      // { title: "Help Center", href: "/help", icon: <FaQuestionCircle /> },
+      { title: "Help Center", href: "/guide", icon: <FaQuestionCircle /> },
+      // { title: "Settings", href: "/settings", icon: <FaCog /> },
+      { title: "Privacy Policy", href: "/privacy-policy", icon: <FaCog /> },
     ],
   },
 ];

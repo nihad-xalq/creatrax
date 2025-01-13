@@ -1,19 +1,19 @@
 "use client";
 
-import { MdOutlineModeEditOutline } from "react-icons/md";
+// import { MdOutlineModeEditOutline } from "react-icons/md";
 import { clients } from "@/lib/mockData";
 import React from "react";
 
 export const ClientsListView = () => {
-  const handleOpenEditModal = (clientName: string) => {
-    alert(`Edit: ${clientName}`);
-  };
+  // const handleOpenEditModal = (clientName: string) => {
+  //   alert(`Edit: ${clientName}`);
+  // };
 
   return (
-    <div className="overflow-x-auto rounded-lg">
+    <div className="overflow-x-auto rounded-lg willFadeFromAbove">
       <div className="shadow-md rounded-lg">
         {/* Table Header */}
-        <div className="grid grid-cols-[0.15fr_0.4fr_0.35fr_0.4fr_0.5fr_0.4fr_0.2fr_0.25fr_1fr] bg-gray-800 text-white font-medium text-xs md:text-sm rounded-t-lg">
+        <div className="grid grid-cols-[0.1fr_0.4fr_0.35fr_0.4fr_0.5fr_0.4fr_0.2fr_0.25fr_0.4fr] bg-gray-800 text-white font-medium text-xs md:text-sm rounded-t-lg">
           {[
             "ID",
             "Müştəri adı",
@@ -36,13 +36,13 @@ export const ClientsListView = () => {
           {clients.map((client, index) => (
             <div
               key={client.id}
-              className={`group grid grid-cols-[0.15fr_0.4fr_0.35fr_0.4fr_0.5fr_0.4fr_0.2fr_0.25fr_1fr] border-b  text-center ${
+              className={`group grid grid-cols-[0.1fr_0.4fr_0.35fr_0.4fr_0.5fr_0.4fr_0.2fr_0.25fr_0.4fr] border-b  text-center ${
                 index % 2 === 0 ? "bg-gray-50" : "bg-white"
               }`}
             >
               <div className="pr-4 pl-2 py-3 flex flex-row items-center justify-center">
                 {/* Edit Button */}
-                <div className="invisible group-hover:visible willSimplyFadeIn flex flex-row justify-between items-center gap-1 w-full transition duration-200">
+                {/* <div className="invisible group-hover:visible willSimplyFadeIn flex flex-row justify-between items-center gap-1 w-full transition duration-200">
                   <button
                     type="button"
                     title={`${client.name} məlumatlarına düzəliş et`}
@@ -51,7 +51,7 @@ export const ClientsListView = () => {
                   >
                     <MdOutlineModeEditOutline className="w-4 h-4" />
                   </button>
-                </div>
+                </div> */}
                 {client.id}
               </div>
               <div className="px-4 py-3 text-sm font-medium truncate my-auto">
