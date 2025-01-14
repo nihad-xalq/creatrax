@@ -10,8 +10,9 @@ import {
   FaUserTie,
   FaBuilding,
   FaQuestionCircle,
-  FaCog,
 } from "react-icons/fa";
+
+import { MdOutlinePrivacyTip } from "react-icons/md";
 
 interface HeaderLinksTypes {
   section: string;
@@ -39,7 +40,11 @@ const headerLinks: HeaderLinksTypes[] = [
       // { title: "Help Center", href: "/help", icon: <FaQuestionCircle /> },
       { title: "Help Center", href: "/guide", icon: <FaQuestionCircle /> },
       // { title: "Settings", href: "/settings", icon: <FaCog /> },
-      { title: "Privacy Policy", href: "/privacy-policy", icon: <FaCog /> },
+      {
+        title: "Privacy Policy",
+        href: "/privacy-policy",
+        icon: <MdOutlinePrivacyTip />,
+      },
     ],
   },
 ];

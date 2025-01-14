@@ -17,7 +17,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({
         {data.map((item) => (
           <li
             key={item.id}
-            className="bg-white p-4 lg:p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300"
+            className="bg-white p-4 lg:p-8 rounded-xl shadow-lg border border-gray-200"
           >
             <div className="flex items-center gap-6 mb-6">
               <div className="w-8 lg:w-14 h-8 lg:h-14 bg-green-600 text-white flex items-center justify-center rounded-full font-bold text-xl shadow-md">
@@ -35,7 +35,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({
                 {item.details.map((detail, index) => (
                   <li
                     key={index}
-                    className="p-4 bg-gray-100 rounded-md border border-gray-300 shadow-sm hover:bg-gray-200 transition-all duration-200"
+                    className="p-4 bg-gray-100 rounded-md border border-gray-300"
                   >
                     {detail}
                   </li>

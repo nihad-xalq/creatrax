@@ -8,14 +8,14 @@ interface GuideViewProps {
 export const GuideView: React.FC<GuideViewProps> = ({ data }) => {
   return (
     <section className="lg:px-6 willFadeFromAbove">
-      <h1 className="md:text-5xl text-center mb-4 lg:mb-12 text-gray-900 text-4xl text-gray-900 font-semibold">
+      <h1 className="md:text-5xl text-center mb-4 lg:mb-12 text-gray-900 text-4xl font-semibold">
         İstifadəçi Rəhbəri
       </h1>
       <ul className="space-y-10">
         {data.map((item) => (
           <li
             key={item.id}
-            className="bg-white p-6 lg:p-8 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300"
+            className="bg-white p-6 lg:p-8 rounded-xl shadow-lg border border-gray-200"
           >
             <div className="flex items-center gap-6 mb-3 lg:mb-6">
               <div className="w-8 lg:w-12 h-8 lg:h-12 bg-blue-600 text-white flex items-center justify-center rounded-full font-bold text-xl">
@@ -33,7 +33,7 @@ export const GuideView: React.FC<GuideViewProps> = ({ data }) => {
                 {item.steps.map((step, index) => (
                   <li
                     key={index}
-                    className="p-4 bg-gray-100 rounded-md border border-gray-300 shadow-sm hover:bg-gray-200 transition-all duration-200"
+                    className="p-4 bg-gray-100 rounded-md border border-gray-300"
                   >
                     {step}
                   </li>

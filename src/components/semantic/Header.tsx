@@ -1,13 +1,20 @@
 "use client";
 
 import { IoNotificationsOutline } from "react-icons/io5";
-import { usePathname } from "next/navigation";
+import { MantineDropdown } from "../ui/MantineDropdown";
 import { FiMenu, FiSearch, FiX } from "react-icons/fi";
-// import { Logo } from "../reusable/Logo";
+import { usePathname } from "next/navigation";
+import { rem } from "@mantine/core";
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { HiOutlineChevronDown } from "react-icons/hi2";
+import Link from "next/link";
+import {
+  CiSettings,
+  CiImageOn,
+  CiTextAlignJustify,
+  CiLogout,
+} from "react-icons/ci";
+import React from "react";
 
 interface HeaderLinksTypes {
   title: string;
@@ -20,6 +27,69 @@ const headerLinks: HeaderLinksTypes[] = [
   { title: "Statistikalar", href: "/dashboard" },
   { title: "İşçilər", href: "/employees" },
   { title: "Filiallar", href: "/branches" },
+];
+
+interface DropdownDataTypes {
+  label: string;
+  icon: React.ReactNode;
+  link: string;
+}
+
+interface NotificationsDataType {
+  label: string;
+  icon: React.ReactNode;
+  createdAt: string;
+  link: string;
+}
+
+const dropdownData: DropdownDataTypes[] = [
+  {
+    label: "Settings",
+    icon: <CiSettings style={{ width: rem(14), height: rem(14) }} />,
+    link: "/settings",
+  },
+  {
+    label: "Messages",
+    icon: <CiTextAlignJustify style={{ width: rem(14), height: rem(14) }} />,
+    link: "/messages",
+  },
+  {
+    label: "Gallery",
+    icon: <CiImageOn style={{ width: rem(14), height: rem(14) }} />,
+    link: "/gallery",
+  },
+  {
+    label: "Log out",
+    icon: <CiLogout style={{ width: rem(14), height: rem(14) }} />,
+    link: "#",
+  },
+];
+
+const notificationsData: NotificationsDataType[] = [
+  {
+    label: "New order received",
+    icon: <IoNotificationsOutline className="text-green-500" />,
+    createdAt: "15 mins ago",
+    link: "/notification-id",
+  },
+  {
+    label: "Project update",
+    icon: <IoNotificationsOutline className="text-yellow-500" />,
+    createdAt: "30 mins ago",
+    link: "/notification-id",
+  },
+  {
+    label: "Meeting scheduled",
+    icon: <IoNotificationsOutline className="text-blue-500" />,
+    createdAt: "1 hour ago",
+    link: "/notification-id",
+  },
+  {
+    label: "New client joined",
+    icon: <IoNotificationsOutline className="text-purple-500" />,
+    createdAt: "2 hours ago",
+    link: "/notification-id",
+  },
 ];
 
 export const Header = () => {
@@ -49,24 +119,36 @@ export const Header = () => {
           </div>
           <div className="border-r border-r-gray-300 h-5"></div>
           <div className="flex flex-row items-center gap-4">
-            <div className="group p-1 bg-[rgba(246,246,246,1)] hover:bg-[#525252] rounded-full cursor-pointer transition duration-300">
-              <IoNotificationsOutline className="w-8 lg:w-5 h-8 lg:h-5 text-[rgba(34,34,34,1)] group-hover:text-white" />
-            </div>
+            <MantineDropdown
+              triggerBtn={
+                <div className="group p-1 bg-[rgba(246,246,246,1)] hover:bg-[#525252] rounded-full cursor-pointer transition duration-300">
+                  <IoNotificationsOutline className="w-8 lg:w-5 h-8 lg:h-5 text-[rgba(34,34,34,1)] group-hover:text-white" />
+                </div>
+              }
+              data={notificationsData}
+              dropdownWidth={240}
+            />
 
-            <div className="flex flex-row items-center gap-2 w-max">
-              <div>
-                <Image
-                  src="/pp.png"
-                  alt="PP"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  className="w-12 lg:w-10 h-auto rounded-full"
-                />
-              </div>
-              <p className="font-medium hidden sm:block w-full">Nihad A</p>
-              <HiOutlineChevronDown className="w-1/3 lg:w-1/6 h-full" />
-            </div>
+            <MantineDropdown
+              triggerBtn={
+                <div className="flex flex-row items-center gap-1 w-max">
+                  <Image
+                    src="/pp.png"
+                    alt="PP"
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    className="w-12 lg:w-12 h-auto rounded-full"
+                  />
+                  <p className="font-medium text-center hidden sm:block w-full">
+                    Nihad A
+                  </p>
+                </div>
+              }
+              data={dropdownData}
+              hasChevron={true}
+              dropdownWidth={200}
+            />
           </div>
         </div>
 

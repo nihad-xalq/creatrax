@@ -13,7 +13,7 @@ export const PaginationFooter = () => {
 
   const [activePagination, setActivePagination] = useState(1);
 
-  const handlePaginationChange = (id: number) => {
+  const handlePaginationSelect = (id: number) => {
     setActivePagination(id);
   };
 
@@ -38,12 +38,6 @@ export const PaginationFooter = () => {
     { text: "4" },
     { text: "5" },
     { text: "6" },
-    // { text: "7" },
-    // { text: "8" },
-    // { text: "9" },
-    // { text: "10" },
-    // { text: "11" },
-    // { text: "12" },
   ];
 
   return (
@@ -66,7 +60,7 @@ export const PaginationFooter = () => {
                 activePagination === index + 1 &&
                 "bg-[rgba(31,41,55,1)] text-white hover:bg-[#344255]"
               }`}
-              onClick={() => handlePaginationChange(index + 1)}
+              onClick={() => handlePaginationSelect(index + 1)}
             >
               {page.text}
             </div>
