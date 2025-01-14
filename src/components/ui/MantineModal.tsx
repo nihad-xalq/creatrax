@@ -1,11 +1,11 @@
 import { useDisclosure } from "@mantine/hooks";
 import { Modal, Button } from "@mantine/core";
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
 interface MantineModalProps {
   title?: string;
   content: ReactNode;
-  triggerLabel: string;
+  triggerLabel: string | ReactElement;
   triggerProps?: React.ComponentProps<typeof Button> | React.ReactNode;
   modalProps?: React.ComponentProps<typeof Modal>;
   btnStyle?: string;
