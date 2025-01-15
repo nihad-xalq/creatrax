@@ -25,7 +25,7 @@ interface HeaderLinksTypes {
 
 const headerLinks: HeaderLinksTypes[] = [
   {
-    section: "Main menu",
+    section: "Əsas menyu",
     items: [
       { title: "Sifarişlər", href: "/orders", icon: <FaClipboardList /> },
       { title: "Müştərilər", href: "/clients", icon: <FaUsers /> },
@@ -35,13 +35,13 @@ const headerLinks: HeaderLinksTypes[] = [
     ],
   },
   {
-    section: "Help & Support",
+    section: "Yardım və Dəstək",
     items: [
       // { title: "Help Center", href: "/help", icon: <FaQuestionCircle /> },
-      { title: "Help Center", href: "/guide", icon: <FaQuestionCircle /> },
+      { title: "Yardım Mərkəzi", href: "/guide", icon: <FaQuestionCircle /> },
       // { title: "Settings", href: "/settings", icon: <FaCog /> },
       {
-        title: "Privacy Policy",
+        title: "Məxfilik Siyasəti",
         href: "/privacy-policy",
         icon: <MdOutlinePrivacyTip />,
       },

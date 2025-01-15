@@ -10,6 +10,7 @@ export const Sidebar = () => {
     // localStorage.removeItem("token");
     // router.push("/login");
   };
+    
 
   return (
     <aside className="h-screen bg-[rgba(25,32,48,1)] shadow-lg w-[300px] hidden lg:flex flex-col items-center py-6 pb-8 px-4 z-50">
@@ -37,7 +38,7 @@ export const Sidebar = () => {
         onClick={handleLogOut}
       >
         <TbLogout2 className="text-2xl" />{" "}
-        <span className="text-sm">Log out</span>
+        <span className="text-sm">Hesabdan çıx</span>
       </button>
     </aside>
   );

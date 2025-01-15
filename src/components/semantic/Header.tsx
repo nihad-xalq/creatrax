@@ -105,7 +105,7 @@ export const Header = () => {
           <Logo />
         </Link> */}
         <h1 className="text-black text-lg font-semibold mb-3 md:mb-0">
-          Welcome back, {"Nihad"}{" "}
+          Xoş gəldiniz, {"Nihad"}
         </h1>
 
         <div className="text-black flex flex-row items-center gap-5">

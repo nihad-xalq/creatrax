@@ -1,5 +1,5 @@
 import { useDisclosure } from "@mantine/hooks";
-import { Modal, Button } from "@mantine/core";
+import { Modal, Button} from "@mantine/core";
 import { FC, ReactElement, ReactNode } from "react";
 
 interface MantineModalProps {
@@ -32,13 +32,12 @@ export const MantineModal: FC<MantineModalProps> = ({
         size="100%"
         overlayProps={{
           backgroundOpacity: 0.55,
-          blur: 1,
+          blur: 5,
         }}
         transitionProps={{ transition: "fade", duration: 200 }}
       >
         {content}
       </Modal>
-
       <Button
         variant="default"
         onClick={open}

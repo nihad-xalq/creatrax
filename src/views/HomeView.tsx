@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { InputPasswordField } from "@/components/form/InputPasswordField";
+import { InputCheckboxField } from "@/components/form/InputCheckboxField";
 
 const schema = yup.object().shape({
   email: yup
@@ -22,6 +23,7 @@ const schema = yup.object().shape({
       /[!@#$%^&*(),.?":{}|<>]/,
       "Şifrə ən az bir xüsusi simvol olmalıdır"
     ),
+  rememberMe: yup.boolean(),
 });
 
 type FormValues = yup.InferType<typeof schema>;
@@ -83,17 +85,19 @@ export const HomeView = () => {
 
                 <div className="flex justify-between items-center">
                   {/* TODO: Replace it with custom checkbox input */}
-                  <label className="text-sm text-gray-600 cursor-pointer select-none">
+                  {/* <label className="text-sm text-gray-600 cursor-pointer select-none">
                     <input
                       type="checkbox"
                       className="mr-2 rounded border-gray-300 focus:ring-2 focus:ring-blue-400 cursor-pointer"
                     />
                     Məni xatırla
-                  </label>
+                  </label> */}
+
+                  <InputCheckboxField name="rememeberMe" label="Məni xatırla" />
                   <a
                     // think about if it should be a tag or next/link element, and if it should be blank or not
                     href="/forgot-password"
-                    className="text-sm text-blue-500 hover:underline"
+                    className="block w-max text-sm text-blue-500 hover:underline"
                   >
                     Şifrəni unutdunuz?
                   </a>
