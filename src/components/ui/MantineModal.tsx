@@ -19,12 +19,12 @@ export const MantineModal: FC<MantineModalProps> = ({
   modalProps = {},
   btnStyle,
 }) => {
-  const [opened, { open, close }] = useDisclosure(false);
+  const [isOpened, { open, close }] = useDisclosure(false);
 
   return (
     <>
       <Modal
-        opened={opened}
+        opened={isOpened}
         onClose={close}
         title={title}
         {...modalProps}
