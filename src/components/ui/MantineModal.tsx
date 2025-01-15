@@ -1,6 +1,6 @@
 import { useDisclosure } from "@mantine/hooks";
 import { Modal, Button } from "@mantine/core";
-import { ReactElement, ReactNode } from "react";
+import { FC, ReactElement, ReactNode } from "react";
 
 interface MantineModalProps {
   title?: string;
@@ -11,14 +11,14 @@ interface MantineModalProps {
   btnStyle?: string;
 }
 
-export const MantineModal = ({
+export const MantineModal: FC<MantineModalProps> = ({
   title,
   content,
   triggerLabel,
   triggerProps = {},
   modalProps = {},
   btnStyle,
-}: MantineModalProps) => {
+}) => {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
