@@ -16,7 +16,7 @@ export const MantineModal: FC<MantineModalProps> = ({
   content,
   triggerLabel,
   triggerProps = {},
-  modalProps = {},
+  // modalProps = {},
   btnStyle,
 }) => {
   const [isOpened, { open, close }] = useDisclosure(false);
@@ -27,7 +27,7 @@ export const MantineModal: FC<MantineModalProps> = ({
         opened={isOpened}
         onClose={close}
         title={title}
-        {...modalProps}
+        // {...modalProps}
         centered
         size="100%"
         overlayProps={{
