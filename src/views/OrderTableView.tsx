@@ -1,6 +1,8 @@
 "use client";
 
+import { MantineDropdown } from "@/components/ui/MantineDropdown";
 import { MantineTooltip } from "@/components/ui/MantineTooltip";
+import { MdDelete, MdEdit } from "react-icons/md";
 import { HiOutlineEye } from "react-icons/hi2";
 import { BsThreeDots } from "react-icons/bs";
 import { orders } from "@/lib/mockData";
@@ -9,6 +11,22 @@ import React, { useMemo } from "react";
 type OrderTableViewProps = {
   searchQuery: string;
 };
+
+interface OrderActionsDataType {
+  label: string;
+  icon: React.ReactNode;
+}
+
+const orderActionsData: OrderActionsDataType[] = [
+  {
+    label: "Edit",
+    icon: <MdEdit className="text-blue-500" />,
+  },
+  {
+    label: "Delete",
+    icon: <MdDelete className="text-red-500" />,
+  },
+];
 
 export const OrderTableView: React.FC<OrderTableViewProps> = ({
   searchQuery,
@@ -28,11 +46,6 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
     }
     return filteredOrders;
   }, [searchQuery]);
-
-  const handleOpenActionsMenu = (id: number) => {
-    // Show actions menu for the current order
-    alert(`Open actions menu for order: ${id}`);
-  };
 
   return (
     <div className="overflow-x-auto lg:overflow-x-visible rounded-lg willFadeFromAbove">
@@ -130,18 +143,22 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
                     <HiOutlineEye className="text-black w-6 h-6" />
                   }
                   tooltipText={order.comments}
+                  isDisabled={true}
                 />
               </div>
 
               {/* Actions column */}
               <div className="text-sm text-gray-600 m-auto">
-                <button
-                  type="button"
-                  className="block hover:bg-black/10 rounded-full p-1.5 transition duration-200"
-                  onClick={() => handleOpenActionsMenu(order.id)}
-                >
-                  <BsThreeDots className="w-6 h-6" />
-                </button>
+                <MantineDropdown
+                  triggerBtn={
+                    <div className="group p-1 hover:bg-[rgba(246,246,246,1)] rounded-full cursor-pointer transition duration-300">
+                      {/* <IoNotificationsOutline className="w-8 lg:w-5 h-8 lg:h-5 text-[rgba(34,34,34,1)] group-hover:text-white" /> */}
+                      <BsThreeDots className="w-6 h-6" />
+                    </div>
+                  }
+                  data={orderActionsData}
+                  dropdownWidth={120}
+                />
               </div>
             </div>
           ))}

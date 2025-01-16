@@ -1,6 +1,6 @@
+import { FC, ReactElement, ReactNode } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal, Button} from "@mantine/core";
-import { FC, ReactElement, ReactNode } from "react";
 
 interface MantineModalProps {
   title?: string;
