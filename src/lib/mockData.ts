@@ -261,7 +261,7 @@ export const orders: Order[] = [
     assignee: "Edward Taylor",
     startDate: "25.01.2024",
     dueDate: "30.04.2024",
-    status: "Gözləmədə",
+    status: "Cancelled",
     comments: "Performansın optimallaşdırılmasına diqqət yetirin.",
     clientId: 7,
   },
@@ -325,4 +325,69 @@ export const aboutTexts: AboutText[] = [
   },
 ];
 
+export const financesData = [
+  // Gəlirlər (Incomes)
+  {
+    id: 1,
+    title: "Müştəri Ödənişləri",
+    content: "Müştərilərdən alınan ödənişlər və abunə haqları.",
+    amount: 25000, // in AZN
+    date: "2025-01-25",
+    type: "incomes",
+  },
+  {
+    id: 2,
+    title: "Xidmət Gəlirləri",
+    content:
+      "Şirkət tərəfindən təqdim olunan xidmətlərdən əldə edilən gəlirlər.",
+    amount: 18000,
+    date: "2025-01-20",
+    type: "incomes",
+  },
+  {
+    id: 3,
+    title: "Reklam Gəlirləri",
+    content:
+      "Platformada göstərilən reklamlar və sponsorluq müqavilələri nəticəsində əldə olunan gəlirlər.",
+    amount: 12000,
+    date: "2025-01-15",
+    type: "incomes",
+  },
 
+  // Xərclər (Expenses)
+  {
+    id: 4,
+    title: "İşçi Maaşları",
+    content: "Şirkətin əməkdaşlarına ödənilən aylıq maaşlar və bonuslar.",
+    amount: 20000,
+    date: "2025-01-28",
+    type: "expenses",
+  },
+  {
+    id: 5,
+    title: "İcarə və Kommunal Xərclər",
+    content:
+      "Ofisin icarəsi, elektrik, internet və digər kommunal xidmətlər üçün xərclər.",
+    amount: 5000,
+    date: "2025-01-27",
+    type: "expenses",
+  },
+  {
+    id: 6,
+    title: "Texniki Dəstək və İnfrastruktur",
+    content:
+      "Server, proqram təminatı və digər texniki dəstək xidmətləri üçün xərclər.",
+    amount: 7000,
+    date: "2025-01-22",
+    type: "expenses",
+  },
+  {
+    id: 7,
+    title: "Marketinq və Reklam",
+    content:
+      "Brendin tanıdılması üçün aparılan reklam və marketinq kampaniyaları.",
+    amount: 4000,
+    date: "2025-01-18",
+    type: "expenses",
+  },
+];

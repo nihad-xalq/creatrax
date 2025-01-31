@@ -124,12 +124,14 @@ export const OrderTableView: React.FC<OrderTableViewProps> = ({
               {/* Status Column */}
               <div className="px-4 py-2 text-sm my-auto">
                 <span
-                  className={`px-2 py-1 rounded text-xs font-semibold block text-center border ${
+                  className={`px-2 py-3 rounded-full text-xs font-semibold block text-center ${
                     order.status === "İcra edilir"
-                      ? " text-yellow-600 border-yellow-300"
-                      : order.status === "Gözləmədə"
-                      ? " text-purple-500 border-purple-200"
-                      : " text-green-600 border-green-300"
+                      ? " text-[rgba(202,138,3,1)] bg-[rgba(255,251,220,1)]"
+                      : order.status === "Cancelled"
+                      ? " text-[rgba(254,35,35,1)] bg-[rgba(255,231,231,1)]"
+                      : order.status === "Tamamlandı"
+                      ? " text-[rgba(46,188,28,1)] bg-[rgba(232,255,227,1)]"
+                      : "text-[rgba(34,34,34,1)] bg-[rgba(239,239,239,1)]"
                   }`}
                 >
                   {order.status}

@@ -10,6 +10,7 @@ import {
   FaUserTie,
   FaBuilding,
   FaQuestionCircle,
+  FaMoneyBill,
 } from "react-icons/fa";
 
 import { MdOutlinePrivacyTip } from "react-icons/md";
@@ -29,6 +30,7 @@ const headerLinks: HeaderLinksTypes[] = [
     items: [
       { title: "Sifarişlər", href: "/orders", icon: <FaClipboardList /> },
       { title: "Müştərilər", href: "/clients", icon: <FaUsers /> },
+      { title: "Maliyyə", href: "/finances", icon: <FaMoneyBill /> },
       { title: "Statistikalar", href: "/dashboard", icon: <FaChartBar /> },
       { title: "İşçilər", href: "/employees", icon: <FaUserTie /> },
       { title: "Filiallar", href: "/branches", icon: <FaBuilding /> },

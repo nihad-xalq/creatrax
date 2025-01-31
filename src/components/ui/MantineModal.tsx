@@ -29,12 +29,13 @@ export const MantineModal: FC<MantineModalProps> = ({
         title={title}
         // {...modalProps}
         centered
-        size="100%"
+        // size="100%"
         overlayProps={{
           backgroundOpacity: 0.55,
           blur: 5,
         }}
         transitionProps={{ transition: "fade", duration: 200 }}
+        className="w-max"
       >
         {content}
       </Modal>
