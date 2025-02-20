@@ -31,7 +31,7 @@ export const MantineDropdown: FC<IMantineDropdownProps> = ({
     <Menu
       shadow="md"
       width={dropdownWidth}
-      transitionProps={{ transition: "rotate-right", duration: 100 }}
+      // transitionProps={{ transition: "rotate-right", duration: 100 }}
       opened={opened}
       onChange={setOpened}
     >

@@ -66,6 +66,10 @@ export default function OrdersPage() {
     console.log(filterFormData);
   };
 
+  const handleApplyFilters = () => {
+    console.log("Filters applied");
+  }
+
   const statuses = [
     { id: 1, value: "Yeni" },
     { id: 2, value: "Təsdiqləndi" },
@@ -168,7 +172,7 @@ export default function OrdersPage() {
                         id: st.value,
                         name: st.value,
                       }))}
-                      // className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
+                    // className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
                     />
 
                     <InputTextareaField
@@ -220,32 +224,46 @@ export default function OrdersPage() {
                       methods={filtersMethods}
                       onSubmit={handleFiltersSubmit}
                     >
-                      <div className="flex flex-row items-end gap-3 w-full">
-                        <div className="filter_inputs-wrapper grid grid-cols-4 gap-4 w-full">
-                          <InputTextField
+                      <div className="flex flex-row items-start gap-3 w-full">
+                        <div className="filter_inputs-wrapper grid grid-cols-1 gap-4 w-full">
+                          <InputSelectField
                             name="test1"
-                            label="Test 1"
-                            placeholder="Test 1"
+                            // label="Test 1"
+                            placeholder="Prioritete gore"
+                            defaultOptions={
+                              priorities.map((pr) => ({
+                                id: pr.value,
+                                name: pr.value,
+                              }))
+                            }
                           />
-                          <InputTextField
+                          <InputSelectField
                             name="test2"
-                            label="Test 2"
-                            placeholder="Test 2"
+                            // label="Test 2"
+                            placeholder="Statusa gore"
+                            defaultOptions={
+                              statuses.map((st) => ({
+                                id: st.value,
+                                name: st.value,
+                              }))
+                            }
                           />
-                          <InputTextField
+                          <InputSelectField
                             name="test3"
-                            label="Test 3"
-                            placeholder="Test 3"
-                          />
-                          <InputTextField
-                            name="test4"
-                            label="Test 4"
-                            placeholder="Test 4"
+                            // label="Test 3"
+                            placeholder="Assigne-ye gore"
+                            defaultOptions={
+                              assignees.map((as) => ({
+                                id: as.value,
+                                name: as.value,
+                              }))
+                            }
                           />
                         </div>
                         <input
-                          type="submit"
+                          type="button"
                           value="Tətbiq et"
+                          onClick={handleApplyFilters}
                           className="bg-blue-500 hover:bg-blue-600 py-3 px-5 rounded-[12px] text-white transition duration-200 cursor-pointer"
                         />
                       </div>

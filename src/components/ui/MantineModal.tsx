@@ -35,7 +35,7 @@ export const MantineModal: FC<MantineModalProps> = ({
           blur: 5,
         }}
         transitionProps={{ transition: "fade", duration: 200 }}
-        className="w-max"
+        className="w-max h-[600px]"
       >
         {content}
       </Modal>
