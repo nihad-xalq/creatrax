@@ -6,7 +6,7 @@ import { JSX } from "react";
 import {
   FaClipboardList,
   FaUsers,
-  FaChartBar,
+  // FaChartBar,
   FaUserTie,
   FaBuilding,
   FaQuestionCircle,
@@ -28,23 +28,22 @@ const headerLinks: HeaderLinksTypes[] = [
   {
     section: "Əsas menyu",
     items: [
-      { title: "Sifarişlər", href: "/orders", icon: <FaClipboardList /> },
-      { title: "Müştərilər", href: "/clients", icon: <FaUsers /> },
-      { title: "Maliyyə", href: "/finances", icon: <FaMoneyBill /> },
-      { title: "Statistikalar", href: "/dashboard", icon: <FaChartBar /> },
-      { title: "İşçilər", href: "/employees", icon: <FaUserTie /> },
-      { title: "Filiallar", href: "/branches", icon: <FaBuilding /> },
+      { title: "Maliyyə", href: "/app/finances", icon: <FaMoneyBill /> },
+      // { title: "Göstəricilər", href: "/app/dashboard", icon: <FaChartBar /> },
+      { title: "Sifarişlər", href: "/app/orders", icon: <FaClipboardList /> },
+      { title: "Müştərilər", href: "/app/clients", icon: <FaUsers /> },
+      { title: "İşçilər", href: "/app/employees", icon: <FaUserTie /> },
+      { title: "Filiallar", href: "/app/branches", icon: <FaBuilding /> },
     ],
   },
   {
     section: "Yardım və Dəstək",
     items: [
-      // { title: "Help Center", href: "/help", icon: <FaQuestionCircle /> },
-      { title: "Yardım Mərkəzi", href: "/guide", icon: <FaQuestionCircle /> },
-      // { title: "Settings", href: "/settings", icon: <FaCog /> },
+      { title: "Yardım Mərkəzi", href: "/info/guide", icon: <FaQuestionCircle /> },
+      { title: "Haqqımızda", href: "/info/about", icon: <FaQuestionCircle /> },
       {
         title: "Məxfilik Siyasəti",
-        href: "/privacy-policy",
+        href: "/info/privacy-policy",
         icon: <MdOutlinePrivacyTip />,
       },
     ],
@@ -70,11 +69,10 @@ export const Navbar = () => {
                 <li key={title}>
                   <Link
                     href={href}
-                    className={`flex items-center gap-3 w-full text-white text-[14px] font-[500] py-3 px-4 rounded-[12px] transition ${
-                      isActive
-                        ? "bg-[rgba(24,111,184,1)] font-semibold shadow-md hover:bg-none"
-                        : "hover:bg-white/10"
-                    }`}
+                    className={`flex items-center gap-3 w-full text-white text-[14px] font-[500] py-3 px-4 rounded-[12px] transition ${isActive
+                      ? "bg-[rgba(24,111,184,1)] font-semibold shadow-md hover:bg-none"
+                      : "hover:bg-white/10"
+                      }`}
                   >
                     <span className="text-lg">{icon}</span>
                     <span className="flex-1">{title}</span>

@@ -1,11 +1,12 @@
+import { PageTitle } from "@/components/PageTitle";
 import { aboutTexts } from "@/lib/mockData";
 
 export const AboutView = () => {
   return (
-    <section className="willFadeFromAbove">
+    <section>
       <div className="about_inner">
-        <h1 className="text-center text-4xl text-gray-900 font-semibold mb-12">Haqqımızda</h1>
-        <ul className="flex flex-col gap-3">
+        <PageTitle title="Haqqımızda" />
+        <ul className="flex flex-col gap-3 willFadeFromAbove">
           {aboutTexts.map((t) => {
             return (
               <li

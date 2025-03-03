@@ -14,6 +14,7 @@ import * as yup from "yup";
 import { InputTextareaField } from "@/components/form/InputTextareaField";
 import { InputDatePicker } from "@/components/form/InputDatePicker";
 import { InputSelectField } from "@/components/form/InputSelectField";
+import { PageTitle } from "@/components/PageTitle";
 
 // schemas
 const addNewOrderSchema = yup.object().shape({
@@ -94,7 +95,7 @@ export default function OrdersPage() {
     <div>
       <div className="mb-8 flex flex-col lg:flex-col items-start lg:items-end justify-between gap-6">
         <div className="flex flex-row items-center justify-between w-full text-white">
-          <h1 className="text-4xl text-gray-900 font-semibold">Sifarişlər</h1>
+          <PageTitle title="Sifarişlər" />
           {/* <button
             type="button"
             onClick={handleAddNewOrder}
@@ -203,7 +204,7 @@ export default function OrdersPage() {
           {isMounted && (
             <div className="sort_wrapper willSimplyFadeIn flex flex-row lg:flex-row items-start gap-2">
               {/* Search Input */}
-              <div className="search_wrapper relative">
+              <div className="order_search_wrapper relative">
                 <input
                   type="text"
                   value={searchQuery}

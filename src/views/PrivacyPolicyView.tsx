@@ -1,5 +1,6 @@
 import React from "react";
 import { PrivacyPolicyItem } from "@/types/privacyPolicyTypes";
+import { PageTitle } from "@/components/PageTitle";
 
 interface PrivacyPolicyViewProps {
   data: PrivacyPolicyItem[];
@@ -9,21 +10,19 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({
   data,
 }) => {
   return (
-    <div className="px-0 lg:px-6 min-h-screen willFadeFromAbove">
-      <h1 className="md:text-5xl text-center mb-6 lg:mb-12 text-4xl text-gray-900 font-semibold">
-        Məxfilik Siyasəti
-      </h1>
-      <ul className="space-y-6 sm:space-y-12">
+    <div>
+      <PageTitle title="Məxfilik Siyasəti" />
+      <ul className="space-y-6 willFadeFromAbove">
         {data.map((item) => (
           <li
             key={item.id}
             className="bg-white p-4 lg:p-8 rounded-xl shadow-lg border border-gray-200"
           >
-            <div className="flex items-center gap-6 mb-6">
-              <div className="w-8 lg:w-14 h-8 lg:h-14 bg-green-600 text-white flex items-center justify-center rounded-full font-bold text-xl shadow-md">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-green-600 text-white flex items-center justify-center rounded-full font-bold text-xl shadow-md">
                 {item.id}
               </div>
-              <h2 className="text-xl lg:text-3xl font-semibold text-gray-900">
+              <h2 className="text-xl lg:text-2xl font-semibold text-gray-900">
                 {item.title}
               </h2>
             </div>

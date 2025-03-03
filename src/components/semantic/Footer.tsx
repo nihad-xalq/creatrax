@@ -28,19 +28,19 @@ const quickLinks: QuickLinks[] = [
   },
   {
     title: "Haqqımızda",
-    href: "/about",
+    href: "/info/about",
   },
   {
     title: "Bizimlə əlaqə",
-    href: "/contact",
+    href: "/info/contact",
   },
   {
     title: "İstifadə Bələdçisi",
-    href: "/guide",
+    href: "/info/guide",
   },
   {
     title: "Məxfilik Siyasəti",
-    href: "/privacy-policy",
+    href: "/info/privacy-policy",
   },
 ];
 

@@ -4,6 +4,7 @@ import { Branch } from "@/types/branchesTypes";
 import { useState } from "react";
 import Link from "next/link";
 import { FiMinus, FiPlus } from "react-icons/fi";
+import { PageTitle } from "@/components/PageTitle";
 
 interface BranchesViewProps {
   data: Branch[];
@@ -23,9 +24,9 @@ export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
   const isAllLoaded = visibleCount >= data.length;
 
   return (
-    <div className="willFadeFromAbove">
-      <h1 className="text-4xl text-gray-900 font-semibold mb-5">Filiallar</h1>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <section>
+      <PageTitle title="Filiallar" />
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 willFadeFromAbove">
         {data.slice(0, visibleCount).map((branch) => (
           <li
             key={branch.id}
@@ -63,6 +64,6 @@ export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
           )}
         </button>
       </div>
-    </div>
+    </section>
   );
 };

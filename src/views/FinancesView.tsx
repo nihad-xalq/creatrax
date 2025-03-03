@@ -1,5 +1,6 @@
 "use client";
 
+import { PageTitle } from "@/components/PageTitle";
 import { financesData } from "@/lib/mockData";
 import { useState } from "react";
 
@@ -7,9 +8,9 @@ const tabs: {
   label: string;
   key: "incomes" | "expenses";
 }[] = [
-  { label: "Gəlirlər", key: "incomes" },
-  { label: "Xərclər", key: "expenses" },
-];
+    { label: "Gəlirlər", key: "incomes" },
+    { label: "Xərclər", key: "expenses" },
+  ];
 
 export const FinancesView = () => {
   const [currentTab, setCurrentTab] = useState<"incomes" | "expenses">(
@@ -21,23 +22,20 @@ export const FinancesView = () => {
   const filteredData = financesData.filter((item) => item.type === currentTab);
 
   return (
-    <section className="willFadeFromAbove">
+    <section>
       <div className="about_inner">
-        <h1 className="text-2xl font-bold text-gray-900 mb-3">
-          Maliyyə Hesabatı
-        </h1>
+        <PageTitle title="Maliyyə Hesabatı" />
 
         {/* Tabs */}
-        <div className="flex gap-3 mb-4 bg-[rgba(251,251,251,1)] w-max px-2 py-2 rounded-[9px]">
+        <div className="flex gap-3 mb-4 bg-[rgba(251,251,251,1)] w-max px-2 py-2 rounded-[9px] mx-auto lg:mx-0">
           {tabs.map((tab) => (
             <button
               key={tab.key}
               type="button"
               className={`min-w-28 flex justify-center items-center gap-2 px-4 py-2.5 rounded-[9px] text-sm text-center font-medium transition-all
-                ${
-                  currentTab === tab.key
-                    ? "bg-[rgba(31,41,55,1)] text-white"
-                    : "text-[rgba(34,34,34,1)] hover:bg-gray-200"
+                ${currentTab === tab.key
+                  ? "bg-[rgba(31,41,55,1)] text-white"
+                  : "text-[rgba(34,34,34,1)] hover:bg-gray-200"
                 }
               `}
               onClick={() => handleTabClick(tab.key)}
@@ -49,7 +47,7 @@ export const FinancesView = () => {
         </div>
 
         {/* Data Display */}
-        <div className="grid gap-3">
+        <div className="grid gap-3 willFadeFromAbove">
           {filteredData.length > 0 ? (
             filteredData.map((item) => (
               <div

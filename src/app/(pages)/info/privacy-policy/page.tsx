@@ -4,7 +4,7 @@ import { privacyPolicyData } from "@/lib/privacyPolicyData";
 export default function PrivacyPolicyPage() {
   return (
     <section>
-      <div className="lg:max-w-6xl mx-auto px-6">
+      <div className="mx-auto">
         <PrivacyPolicyView data={privacyPolicyData} />
       </div>
     </section>

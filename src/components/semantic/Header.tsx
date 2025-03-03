@@ -22,11 +22,18 @@ interface HeaderLinksTypes {
 }
 
 const headerLinks: HeaderLinksTypes[] = [
-  { title: "Sifarişlər", href: "/orders" },
-  { title: "Müştərilər", href: "/clients" },
-  { title: "Statistikalar", href: "/dashboard" },
-  { title: "İşçilər", href: "/employees" },
-  { title: "Filiallar", href: "/branches" },
+  { title: "Maliyyə", href: "/app/finances" },
+  // { title: "Göstəricilər", href: "/dashboard" },
+  { title: "Sifarişlər", href: "/app/orders" },
+  { title: "Müştərilər", href: "/app/clients" },
+  { title: "İşçilər", href: "/app/employees" },
+  { title: "Filiallar", href: "/app/branches" },
+  { title: "Yardım Mərkəzi", href: "/info/guide", },
+  { title: "Haqqımızda", href: "/info/about", },
+  {
+    title: "Məxfilik Siyasəti",
+    href: "/info/privacy-policy",
+  },
 ];
 
 interface DropdownDataTypes {
@@ -46,17 +53,17 @@ const dropdownData: DropdownDataTypes[] = [
   {
     label: "Settings",
     icon: <CiSettings style={{ width: rem(14), height: rem(14) }} />,
-    link: "/settings",
+    link: "/app/settings",
   },
   {
     label: "Messages",
     icon: <CiTextAlignJustify style={{ width: rem(14), height: rem(14) }} />,
-    link: "/messages",
+    link: "/app/messages",
   },
   {
     label: "Gallery",
     icon: <CiImageOn style={{ width: rem(14), height: rem(14) }} />,
-    link: "/gallery",
+    link: "/app/gallery",
   },
   {
     label: "Log out",
@@ -70,25 +77,25 @@ const notificationsData: NotificationsDataType[] = [
     label: "New order received",
     icon: <IoNotificationsOutline className="text-green-500" />,
     createdAt: "15 mins ago",
-    link: "/notification-id",
+    link: "/app/notification-id",
   },
   {
     label: "Project update",
     icon: <IoNotificationsOutline className="text-yellow-500" />,
     createdAt: "30 mins ago",
-    link: "/notification-id",
+    link: "/app/notification-id",
   },
   {
     label: "Meeting scheduled",
     icon: <IoNotificationsOutline className="text-blue-500" />,
     createdAt: "1 hour ago",
-    link: "/notification-id",
+    link: "/app/notification-id",
   },
   {
     label: "New client joined",
     icon: <IoNotificationsOutline className="text-purple-500" />,
     createdAt: "2 hours ago",
-    link: "/notification-id",
+    link: "/app/notification-id",
   },
 ];
 
@@ -109,7 +116,7 @@ export const Header = () => {
         </h1>
 
         <div className="text-black flex flex-row items-center gap-5">
-          <div className="search_wrapper relative">
+          <div className="search_wrapper relative hidden sm:block">
             <input
               type="text"
               placeholder="Sifarişi axtar..."
@@ -117,8 +124,8 @@ export const Header = () => {
             />
             <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-[rgba(136,136,136,1)]" />
           </div>
-          <div className="border-r border-r-gray-300 h-5"></div>
-          <div className="flex flex-row items-center gap-4">
+          {/* <div className="border-r border-r-gray-300 h-5"></div> */}
+          <div className="flex flex-row items-center gap-4 border-none xs:border-l xs:border-l-gray-300">
             <MantineDropdown
               triggerBtn={
                 <div className="group p-1 bg-[rgba(246,246,246,1)] hover:bg-[#525252] rounded-full cursor-pointer transition duration-300">
@@ -150,50 +157,49 @@ export const Header = () => {
               dropdownWidth={200}
             />
           </div>
+          {/* Burger Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className="lg:hidden text-black text-3xl focus:outline-none z-50"
+            aria-label="Toggle Menu"
+          >
+            {isMenuOpen ? <FiX /> : <FiMenu />}
+          </button>
+
+          {/* Sliding Mobile Menu */}
+          <div
+            className={`fixed top-0 right-0 h-full w-2/3 max-w-xs bg-slate-800 shadow-lg transform transition-transform duration-300 z-40 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+              } lg:hidden`}
+          >
+            <nav className="flex flex-col gap-4 p-6 mt-12">
+              {headerLinks.map(({ title, href }) => {
+                const isActive = pathname === href;
+                return (
+                  <Link
+                    key={title}
+                    href={href}
+                    className={`block text-base text-white py-2 px-4 rounded-md hover:bg-white/10 transition ${isActive ? "bg-white/20 font-semibold" : ""
+                      }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {title}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
         </div>
 
-        {/* Burger Menu Button */}
-        <button
-          onClick={toggleMenu}
-          className="lg:hidden text-white text-3xl focus:outline-none z-50"
-          aria-label="Toggle Menu"
-        >
-          {isMenuOpen ? <FiX /> : <FiMenu />}
-        </button>
-
-        {/* Sliding Mobile Menu */}
-        <div
-          className={`fixed top-0 right-0 h-full w-2/3 max-w-xs bg-slate-800 shadow-lg transform transition-transform duration-300 z-40 ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          } lg:hidden`}
-        >
-          <nav className="flex flex-col gap-4 p-6 mt-12">
-            {headerLinks.map(({ title, href }) => {
-              const isActive = pathname === href;
-              return (
-                <Link
-                  key={title}
-                  href={href}
-                  className={`block text-base text-white py-2 px-4 rounded-md hover:bg-white/10 transition ${
-                    isActive ? "bg-white/20 font-semibold" : ""
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {title}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
+        {/* Overlay */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+            onClick={toggleMenu}
+          ></div>
+        )}
       </div>
 
-      {/* Overlay */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
-          onClick={toggleMenu}
-        ></div>
-      )}
+
     </header>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { GuideItem } from "@/types/guideTypes";
+import { PageTitle } from "@/components/PageTitle";
 
 interface GuideViewProps {
   data: GuideItem[];
@@ -7,21 +8,19 @@ interface GuideViewProps {
 
 export const GuideView: React.FC<GuideViewProps> = ({ data }) => {
   return (
-    <section className="lg:px-6 willFadeFromAbove">
-      <h1 className="md:text-5xl text-center mb-4 lg:mb-12 text-gray-900 text-4xl font-semibold">
-        İstifadəçi Rəhbəri
-      </h1>
-      <ul className="space-y-10">
+    <section>
+      <PageTitle title="İstifadəçi Rəhbəri" />
+      <ul className="space-y-6 willFadeFromAbove">
         {data.map((item) => (
           <li
             key={item.id}
             className="bg-white p-6 lg:p-8 rounded-xl shadow-lg border border-gray-200"
           >
-            <div className="flex items-center gap-6 mb-3 lg:mb-6">
-              <div className="w-8 lg:w-12 h-8 lg:h-12 bg-blue-600 text-white flex items-center justify-center rounded-full font-bold text-xl">
+            <div className="flex items-center gap-3 mb-3 lg:mb-6">
+              <div className="w-8 h-8 bg-blue-600 text-white flex items-center justify-center rounded-full font-bold text-xl">
                 {item.id}
               </div>
-              <h2 className="text-xl md:text-3xl font-semibold text-gray-900">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
                 {item.title}
               </h2>
             </div>

@@ -2,15 +2,19 @@
 import { TbLogout2 } from "react-icons/tb";
 import { Logo } from "../reusable/Logo";
 import { Navbar } from "./Navbar";
+import { useRouter } from "next/navigation";
 
 export const Sidebar = () => {
+  const router = useRouter()
+
   const handleLogOut = () => {
     // Add logout functionality here
-    alert("Logged out successfully");
+
+    router.push("/")
     // localStorage.removeItem("token");
     // router.push("/login");
   };
-    
+
 
   return (
     <aside className="h-screen bg-[rgba(25,32,48,1)] shadow-lg w-[300px] hidden lg:flex flex-col items-center py-6 pb-8 px-4 z-50">

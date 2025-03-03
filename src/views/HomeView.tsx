@@ -1,13 +1,13 @@
 "use client";
 
+import { InputPasswordField } from "@/components/form/InputPasswordField";
+import { InputCheckboxField } from "@/components/form/InputCheckboxField";
 import { InputTextField } from "@/components/form/InputTextField";
 import { CFormProvider } from "@/components/form/CFormProvider";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { InputPasswordField } from "@/components/form/InputPasswordField";
-import { InputCheckboxField } from "@/components/form/InputCheckboxField";
 
 const schema = yup.object().shape({
   email: yup
@@ -40,14 +40,14 @@ export const HomeView = () => {
 
     // TODO: Add server-side validation and authentication logic here
     // For example, you can use an API call to a server-side endpoint to validate the user's credentials
-    // If the credentials are valid, you can redirect the user to the "/orders" page
+    // If the credentials are valid, you can redirect the user to the "/dashboard" page
     // Otherwise, you can display an error message or provide a retry mechanism
-    router.push("/orders");
+    router.push("/app/finances");
   };
 
   return (
     <section className="py-8 lg:py-12 flex items-center my-auto h-screen willFadeFromAbove">
-      <div className="container mx-auto max-w-4xl px-6 lg:px-12">
+      <div className="container mx-auto max-w-4xl px-2 lg:px-12">
         <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-xl overflow-hidden">
           {/* Visual Section */}
           <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-tl from-blue-500 to-blue-400 text-white p-8 justify-center items-center">
@@ -63,12 +63,12 @@ export const HomeView = () => {
           </div>
 
           {/* Form Section */}
-          <div className="lg:w-1/2 w-full p-8">
-            <h2 className="text-3xl font-semibold text-gray-800 text-center mb-8">
+          <div className="w-full lg:w-1/2 p-4 lg:p-8">
+            <h2 className="text-xl lg:text-3xl font-semibold text-gray-800 text-center mb-4">
               Hesabınıza Daxil Olun
             </h2>
             <CFormProvider methods={methods} onSubmit={handleSubmit}>
-              <div className="space-y-6">
+              <div className="space-y-4 lg:space-y-6">
                 <InputTextField
                   name="email"
                   label="Email"
@@ -96,7 +96,7 @@ export const HomeView = () => {
                   <InputCheckboxField name="rememeberMe" label="Məni xatırla" />
                   <a
                     // think about if it should be a tag or next/link element, and if it should be blank or not
-                    href="/forgot-password"
+                    href="/app/forgot-password"
                     className="block w-max text-sm text-blue-500 hover:underline"
                   >
                     Şifrəni unutdunuz?

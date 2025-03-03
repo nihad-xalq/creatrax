@@ -5,6 +5,7 @@ import { Employee } from "@/types/employeesTypes";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { PageTitle } from "@/components/PageTitle";
 
 interface EmployeesViewProps {
   data: Employee[];
@@ -31,16 +32,14 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
   const isAllLoaded = visibleCount >= filteredEmployees.length;
 
   return (
-    <div className="py-3 willFadeFromAbove">
+    <section className="py-3">
       <div className="flex flex-col lg:flex-row items-center justify-between mb-12 lg:mb-0">
         {/* Header Section */}
         <div className="text-center flex flex-col items-center lg:items-start gap-3 mb-6">
-          <h1 className="text-center text-4xl text-gray-900 font-semibold">
-            İşçilər
-          </h1>
-          <p className="text-gray-600 mt-0 text-lg">
+          <PageTitle title="İşçilər" />
+          {/* <p className="text-gray-600 mt-0 text-lg">
             Burada Creadive komandasının üzvlərini tapa bilərsiniz.
-          </p>
+          </p> */}
         </div>
 
         {/* Search Section */}
@@ -57,7 +56,7 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
       </div>
 
       {/* Employee Grid */}
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 willFadeFromAbove">
         {filteredEmployees.slice(0, visibleCount).map((employee) => (
           <li
             key={employee.id}
@@ -134,6 +133,6 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
           Axtarışa uyğun nəticə tapılmadı.
         </div>
       )}
-    </div>
+    </section>
   );
 };

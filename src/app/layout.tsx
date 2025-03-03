@@ -1,10 +1,10 @@
 
+import RootLayoutWrapper from "@/components/RootLayoutWrapper";
 import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
 import "@mantine/charts/styles.css";
 import "@mantine/core/styles.css";
 import "./globals.css";
-import RootLayoutWrapper from "@/components/RootLayoutWrapper";
 
 export const metadata: Metadata = {
   title: "CreaTrax",
