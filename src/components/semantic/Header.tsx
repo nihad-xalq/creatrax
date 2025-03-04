@@ -9,12 +9,12 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  CiSettings,
-  CiImageOn,
-  CiTextAlignJustify,
+  // CiImageOn,
+  // CiTextAlignJustify,
   CiLogout,
 } from "react-icons/ci";
 import React from "react";
+import { BsPerson } from "react-icons/bs";
 
 interface HeaderLinksTypes {
   title: string;
@@ -51,24 +51,24 @@ interface NotificationsDataType {
 
 const dropdownData: DropdownDataTypes[] = [
   {
-    label: "Settings",
-    icon: <CiSettings style={{ width: rem(14), height: rem(14) }} />,
-    link: "/app/settings",
+    label: "View Profile",
+    icon: <BsPerson style={{ width: rem(14), height: rem(14) }} />,
+    link: "/app/profile",
   },
-  {
-    label: "Messages",
-    icon: <CiTextAlignJustify style={{ width: rem(14), height: rem(14) }} />,
-    link: "/app/messages",
-  },
-  {
-    label: "Gallery",
-    icon: <CiImageOn style={{ width: rem(14), height: rem(14) }} />,
-    link: "/app/gallery",
-  },
+  // {
+  //   label: "Messages",
+  //   icon: <CiTextAlignJustify style={{ width: rem(14), height: rem(14) }} />,
+  //   link: "/app/messages",
+  // },
+  // {
+  //   label: "Gallery",
+  //   icon: <CiImageOn style={{ width: rem(14), height: rem(14) }} />,
+  //   link: "/app/gallery",
+  // },
   {
     label: "Log out",
     icon: <CiLogout style={{ width: rem(14), height: rem(14) }} />,
-    link: "#",
+    link: "/",
   },
 ];
 
