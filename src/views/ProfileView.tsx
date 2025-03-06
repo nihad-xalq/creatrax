@@ -225,13 +225,6 @@ export const ProfileView = () => {
                     </div>
                 </CFormProvider>
             </div>
-
-            {/* Right Side - Additional Section */}
-            {/* <div className="hidden lg:flex lg:w-1/2 flex-col items-center justify-center p-6 bg-gray-50 rounded-xl shadow-md">
-                <h2 className="text-lg font-semibold">Profil haqqında məlumat</h2>
-                <p className="text-sm text-gray-600 mt-2">Burada profil məlumatlarınızı idarə edə və şəxsi məlumatlarınızı yeniləyə bilərsiniz.</p>
-                <Image width={0} height={0} sizes="100vw" src="/undraw_pic-profile_nr49.svg" alt="Profile Illustration" className="w-40 mt-4" />
-            </div> */}
         </section>
     );
 }
