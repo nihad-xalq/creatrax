@@ -36,8 +36,8 @@ export const InputDatePicker: FC<IInputDatePicker> = ({ ...props }) => {
             <>
               <DatePicker
                 onBlur={onBlur}
-                // selected={Cvalue ? moment(Cvalue, "DD.MM.YYYY").toDate() : null}
-                selected={Cvalue ? moment(Cvalue).toDate() : null}
+                selected={Cvalue ? moment(Cvalue, "DD.MM.YYYY").toDate() : null}
+                // selected={Cvalue ? moment(Cvalue).toDate() : null}
                 onChange={onChange}
                 ref={datePickerRef}
                 name={name}
