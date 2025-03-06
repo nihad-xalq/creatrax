@@ -81,7 +81,7 @@ export const FinancesView = () => {
       <div className="about_inner">
         <PageTitle title="Maliyyə Hesabatı" />
 
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-3 w-full mb-4">
+        <div className="flex flex-row items-center justify-between w-full mb-4">
           {/* Tabs */}
           <div className="flex gap-3 bg-[rgba(251,251,251,1)] w-max px-2 py-2 rounded-[9px] mx-auto lg:mx-0">
             {tabs.map((tab) => (

@@ -118,7 +118,7 @@ export const ProfileView = () => {
 
                 <CFormProvider methods={methods} onSubmit={handleSubmit}>
                     <div className="flex flex-col gap-3">
-                        <div className="flex flex-col lg:flex-row items-center justify-between gap-3">
+                        <div className="flex flex-row items-center justify-between gap-3">
                             <header className="profile_header flex flex-col lg:flex-row gap-6 self-start w-full lg:w-max items-center border border-gray-200 rounded-[12px] px-8 py-4 shadow-md">
                                 {/* Profile Picture Upload */}
                                 <div className="flex flex-col items-center gap-2 my-4">
@@ -179,7 +179,7 @@ export const ProfileView = () => {
                                 </div>
                             </header>
 
-                            <div className="personal_infos_wrapper border border-gray-200 rounded-[12px] p-4 w-[95%] lg:w-[65%] shadow-md grid gap-3">
+                            <div className="personal_infos_wrapper border border-gray-200 rounded-[12px] p-4 w-[65%] shadow-md grid gap-3">
                                 {/* Input Fields */}
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 w-full">
                                     <InputTextField name="name" label="Ad" placeholder="Abchdfd" />
