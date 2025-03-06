@@ -111,15 +111,15 @@ export const ProfileView = () => {
     };
 
     return (
-        <section className="flex flex-col lg:flex-row gap-10">
+        <section className="flex flex-col lg:flex-row justify-center gap-10">
             {/* Left Side - Profile Form */}
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-full">
                 <PageTitle title="Mənim Profilim" />
 
                 <CFormProvider methods={methods} onSubmit={handleSubmit}>
                     <div className="flex flex-col gap-3">
-                        <div className="flex flex-col items-center gap-3">
-                            <header className="profile_header flex flex-col lg:flex-row gap-6 self-start w-full lg:w-max items-center">
+                        <div className="flex flex-row items-center justify-between gap-3">
+                            <header className="profile_header flex flex-col lg:flex-row gap-6 self-start w-full lg:w-max items-center border border-gray-200 rounded-[12px] px-8 py-4 shadow-md">
                                 {/* Profile Picture Upload */}
                                 <div className="flex flex-col items-center gap-2 my-4">
                                     <div className="w-40 h-40 bg-gray-200 rounded-full relative group overflow-hidden">
@@ -179,7 +179,7 @@ export const ProfileView = () => {
                                 </div>
                             </header>
 
-                            <div className="personal_infos_wrapper border border-gray-200 rounded-[12px] p-4 w-full shadow-lg grid gap-3">
+                            <div className="personal_infos_wrapper border border-gray-200 rounded-[12px] p-4 w-[65%] shadow-md grid gap-3">
                                 {/* Input Fields */}
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 w-full">
                                     <InputTextField name="name" label="Ad" placeholder="Abchdfd" />
@@ -227,11 +227,11 @@ export const ProfileView = () => {
             </div>
 
             {/* Right Side - Additional Section */}
-            <div className="hidden lg:flex lg:w-1/2 flex-col items-center justify-center p-6 bg-gray-50 rounded-xl shadow-md">
+            {/* <div className="hidden lg:flex lg:w-1/2 flex-col items-center justify-center p-6 bg-gray-50 rounded-xl shadow-md">
                 <h2 className="text-lg font-semibold">Profil haqqında məlumat</h2>
                 <p className="text-sm text-gray-600 mt-2">Burada profil məlumatlarınızı idarə edə və şəxsi məlumatlarınızı yeniləyə bilərsiniz.</p>
                 <Image width={0} height={0} sizes="100vw" src="/undraw_pic-profile_nr49.svg" alt="Profile Illustration" className="w-40 mt-4" />
-            </div>
+            </div> */}
         </section>
     );
 }
