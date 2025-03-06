@@ -36,7 +36,7 @@ export const MantineDropdown: FC<IMantineDropdownProps> = ({
       onChange={setOpened}
     >
       <Menu.Target>
-        <Button className="bg-transparent hover:bg-transparent text-black hover:text-black">
+        <Button className="bg-transparent hover:bg-transparent text-black hover:text-black h-max">
           {triggerBtn}
           {hasChevron ? (
             <HiOutlineChevronDown
