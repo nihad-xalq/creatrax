@@ -42,7 +42,7 @@ export const MantineDropdown: FC<IMantineDropdownProps> = ({
             <HiOutlineChevronDown
               className={`${
                 opened ? "rotate-180" : ""
-              } w-1/3 lg:w-1/6 h-full transition duration-200`}
+              } w-1/3 lg:w-1/6 h-full transition duration-200 ml-3`}
             />
           ) : null}
         </Button>

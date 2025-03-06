@@ -100,7 +100,7 @@ export const Header = () => {
   const pathname = usePathname();
 
   const [profilePic, setProfilePic] = useState<string | null>(null);
-  const [displayName, setDisplayName] = useState<string>("User Fullname");
+  const [displayName, setDisplayName] = useState<string>("");
 
   const [shortUserName, setShortUserName] = useState<string>("?")
 
@@ -109,9 +109,9 @@ export const Header = () => {
     if (storedData) {
       const parsedData = JSON.parse(storedData);
 
-      const firstName = parsedData?.name || "Name";
+      const firstName = parsedData?.name || "";
       const firstNameFirstLetter = parsedData?.name ? parsedData.name[0] : "First name";
-      const surnameFirstLetter = parsedData?.surname ? parsedData.surname[0] : "Surname";
+      const surnameFirstLetter = parsedData?.surname ? parsedData.surname[0] : "";
 
       setDisplayName(`${firstName} ${surnameFirstLetter}`);
       setProfilePic(parsedData?.profilePic || "");
