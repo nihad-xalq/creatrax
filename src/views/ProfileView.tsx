@@ -3,7 +3,7 @@
 import { InputTextareaField } from "@/components/form/InputTextareaField";
 import { InputTextField } from "@/components/form/InputTextField";
 import { CFormProvider } from "@/components/form/CFormProvider";
-import { FaPen, FaRemoveFormat, FaTrash } from "react-icons/fa";
+import { FaPen, FaTrash } from "react-icons/fa";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { PageTitle } from "@/components/PageTitle";
 import { useForm } from "react-hook-form";
@@ -31,9 +31,9 @@ export const ProfileView = () => {
     const parsedData = storedData ? JSON.parse(storedData) : {};
 
     const [profilePic, setProfilePic] = useState<string | null>(parsedData.profilePic || null);
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [, setSelectedFile] = useState<File | null>(null);
 
-    const [hasData, setHasData] = useState<boolean>(
+    const [, setHasData] = useState<boolean>(
         !!(parsedData.name || parsedData.surname || parsedData.email || parsedData.phone_number || parsedData.organisation || parsedData.position || parsedData.bio || parsedData.profilePic)
     );
 
@@ -125,9 +125,11 @@ export const ProfileView = () => {
                                 <div className="flex flex-col items-center gap-2 my-4">
                                     <div className="w-40 h-40 bg-gray-200 rounded-full relative group overflow-hidden">
                                         {profilePic ? (
-                                            <img
+                                            <Image
                                                 src={profilePic}
                                                 alt="Profile Preview"
+                                                width={0}
+                                                height={0}
                                                 className="w-full h-full rounded-full object-contain"
                                             />
                                         ) : (
