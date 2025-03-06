@@ -4,17 +4,13 @@ import { IoNotificationsOutline } from "react-icons/io5";
 import { MantineDropdown } from "../ui/MantineDropdown";
 import { FiMenu, FiSearch, FiX } from "react-icons/fi";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { CiLogout } from "react-icons/ci";
+import { BsPerson } from "react-icons/bs";
 import { rem } from "@mantine/core";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  // CiImageOn,
-  // CiTextAlignJustify,
-  CiLogout,
-} from "react-icons/ci";
 import React from "react";
-import { BsPerson } from "react-icons/bs";
 
 interface HeaderLinksTypes {
   title: string;
@@ -103,14 +99,31 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const [profilePic, setProfilePic] = useState<string | null>(null);
+  const [displayName, setDisplayName] = useState<string>("User Fullname");
+
+  const [shortUserName, setShortUserName] = useState<string>("?")
+
+  useEffect(() => {
+    const storedData = typeof window !== "undefined" ? sessionStorage.getItem("profileData") : null;
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+
+      const firstName = parsedData?.name || "Name";
+      const firstNameFirstLetter = parsedData?.name ? parsedData.name[0] : "First name";
+      const surnameFirstLetter = parsedData?.surname ? parsedData.surname[0] : "Surname";
+
+      setDisplayName(`${firstName} ${surnameFirstLetter}`);
+      setProfilePic(parsedData?.profilePic || "");
+      setShortUserName(`${firstNameFirstLetter} ${surnameFirstLetter}`);
+    }
+  }, []);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <header className="py-3 pt-6 text-white w-full z-50">
       <div className="header_inner myContainer flex flex-col md:flex-row items-start md:items-center justify-between lg:justify-between px-4 lg:px-0 w-full">
-        {/* <Link href="/" className="header_left w-2/5 lg:w-[11%]">
-          <Logo />
-        </Link> */}
         <h1 className="text-black text-lg font-semibold mb-3 md:mb-0">
           Xoş gəldiniz, {"Nihad"}
         </h1>
@@ -139,16 +152,21 @@ export const Header = () => {
             <MantineDropdown
               triggerBtn={
                 <div className="flex flex-row items-center gap-1 w-max">
-                  <Image
-                    src="/pp.png"
-                    alt="PP"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="w-12 lg:w-12 h-auto rounded-full"
-                  />
+                  {
+                    profilePic ? <Image
+                      src={profilePic || "null"}
+                      alt="PP"
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      className="w-12 lg:w-12 h-auto rounded-full"
+                    /> : <div className="w-12 h-12 p-3 bg-gray-200 rounded-full flex flex-row items-center justify-center gap-0 font-semibold">
+                      {shortUserName}
+                    </div>
+                  }
+
                   <p className="font-medium text-center hidden sm:block w-full">
-                    Nihad A
+                    {displayName}
                   </p>
                 </div>
               }
@@ -198,8 +216,6 @@ export const Header = () => {
           ></div>
         )}
       </div>
-
-
     </header>
   );
 };

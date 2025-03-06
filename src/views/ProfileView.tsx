@@ -3,9 +3,10 @@
 import { InputTextareaField } from "@/components/form/InputTextareaField";
 import { InputTextField } from "@/components/form/InputTextField";
 import { CFormProvider } from "@/components/form/CFormProvider";
-import { FaPen, FaTrash } from "react-icons/fa";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { PageTitle } from "@/components/PageTitle";
+import { FaPen, FaTrash } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Image from "next/image";
@@ -37,6 +38,7 @@ export const ProfileView = () => {
         !!(parsedData.name || parsedData.surname || parsedData.email || parsedData.phone_number || parsedData.organisation || parsedData.position || parsedData.bio || parsedData.profilePic)
     );
 
+    const router = useRouter()
 
     const methods = useForm<FormValues>({
         resolver: yupResolver(schema),
@@ -51,7 +53,6 @@ export const ProfileView = () => {
             profilePic: parsedData.profilePic || "",
         },
     });
-
 
     const { isDirty } = methods.formState;
 
@@ -70,9 +71,9 @@ export const ProfileView = () => {
     };
 
     const handleDeleteProfilePic = () => {
-        setProfilePic(null); // Clear local state
-        methods.setValue("profilePic", "", { shouldDirty: true }); // Clear react-hook-form state
-        sessionStorage.removeItem("profilePic"); // Remove from sessionStorage
+        setProfilePic(null);
+        methods.setValue("profilePic", "", { shouldDirty: true });
+        sessionStorage.removeItem("profilePic");
 
         console.log("Profile picture removed");
     };
@@ -81,7 +82,6 @@ export const ProfileView = () => {
         sessionStorage.removeItem("profileData");
         setProfilePic(null);
 
-        // Reset form and set `hasData` to false
         methods.reset({
             name: "",
             surname: "",
@@ -93,23 +93,22 @@ export const ProfileView = () => {
             profilePic: "",
         });
 
-        setHasData(false); // No data left
+        setHasData(false);
     };
-
-
 
     const handleSubmit = (formData: FormValues) => {
         const updatedData = {
             ...formData,
-            profilePic: profilePic || "", // Ensure profilePic is included
+            profilePic: profilePic || "",
         };
 
-        sessionStorage.setItem("profileData", JSON.stringify(updatedData)); // Save to sessionStorage
-        setHasData(true); // Update state to indicate data exists
+        sessionStorage.setItem("profileData", JSON.stringify(updatedData));
+        setHasData(true);
 
         methods.reset(updatedData);
-    };
 
+        router.refresh();
+    };
 
     return (
         <section className="flex flex-col lg:flex-row gap-10">
