@@ -3,7 +3,8 @@ import RootLayoutWrapper from "@/components/RootLayoutWrapper";
 import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
 import "@mantine/charts/styles.css";
-import "@mantine/core/styles.css";
+// TODO: if something gets trouble with mantine, it is because of the comment below. open comment to fix this
+// import "@mantine/core/styles.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
