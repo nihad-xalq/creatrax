@@ -123,10 +123,14 @@ export const Header = () => {
 
   return (
     <header className="py-3 pt-6 text-white w-full z-50">
-      <div className="header_inner myContainer flex flex-col md:flex-row items-start md:items-center justify-between lg:justify-between px-4 lg:px-0 w-full">
-        <h1 className="text-black text-lg font-semibold mb-3 md:mb-0">
-          Xoş gəldiniz, {"Nihad"}
-        </h1>
+      <div className={`header_inner myContainer flex flex-col md:flex-row items-start md:items-center justify-between ${displayName !== "" ? "lg:justify-between" : "lg:justify-end"} px-4 lg:px-0 w-full`}>
+
+        {
+          displayName ?
+            <h1 className="text-black text-lg font-semibold mb-3 md:mb-0">
+              Xoş gəldiniz, {displayName}
+            </h1> : ""
+        }
 
         <div className="text-black flex flex-row items-center gap-5">
           <div className="search_wrapper relative hidden sm:block">
