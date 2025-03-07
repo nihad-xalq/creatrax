@@ -15,6 +15,7 @@ import { FaPlus } from "react-icons/fa";
 import { format } from "date-fns";
 import { useState } from "react";
 import * as yup from "yup";
+import { MantinePieChart } from "./Dashboard/MantinePieChart";
 
 const schema = yup.object().shape({
   actionType: yup.string().required("Bu xana vacibdir"),
@@ -76,9 +77,14 @@ export const FinancesView = () => {
     methods.reset();
   };
 
+  const financeChartData = [
+    { name: "Gəlirlər", value: 40000, color: "indigo.6" },
+    { name: "Xərclər", value: 8000, color: "yellow.6" },
+  ];
+
   return (
-    <section className="relative">
-      <div className="about_inner">
+    <section className="flex flex-row justify-between items-start gap-6 w-full">
+      <div className="about_inner w-full border border-gray-200 rounded-[12px] p-3">
         <PageTitle title="Maliyyə Hesabatı" />
 
         <div className="flex flex-row items-center justify-between w-full mb-4">
@@ -176,41 +182,49 @@ export const FinancesView = () => {
         </div>
 
         {/* Data Display */}
-        <div className="grid gap-3 willFadeFromAbove">
+        <ul className="grid gap-3 willFadeFromAbove">
           {filteredData.length > 0 ? (
             filteredData.map((item) => (
-              <div
+              <MantineModal
                 key={item.id}
-                className="bg-white p-2 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200"
-              >
-                <h2 className="text-lg font-medium text-gray-800 mb-0.5">
-                  {item.title}
-                </h2>
-                <p className="text-xs text-gray-600 mb-1">{item.content}</p>
-                <div className="flex justify-between text-xs text-gray-700">
-                  <span>
-                    Məbləğ:{" "}
-                    <span className="text-blue-600 font-semibold">
-                      {item.amount} AZN
-                    </span>
-                  </span>
-                  <span className="text-gray-500">📅 {item.date}</span>
-                </div>
-              </div>
+                title={item.title}
+                content={`${item.amount} AZN`}
+                btnStyle="bg-white p-2 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200 w-full h-full"
+                triggerLabel={
+                  <li
+                    className="p-2 w-full flex flex-col items-start"
+                  >
+                    <h2 className="text-lg font-medium text-gray-800 mb-0.5">
+                      {item.title}
+                    </h2>
+                    <p className="text-xs text-gray-600 mb-1">{item.content}</p>
+                    <div className="flex justify-between text-xs text-gray-700">
+                      <span>
+                        Məbləğ:{" "}
+                        <span className="text-blue-600 font-semibold">
+                          {item.amount} AZN
+                        </span>
+                      </span>
+                      <span className="text-gray-500">📅 {item.date}</span>
+                    </div>
+                  </li>
+                }
+              />
             ))
           ) : (
             <p className="text-gray-500 text-center text-sm">
               Məlumat tapılmadı.
             </p>
           )}
-        </div>
+        </ul>
       </div>
 
-      <div className="fixed bottom-4 w-full py-3">
+      <div className="w-full border border-gray-200 rounded-[12px] p-5">
         <p className="flex flex-row items-baseline gap-3">
           <span className="text-2xl">Budget:</span>
           <span className="text-4xl font-semibold">₼{32_000}</span>
         </p>
+        <MantinePieChart data={financeChartData} />
       </div>
     </section>
   );

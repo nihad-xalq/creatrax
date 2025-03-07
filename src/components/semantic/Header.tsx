@@ -102,7 +102,7 @@ export const Header = () => {
   const [profilePic, setProfilePic] = useState<string | null>(null);
   const [displayName, setDisplayName] = useState<string>("");
 
-  const [shortUserName, setShortUserName] = useState<string>("?")
+  const [shortUserName, setShortUserName] = useState<string>("")
 
   useEffect(() => {
     const storedData = typeof window !== "undefined" ? sessionStorage.getItem("profileData") : null;
@@ -164,7 +164,7 @@ export const Header = () => {
                       height={0}
                       sizes="100vw"
                       className="w-12 lg:w-12 h-auto rounded-full"
-                    /> : <div className="w-12 h-12 px-5 py-3 bg-gray-200 rounded-full flex flex-row items-center justify-center gap-0 font-semibold">
+                    /> : <div className="w-12 h-12 px-6 py-3 bg-gray-200 rounded-full flex flex-row items-center justify-center gap-0 font-semibold">
                       {shortUserName}
                     </div>
                   }

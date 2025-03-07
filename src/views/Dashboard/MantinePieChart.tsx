@@ -1,13 +1,10 @@
 import { PieChart } from "@mantine/charts";
 
-export const data = [
-  { name: "SMM", value: 400, color: "indigo.6" },
-  { name: "Vebsayt", value: 1200, color: "yellow.6" },
-  { name: "Targeting", value: 600, color: "teal.6" },
-  { name: "Reels", value: 250, color: "gray.6" },
-];
+interface IMantinePieChart {
+  data: Array<{ name: string; value: number; color: string }>;
+}
 
-export const MantinePieChart = () => {
+export const MantinePieChart = ({ data }: IMantinePieChart) => {
   return (
     <PieChart
       data={data}
