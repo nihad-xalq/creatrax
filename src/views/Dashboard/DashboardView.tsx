@@ -3,7 +3,7 @@
 import { MantineRadialBarChart } from "./MantineRadialBarChart";
 import { MantineLineChart } from "./MantineLineChart";
 import { MantineBarChart } from "./MantineBarChart";
-import { MantinePieChart } from "./MantinePieChart";
+// import { MantinePieChart } from "./MantinePieChart";
 import { PageTitle } from "@/components/PageTitle";
 
 export const DashboardView = () => {
@@ -27,7 +27,7 @@ export const DashboardView = () => {
             <h2 className="text-xl font-semibold text-gray-800 mb-4">
               Xidmətlərin Bölüşdürülməsi
             </h2>
-            <MantinePieChart />
+            {/* <MantinePieChart /> */}
           </div>
           <div className="bg-white p-6 rounded-lg shadow-[0_0_10px_10px_rgba(0_0_0_#000)] flex flex-col items-center">
             <h2 className="text-xl font-semibold text-gray-800 mb-4">
