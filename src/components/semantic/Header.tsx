@@ -3,9 +3,9 @@
 import { IoNotificationsOutline } from "react-icons/io5";
 import { MantineDropdown } from "../ui/MantineDropdown";
 import { FiMenu, FiSearch, FiX } from "react-icons/fi";
+import { CiLogout, CiUser } from "react-icons/ci";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { CiLogout } from "react-icons/ci";
 import { BsPerson } from "react-icons/bs";
 import { rem } from "@mantine/core";
 import Image from "next/image";
@@ -164,8 +164,8 @@ export const Header = () => {
                       height={0}
                       sizes="100vw"
                       className="w-12 lg:w-12 h-auto rounded-full"
-                    /> : <div className="w-12 h-12 px-6 py-3 bg-gray-200 rounded-full flex flex-row items-center justify-center gap-0 font-semibold">
-                      {shortUserName}
+                    /> : <div className="w-12 h-12 min-h-12 max-h-12 min-w-12 max-w-12 px-3 py-3 bg-gray-200 rounded-full flex flex-row items-center justify-center gap-0 font-semibold">
+                      {shortUserName ? shortUserName : <CiUser className="w-6 h-6 text-gray-400 stroke-1" />}
                     </div>
                   }
 
