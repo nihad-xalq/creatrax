@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Image from "next/image";
 import * as yup from "yup";
+import { CiUser } from "react-icons/ci";
 
 // TODO: change storage logic to API
 
@@ -70,7 +71,10 @@ export const ProfileView = () => {
         }
     };
 
-    const handleDeleteProfilePic = () => {
+    const handleDeleteProfilePic = (e: React.MouseEvent) => {
+        // Prevent the event from bubbling up to the label
+        e.stopPropagation();
+
         setProfilePic(null);
         methods.setValue("profilePic", "", { shouldDirty: true });
         sessionStorage.removeItem("profilePic");
@@ -79,10 +83,7 @@ export const ProfileView = () => {
     };
 
     const handleClearData = () => {
-        sessionStorage.removeItem("profileData");
-        setProfilePic(null);
-
-        methods.reset({
+        const emptyData = {
             name: "",
             surname: "",
             email: "",
@@ -91,8 +92,16 @@ export const ProfileView = () => {
             position: "",
             bio: "",
             profilePic: "",
-        });
+            timestamp: Date.now() 
+        };
 
+        // Store the empty data with timestamp in sessionStorage
+        sessionStorage.setItem("profileData", JSON.stringify(emptyData));
+        // Clear the profile picture
+        setProfilePic(null);
+        // Reset the form with empty values
+        methods.reset(emptyData);
+        // Update the hasData state
         setHasData(false);
     };
 
@@ -100,6 +109,7 @@ export const ProfileView = () => {
         const updatedData = {
             ...formData,
             profilePic: profilePic || "",
+            timestamp: Date.now(), // Add timestamp for change detection
         };
 
         sessionStorage.setItem("profileData", JSON.stringify(updatedData));
@@ -133,24 +143,20 @@ export const ProfileView = () => {
                                             />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center text-gray-500 text-base lg:text-sm">
-                                                Şəkil yoxdur
+                                                <CiUser className="w-20 h-20 text-gray-400 stroke-1" />
                                             </div>
                                         )}
-                                        <label
-                                            htmlFor="profilePic"
-                                            className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white cursor-pointer transition"
-                                        >
-                                            <input
-                                                type="file"
-                                                id="profilePic"
-                                                className="hidden"
-                                                accept="image/*"
-                                                onChange={handleProfilePicChange}
-                                            />
-
+                                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition">
                                             <div className="flex gap-4">
                                                 <label htmlFor="profilePic" className="cursor-pointer text-blue-500 hover:underline">
                                                     <FaPen />
+                                                    <input
+                                                        type="file"
+                                                        id="profilePic"
+                                                        className="hidden"
+                                                        accept="image/*"
+                                                        onChange={handleProfilePicChange}
+                                                    />
                                                 </label>
                                                 {profilePic && (
                                                     <button
@@ -162,9 +168,8 @@ export const ProfileView = () => {
                                                     </button>
                                                 )}
                                             </div>
-                                        </label>
+                                        </div>
                                     </div>
-
                                 </div>
 
                                 <div className="self-center flex flex-col">
@@ -227,4 +232,4 @@ export const ProfileView = () => {
             </div>
         </section>
     );
-}
+};

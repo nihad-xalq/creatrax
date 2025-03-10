@@ -101,23 +101,56 @@ export const Header = () => {
 
   const [profilePic, setProfilePic] = useState<string | null>(null);
   const [displayName, setDisplayName] = useState<string>("");
+  const [shortUserName, setShortUserName] = useState<string>("");
+  const [lastUpdate, setLastUpdate] = useState<number>(0);
 
-  const [shortUserName, setShortUserName] = useState<string>("")
-
-  useEffect(() => {
+  const updateProfileData = () => {
     const storedData = typeof window !== "undefined" ? sessionStorage.getItem("profileData") : null;
     if (storedData) {
       const parsedData = JSON.parse(storedData);
 
       const firstName = parsedData?.name || "";
-      const firstNameFirstLetter = parsedData?.name ? parsedData.name[0] : "First name";
+      const firstNameFirstLetter = parsedData?.name ? parsedData.name[0] : "";
       const surnameFirstLetter = parsedData?.surname ? parsedData.surname[0] : "";
 
-      setDisplayName(`${firstName} ${surnameFirstLetter}`);
+      setDisplayName(`${firstName} ${parsedData?.surname || ""}`);
       setProfilePic(parsedData?.profilePic || "");
-      setShortUserName(`${firstNameFirstLetter} ${surnameFirstLetter}`);
+      setShortUserName(`${firstNameFirstLetter}${surnameFirstLetter}`);
     }
-  }, []);
+  };
+
+  // Listen for changes in sessionStorage
+  useEffect(() => {
+    // Initial load
+    updateProfileData();
+
+    // Create a storage event listener
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === "profileData" && e.newValue) {
+        updateProfileData();
+      }
+    };
+
+    // Add event listener for storage changes from other tabs/windows
+    window.addEventListener("storage", handleStorageChange);
+
+    // Set up a polling mechanism to check for changes within the same tab
+    const intervalId = setInterval(() => {
+      const storedData = sessionStorage.getItem("profileData");
+      if (storedData) {
+        const currentTimestamp = JSON.parse(storedData)?.timestamp || 0;
+        if (currentTimestamp > lastUpdate) {
+          setLastUpdate(currentTimestamp);
+          updateProfileData();
+        }
+      }
+    }, 1000); // Check every second
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+      clearInterval(intervalId);
+    };
+  }, [lastUpdate]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -163,7 +196,7 @@ export const Header = () => {
                       width={0}
                       height={0}
                       sizes="100vw"
-                      className="w-12 lg:w-12 h-auto rounded-full"
+                      className="w-12 lg:w-12 max-w-12 max-h-12 min-w-12 min-h-12 h-auto rounded-full"
                     /> : <div className="w-12 h-12 min-h-12 max-h-12 min-w-12 max-w-12 px-3 py-3 bg-gray-200 rounded-full flex flex-row items-center justify-center gap-0 font-semibold">
                       {shortUserName ? shortUserName : <CiUser className="w-6 h-6 text-gray-400 stroke-1" />}
                     </div>
