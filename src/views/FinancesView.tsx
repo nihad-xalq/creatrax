@@ -83,11 +83,11 @@ export const FinancesView = () => {
   ];
 
   return (
-    <section className="financesSection flex flex-row justify-between items-start gap-6 w-full">
-      <div className="about_inner w-full border border-gray-200 rounded-[12px] p-3">
+    <section className="financesSection flex flex-col-reverse lg:flex-row justify-between items-start gap-6 w-full">
+      <div className="about_inner w-full lg:w-1/2 border border-gray-200 rounded-[12px] p-3">
         <PageTitle title="Maliyyə Hesabatı" />
 
-        <div className="flex flex-row items-center justify-between w-full mb-4">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between w-full mb-4">
           {/* Tabs */}
           <div className="flex gap-3 bg-[rgba(251,251,251,1)] w-max px-2 py-2 rounded-[9px] mx-auto lg:mx-0">
             {tabs.map((tab) => (
@@ -190,14 +190,11 @@ export const FinancesView = () => {
                 title={item.title}
                 content={
                   <div>
-                    {/* <h2 className="text-lg font-medium text-gray-800 mb-0.5">
-                      {item.title}
-                    </h2> */}
-                    <p className="text-xs text-gray-600 mb-1">{item.content}</p>
-                    <div className="flex justify-between text-xs text-gray-700">
-                      <span>
-                        Məbləğ:{" "}
-                        <span className="text-blue-600 font-semibold">
+                    <p className="text-sm text-gray-600 mb-3">{item.content}</p>
+                    <div className="flex items-center justify-between text-gray-700">
+                      <span className="bg-blue-950 py-1 px-2 rounded-[6px] text-white">
+                        {/* Məbləğ:{" "} */}
+                        <span className="font-semibold">
                           {item.amount} AZN
                         </span>
                       </span>
@@ -205,17 +202,17 @@ export const FinancesView = () => {
                     </div>
                   </div>
                 }
-                btnStyle="bg-white p-2 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200 w-full h-full flex"
+                btnStyle="bg-white p-1 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200 w-full h-full flex"
                 triggerLabel={
                   <li
-                    className="p-2 w-full flex flex-row justify-between items-center"
+                    className="p-1 w-full flex flex-row justify-between items-center"
                   >
-                    <h2 className="text-lg font-medium text-gray-800 mb-0.5">
+                    <h2 className="text-base font-medium text-gray-800 mb-0.5">
                       {item.title}
                     </h2>
-                    <div className="flex justify-end text-xs text-gray-700 w-full">
+                    <div className="flex justify-end text-base text-gray-700 w-full">
                       <span>
-                        <span className="text-blue-600 font-semibold">
+                        <span className="text-blue-800 font-semibold">
                           {item.amount} AZN
                         </span>
                       </span>
