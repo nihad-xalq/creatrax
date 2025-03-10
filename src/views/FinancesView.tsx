@@ -83,7 +83,7 @@ export const FinancesView = () => {
   ];
 
   return (
-    <section className="flex flex-row justify-between items-start gap-6 w-full">
+    <section className="financesSection flex flex-row justify-between items-start gap-6 w-full">
       <div className="about_inner w-full border border-gray-200 rounded-[12px] p-3">
         <PageTitle title="Maliyyə Hesabatı" />
 
@@ -188,15 +188,11 @@ export const FinancesView = () => {
               <MantineModal
                 key={item.id}
                 title={item.title}
-                content={`${item.amount} AZN`}
-                btnStyle="bg-white p-2 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200 w-full h-full"
-                triggerLabel={
-                  <li
-                    className="p-2 w-full flex flex-col items-start"
-                  >
-                    <h2 className="text-lg font-medium text-gray-800 mb-0.5">
+                content={
+                  <div>
+                    {/* <h2 className="text-lg font-medium text-gray-800 mb-0.5">
                       {item.title}
-                    </h2>
+                    </h2> */}
                     <p className="text-xs text-gray-600 mb-1">{item.content}</p>
                     <div className="flex justify-between text-xs text-gray-700">
                       <span>
@@ -206,6 +202,23 @@ export const FinancesView = () => {
                         </span>
                       </span>
                       <span className="text-gray-500">📅 {item.date}</span>
+                    </div>
+                  </div>
+                }
+                btnStyle="bg-white p-2 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200 w-full h-full flex"
+                triggerLabel={
+                  <li
+                    className="p-2 w-full flex flex-row justify-between items-center"
+                  >
+                    <h2 className="text-lg font-medium text-gray-800 mb-0.5">
+                      {item.title}
+                    </h2>
+                    <div className="flex justify-end text-xs text-gray-700 w-full">
+                      <span>
+                        <span className="text-blue-600 font-semibold">
+                          {item.amount} AZN
+                        </span>
+                      </span>
                     </div>
                   </li>
                 }
