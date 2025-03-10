@@ -6,6 +6,7 @@ import { InputNumberField } from "@/components/form/InputNumberField";
 import { InputDatePicker } from "@/components/form/InputDatePicker";
 import { InputTextField } from "@/components/form/InputTextField";
 import { CFormProvider } from "@/components/form/CFormProvider";
+import { MantinePieChart } from "./Dashboard/MantinePieChart";
 import { MantineModal } from "@/components/ui/MantineModal";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { PageTitle } from "@/components/PageTitle";
@@ -15,7 +16,6 @@ import { FaPlus } from "react-icons/fa";
 import { format } from "date-fns";
 import { useState } from "react";
 import * as yup from "yup";
-import { MantinePieChart } from "./Dashboard/MantinePieChart";
 
 const schema = yup.object().shape({
   actionType: yup.string().required("Bu xana vacibdir"),

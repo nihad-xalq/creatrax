@@ -8,10 +8,10 @@ import { PageTitle } from "@/components/PageTitle";
 import { FaPen, FaTrash } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { CiUser } from "react-icons/ci";
 import { useState } from "react";
 import Image from "next/image";
 import * as yup from "yup";
-import { CiUser } from "react-icons/ci";
 
 // TODO: change storage logic to API
 
@@ -72,7 +72,6 @@ export const ProfileView = () => {
     };
 
     const handleDeleteProfilePic = (e: React.MouseEvent) => {
-        // Prevent the event from bubbling up to the label
         e.stopPropagation();
 
         setProfilePic(null);
@@ -95,13 +94,9 @@ export const ProfileView = () => {
             timestamp: Date.now() 
         };
 
-        // Store the empty data with timestamp in sessionStorage
         sessionStorage.setItem("profileData", JSON.stringify(emptyData));
-        // Clear the profile picture
         setProfilePic(null);
-        // Reset the form with empty values
         methods.reset(emptyData);
-        // Update the hasData state
         setHasData(false);
     };
 
@@ -109,7 +104,7 @@ export const ProfileView = () => {
         const updatedData = {
             ...formData,
             profilePic: profilePic || "",
-            timestamp: Date.now(), // Add timestamp for change detection
+            timestamp: Date.now(),
         };
 
         sessionStorage.setItem("profileData", JSON.stringify(updatedData));
@@ -225,8 +220,6 @@ export const ProfileView = () => {
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </CFormProvider>
             </div>

@@ -119,22 +119,17 @@ export const Header = () => {
     }
   };
 
-  // Listen for changes in sessionStorage
   useEffect(() => {
-    // Initial load
     updateProfileData();
 
-    // Create a storage event listener
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === "profileData" && e.newValue) {
         updateProfileData();
       }
     };
 
-    // Add event listener for storage changes from other tabs/windows
     window.addEventListener("storage", handleStorageChange);
 
-    // Set up a polling mechanism to check for changes within the same tab
     const intervalId = setInterval(() => {
       const storedData = sessionStorage.getItem("profileData");
       if (storedData) {
@@ -144,7 +139,7 @@ export const Header = () => {
           updateProfileData();
         }
       }
-    }, 1000); // Check every second
+    }, 1000);
 
     return () => {
       window.removeEventListener("storage", handleStorageChange);
@@ -161,7 +156,7 @@ export const Header = () => {
         {
           displayName ?
             <h1 className="text-black text-lg font-semibold mb-3 md:mb-0">
-              Xoş gəldiniz, {displayName}
+              Xoş gəldiniz {displayName}
             </h1> : ""
         }
 
@@ -192,7 +187,7 @@ export const Header = () => {
                   {
                     profilePic ? <Image
                       src={profilePic || "null"}
-                      alt="PP"
+                      alt="Profile Image"
                       width={0}
                       height={0}
                       sizes="100vw"
