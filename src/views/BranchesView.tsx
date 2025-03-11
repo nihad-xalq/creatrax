@@ -39,7 +39,7 @@ export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
               {branch.location}
             </p>
             <Link
-              href={`/branches/${branch.id}`}
+              href={`/app/branches/${branch.id}`}
               className="text-blue-500 hover:underline"
             >
               Daha Ətraflı
