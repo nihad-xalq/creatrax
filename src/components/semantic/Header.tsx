@@ -160,7 +160,7 @@ export const Header = () => {
             </h1> : ""
         }
 
-        <div className="text-black flex flex-row items-center gap-5">
+        <div className="text-black flex flex-row items-center gap-5 w-full justify-between lg:w-max">
           <div className="search_wrapper relative hidden sm:block">
             <input
               type="text"
