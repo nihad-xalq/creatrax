@@ -1,11 +1,10 @@
 "use client";
 
 import { FiMinus, FiPlus, FiSearch } from "react-icons/fi";
+import { PageTitle } from "@/components/PageTitle";
 import { Employee } from "@/types/employeesTypes";
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { PageTitle } from "@/components/PageTitle";
 
 interface EmployeesViewProps {
   data: Employee[];
@@ -56,14 +55,14 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
       </div>
 
       {/* Employee Grid */}
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 willFadeFromAbove">
+      <ul className="grid grid-cols-1 gap-2 willFadeFromAbove">
         {filteredEmployees.slice(0, visibleCount).map((employee) => (
           <li
             key={employee.id}
-            className="bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between"
+            className="py-4 bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300 flex flex-row justify-between"
           >
-            <div className="p-6">
-              <div className="flex items-center mb-4">
+            <div className="px-6 py-0 flex flex-col lg:flex-row items-center gap-3 lg:gap-12">
+              <div className="flex items-center w-max min-w-max">
                 <div className="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-full font-bold text-lg shadow-md overflow-hidden">
                   {employee.image ? (
                     <Image
@@ -78,31 +77,30 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
                   )}
                 </div>
                 <div className="ml-4">
-                  <h2 className="text-xl font-semibold text-gray-900">
+                  <h2 className="text-lg text-gray-900 font-semibold tracking-normal">
                     {employee.name}
                   </h2>
                   <p className="text-sm text-gray-500">{employee.position}</p>
                 </div>
               </div>
-              <p className="text-md text-gray-700 mb-0 line-clamp-2">
+              <p className="text-md text-gray-700 mb-0">
                 {employee.bio}
               </p>
             </div>
-            <div className="p-4 py-2 bg-gray-50 rounded-b-xl border-t border-gray-200 flex justify-between items-center">
+            {/* <div className="px-2 py-2 flex flex-col justify-center items-center gap-3 w-max min-w-max">
               <Link
                 href={`/employees/${employee.id}`}
-                className="text-blue-500 hover:underline font-medium"
+                className="text-blue-500 text-sm hover:underline font-medium"
               >
                 Daha Ətraflı
               </Link>
               <Link
                 href={`mailto:${employee.email}`}
                 className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-                // onClick={() => alert(`Contacting ${employee.name}`)}
               >
                 Əlaqə Saxla
               </Link>
-            </div>
+            </div> */}
           </li>
         ))}
       </ul>
