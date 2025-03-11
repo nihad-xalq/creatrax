@@ -1,11 +1,10 @@
 "use client";
 
+import { MantineModal } from "@/components/ui/MantineModal";
 import { PageTitle } from "@/components/PageTitle";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { Branch } from "@/types/branchesTypes";
 import { useState } from "react";
-import Link from "next/link";
-import { MantineModal } from "@/components/ui/MantineModal";
 
 interface BranchesViewProps {
   data: Branch[];
