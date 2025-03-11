@@ -32,7 +32,7 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
   const isAllLoaded = visibleCount >= filteredEmployees.length;
 
   return (
-    <section className="py-3">
+    <section className="employeesSection py-3">
       <div className="flex flex-col lg:flex-row items-center justify-between mb-12 lg:mb-0">
         {/* Header Section */}
         <div className="text-center flex flex-col items-center lg:items-start gap-3 mb-6">
@@ -60,12 +60,12 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
         {filteredEmployees.slice(0, visibleCount).map((employee) => (
           <MantineModal
             key={employee.id}
-            title={employee.name}
+            // title={employee.name}
             content={
               <div
                 className="py-4 bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300 flex flex-row justify-between"
               >
-                <div className="px-6 py-0 flex flex-col lg:flex-col items-center gap-3 lg:gap-6">
+                <div className="px-6 py-0 flex flex-col lg:flex-col items-start gap-3 lg:gap-6">
                   <div className="flex items-center w-max min-w-max">
                     <div className="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-full font-bold text-lg shadow-md overflow-hidden">
                       {employee.image ? (
@@ -97,10 +97,10 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
             triggerLabel={
               <li
                 key={employee.id}
-                className="py-3 flex flex-row justify-between"
+                className="py-3 flex flex-row justify-between w-full"
               >
-                <div className="px-4 py-0 flex flex-col lg:flex-row items-center gap-3 lg:gap-12">
-                  <div className="flex items-center w-max min-w-max">
+                <div className="px-4 py-0 flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-12 w-full">
+                  <div className="flex items-center">
                     <div className="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-full font-bold text-lg shadow-md overflow-hidden">
                       {employee.image ? (
                         <Image
@@ -121,8 +121,14 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
                       <p className="text-sm text-gray-500 font-normal">{employee.position}</p>
                     </div>
                   </div>
-                  <p className="text-md text-gray-700 font-medium mb-0">
+                  {/* <p className="text-md text-gray-700 font-medium mb-0">
                     {employee.bio}
+                  </p> */}
+                  <p className="text-md text-gray-700 font-medium mb-0">
+                    {employee.email}
+                  </p>
+                  <p className="text-md text-gray-700 font-medium mb-0">
+                    {employee.phone}
                   </p>
                 </div>
               </li>
