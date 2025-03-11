@@ -3,7 +3,6 @@
 import { MantineRadialBarChart } from "./MantineRadialBarChart";
 import { MantineLineChart } from "./MantineLineChart";
 import { MantineBarChart } from "./MantineBarChart";
-// import { MantinePieChart } from "./MantinePieChart";
 import { PageTitle } from "@/components/PageTitle";
 
 export const DashboardView = () => {

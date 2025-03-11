@@ -1,11 +1,11 @@
 "use client";
 
+import { MantineModal } from "@/components/ui/MantineModal";
 import { FiMinus, FiPlus, FiSearch } from "react-icons/fi";
 import { PageTitle } from "@/components/PageTitle";
 import { Employee } from "@/types/employeesTypes";
 import { useState } from "react";
 import Image from "next/image";
-import { MantineModal } from "@/components/ui/MantineModal";
 
 interface EmployeesViewProps {
   data: Employee[];
@@ -128,7 +128,6 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
               </li>
             }
           />
-
         ))}
       </ul>
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { GuideItem } from "@/types/guideTypes";
 import { PageTitle } from "@/components/PageTitle";
 

@@ -1,8 +1,7 @@
-// import { fullYear } from "@/helpers/getTimes";
+import { useRouter } from "next/navigation";
 import { TbLogout2 } from "react-icons/tb";
 import { Logo } from "../reusable/Logo";
 import { Navbar } from "./Navbar";
-import { useRouter } from "next/navigation";
 
 export const Sidebar = () => {
   const router = useRouter()
@@ -29,12 +28,6 @@ export const Sidebar = () => {
 
       {/* Navbar Links */}
       <Navbar />
-
-      {/* Footer */}
-      {/* <div className="mt-auto text-center text-[12px] text-white">
-        <p>Creadive &copy; {fullYear}</p>
-        <p className="text-gray-300">All Rights Reserved</p>
-      </div> */}
 
       <button
         type="button"

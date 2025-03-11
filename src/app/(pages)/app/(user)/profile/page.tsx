@@ -5,7 +5,6 @@ export default function ProfilePage() {
         <section className="">
             <div className="">
                 <ProfileView />
-                {/* <ProfileView data={branchesData} /> */}
             </div>
         </section>
     );

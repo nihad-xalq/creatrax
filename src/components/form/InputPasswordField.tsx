@@ -1,9 +1,9 @@
 "use client";
 
+import { FaEye, FaEyeSlash, FaInfoCircle } from "react-icons/fa";
 import { ErrorMessage } from "@hookform/error-message";
 import { useFormContext } from "react-hook-form";
 import React, { FC, useState } from "react";
-import { FaEye, FaEyeSlash, FaInfoCircle } from "react-icons/fa";
 
 interface IInputPasswordField extends React.ComponentProps<"input"> {
   label?: string;

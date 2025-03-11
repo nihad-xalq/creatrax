@@ -84,15 +84,6 @@ export const HomeView = () => {
                 />
 
                 <div className="flex justify-between items-center">
-                  {/* TODO: Replace it with custom checkbox input */}
-                  {/* <label className="text-sm text-gray-600 cursor-pointer select-none">
-                    <input
-                      type="checkbox"
-                      className="mr-2 rounded border-gray-300 focus:ring-2 focus:ring-blue-400 cursor-pointer"
-                    />
-                    Məni xatırla
-                  </label> */}
-
                   <InputCheckboxField name="rememeberMe" label="Məni xatırla" />
                   <a
                     // think about if it should be a tag or next/link element, and if it should be blank or not

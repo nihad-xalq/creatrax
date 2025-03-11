@@ -1,8 +1,8 @@
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { fullYear } from "@/helpers/getTimes";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import { JSX } from "react";
-import { fullYear } from "@/helpers/getTimes";
 
 interface SocialMediaAccounts {
   name: string;

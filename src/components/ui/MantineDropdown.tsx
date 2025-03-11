@@ -1,9 +1,9 @@
 "use client";
 
-import { Menu, Button } from "@mantine/core";
-import Link from "next/link";
-import { FC, useState } from "react";
 import { HiOutlineChevronDown } from "react-icons/hi2";
+import { Menu, Button } from "@mantine/core";
+import { FC, useState } from "react";
+import Link from "next/link";
 
 interface DataType {
   label: string;

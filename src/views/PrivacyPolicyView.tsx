@@ -1,4 +1,3 @@
-import React from "react";
 import { PrivacyPolicyItem } from "@/types/privacyPolicyTypes";
 import { PageTitle } from "@/components/PageTitle";
 

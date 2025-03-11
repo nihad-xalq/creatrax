@@ -1,14 +1,9 @@
 "use client";
 
-// import { MdOutlineModeEditOutline } from "react-icons/md";
 import { clients } from "@/lib/mockData";
 import React from "react";
 
 export const ClientsListView = () => {
-  // const handleOpenEditModal = (clientName: string) => {
-  //   alert(`Edit: ${clientName}`);
-  // };
-
   return (
     <div className="overflow-x-auto rounded-lg willFadeFromAbove">
       <div className="shadow-md rounded-lg">

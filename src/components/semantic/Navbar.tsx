@@ -1,5 +1,6 @@
 "use client";
 
+import { MdOutlinePrivacyTip } from "react-icons/md";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { JSX } from "react";
@@ -13,7 +14,6 @@ import {
   FaMoneyBill,
 } from "react-icons/fa";
 
-import { MdOutlinePrivacyTip } from "react-icons/md";
 
 interface HeaderLinksTypes {
   section: string;
