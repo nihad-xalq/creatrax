@@ -1,50 +1,63 @@
 "use client";
 
+import { PageTitle } from "@/components/PageTitle";
+import { FiMinus, FiPlus } from "react-icons/fi";
 import { Branch } from "@/types/branchesTypes";
 import { useState } from "react";
 import Link from "next/link";
-import { FiMinus, FiPlus } from "react-icons/fi";
-import { PageTitle } from "@/components/PageTitle";
+import { MantineModal } from "@/components/ui/MantineModal";
 
 interface BranchesViewProps {
   data: Branch[];
 }
 
 export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
-  const [visibleCount, setVisibleCount] = useState(6); // Initial visible count
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const handleToggle = () => {
     if (visibleCount >= data.length) {
-      setVisibleCount(6); // Reset to the initial count
+      setVisibleCount(6);
     } else {
-      setVisibleCount((prev) => prev + 6); // Load 6 more
+      setVisibleCount((prev) => prev + 6);
     }
   };
 
   const isAllLoaded = visibleCount >= data.length;
 
   return (
-    <section>
+    <section className="branchesSection">
       <PageTitle title="Filiallar" />
       <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 willFadeFromAbove">
         {data.slice(0, visibleCount).map((branch) => (
-          <li
+
+          <MantineModal
             key={branch.id}
-            className="willSimplyFadeIn bg-white p-5 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300"
-          >
-            <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-              {branch.name}
-            </h2>
-            <p className="text-md text-gray-700 font-light mb-2">
-              {branch.location}
-            </p>
-            <Link
-              href={`/app/branches/${branch.id}`}
-              className="text-blue-500 hover:underline"
-            >
-              Daha Ətraflı
-            </Link>
-          </li>
+            title={branch.name}
+            content={
+              <div
+                className="willSimplyFadeIn bg-white p-5 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300"
+              >
+                <p className="text-md text-gray-700 font-light mb-2">
+                  {branch.location}
+                </p>
+              </div>
+            }
+            btnStyle="bg-white p-1 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200 w-full h-full flex"
+            triggerLabel={
+              <li
+                key={branch.id}
+                className="willSimplyFadeIn p-5 w-full"
+              >
+                <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+                  {branch.name}
+                </h2>
+                {/* <p className="text-md text-gray-700 font-light mb-2">
+                  {branch.location}
+                </p> */}
+              </li>
+            }
+          />
+
         ))}
       </ul>
 
