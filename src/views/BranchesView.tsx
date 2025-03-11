@@ -5,6 +5,7 @@ import { PageTitle } from "@/components/PageTitle";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { Branch } from "@/types/branchesTypes";
 import { useState } from "react";
+import Image from "next/image";
 
 interface BranchesViewProps {
   data: Branch[];
@@ -26,7 +27,7 @@ export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
   return (
     <section className="branchesSection">
       <PageTitle title="Filiallar" />
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 willFadeFromAbove">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 willFadeFromAbove">
         {data.slice(0, visibleCount).map((branch) => (
 
           <MantineModal
@@ -34,8 +35,10 @@ export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
             title={branch.name}
             content={
               <div
-                className="willSimplyFadeIn bg-white p-5 rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300"
+                className="willSimplyFadeIn p-3 rounded-xl flex flex-col gap-3"
               >
+                {/* TODO: Consider slideshow of branch pics here */}
+                <Image src={branch.imageUrl} alt={branch.name} width={0} height={0} sizes="100vw" className="w-full h-auto rounded-[4px]" />
                 <p className="text-md text-gray-700 font-light mb-2">
                   {branch.location}
                 </p>
@@ -45,14 +48,12 @@ export const BranchesView: React.FC<BranchesViewProps> = ({ data }) => {
             triggerLabel={
               <li
                 key={branch.id}
-                className="willSimplyFadeIn p-5 w-full"
+                className="willSimplyFadeIn w-full flex flex-col items-center gap-3"
               >
+                <Image src={branch.imageUrl} alt={branch.name} width={0} height={0} sizes="100vw" className="w-full h-auto rounded-[4px]" />
                 <h2 className="text-2xl font-semibold text-gray-900 mb-2">
                   {branch.name}
                 </h2>
-                {/* <p className="text-md text-gray-700 font-light mb-2">
-                  {branch.location}
-                </p> */}
               </li>
             }
           />

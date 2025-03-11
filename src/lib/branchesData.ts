@@ -7,6 +7,7 @@ export const branchesData: Branch[] = [
     location: "Bakı, Yasamal rayonu, Şərifzadə küçəsi 12",
     contact: "+994 12 123 45 67",
     description: "Creadive baş ofisi əsas idarəetmə və əməliyyat mərkəzidir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ export const branchesData: Branch[] = [
     contact: "+994 18 654 32 10",
     description:
       "Sumqayıt filialı müştəri dəstəyi və regional xidmətlər göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const branchesData: Branch[] = [
     location: "Gəncə, Cavadxan küçəsi 57",
     contact: "+994 22 987 65 43",
     description: "Gəncə filialı Qərb bölgəsində xidmət göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export const branchesData: Branch[] = [
     contact: "+994 36 123 45 67",
     description:
       "Naxçıvan filialı yerli müştərilər və bizneslər üçün xidmətlər göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 5,
@@ -37,6 +41,7 @@ export const branchesData: Branch[] = [
     location: "Mingəçevir, Şəhriyar küçəsi 22",
     contact: "+994 24 567 89 12",
     description: "Mingəçevir filialı mərkəzi bölgədə xidmət göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 6,
@@ -44,6 +49,7 @@ export const branchesData: Branch[] = [
     location: "Qəbələ, Mərkəz küçəsi 5",
     contact: "+994 20 123 45 78",
     description: "Qəbələ filialı şimal bölgəsində xidmət göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 7,
@@ -52,6 +58,7 @@ export const branchesData: Branch[] = [
     contact: "+994 25 765 43 21",
     description:
       "Lənkəran filialı cənub bölgəsində müştəri dəstəyi təqdim edir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 8,
@@ -59,6 +66,7 @@ export const branchesData: Branch[] = [
     location: "Şəki, Füzuli küçəsi 9",
     contact: "+994 23 123 45 90",
     description: "Şəki filialı Şimal-qərb bölgəsində xidmət göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 9,
@@ -67,6 +75,7 @@ export const branchesData: Branch[] = [
     contact: "+994 22 456 78 90",
     description:
       "Zaqatala filialı yerli müştərilərə yüksək xidmət təqdim edir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 10,
@@ -74,6 +83,7 @@ export const branchesData: Branch[] = [
     location: "Şəmkir, Heydər Əliyev küçəsi 7",
     contact: "+994 26 789 56 34",
     description: "Şəmkir filialı Qərb bölgəsində fəaliyyət göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 11,
@@ -81,6 +91,7 @@ export const branchesData: Branch[] = [
     location: "Quba, Nizami küçəsi 15",
     contact: "+994 21 987 65 43",
     description: "Quba filialı Şimal bölgəsində müştəri dəstəyi göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 12,
@@ -88,6 +99,7 @@ export const branchesData: Branch[] = [
     location: "İsmayıllı, Mərkəzi küçə 12",
     contact: "+994 20 432 10 98",
     description: "İsmayıllı filialı yerli icma və bizneslərə xidmət göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 13,
@@ -95,6 +107,7 @@ export const branchesData: Branch[] = [
     location: "Bərdə, Azadlıq küçəsi 19",
     contact: "+994 27 123 45 67",
     description: "Bərdə filialı mərkəzi bölgədə müştəri dəstəyi təqdim edir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 14,
@@ -102,6 +115,7 @@ export const branchesData: Branch[] = [
     location: "Ağdaş, Heydər Əliyev prospekti 3",
     contact: "+994 20 765 43 21",
     description: "Ağdaş filialı region müştərilərinə xidmət göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 15,
@@ -109,6 +123,7 @@ export const branchesData: Branch[] = [
     location: "Saatlı, Qara Qarayev küçəsi 6",
     contact: "+994 28 123 45 67",
     description: "Saatlı filialı Cənub bölgəsində müştəri dəstəyi təqdim edir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 16,
@@ -116,6 +131,7 @@ export const branchesData: Branch[] = [
     location: "Masallı, Şəhriyar prospekti 11",
     contact: "+994 25 987 65 43",
     description: "Masallı filialı yerli müştərilərə xidmət göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 17,
@@ -123,6 +139,7 @@ export const branchesData: Branch[] = [
     location: "Balakən, Mərkəz küçəsi 8",
     contact: "+994 22 567 89 01",
     description: "Balakən filialı Şimal-qərb bölgəsində xidmət göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 18,
@@ -130,6 +147,7 @@ export const branchesData: Branch[] = [
     location: "Tovuz, Gənclik küçəsi 20",
     contact: "+994 26 123 45 78",
     description: "Tovuz filialı qərb bölgəsində xidmət təqdim edir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 19,
@@ -138,6 +156,7 @@ export const branchesData: Branch[] = [
     contact: "+994 28 987 65 43",
     description:
       "Füzuli filialı müştərilərinə yüksək keyfiyyətli xidmət təqdim edir.",
+    imageUrl: "/branches/branch1.jpg",
   },
   {
     id: 20,
@@ -145,5 +164,6 @@ export const branchesData: Branch[] = [
     location: "Sabirabad, Heydər Əliyev küçəsi 17",
     contact: "+994 29 123 45 67",
     description: "Sabirabad filialı cənub bölgəsində fəaliyyət göstərir.",
+    imageUrl: "/branches/branch1.jpg",
   },
 ];

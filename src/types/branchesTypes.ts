@@ -4,4 +4,5 @@ export interface Branch {
   location: string;
   contact: string;
   description: string;
+  imageUrl: string;
 }
