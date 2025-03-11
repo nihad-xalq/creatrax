@@ -91,7 +91,7 @@ export const ProfileView = () => {
             position: "",
             bio: "",
             profilePic: "",
-            timestamp: Date.now() 
+            timestamp: Date.now()
         };
 
         sessionStorage.setItem("profileData", JSON.stringify(emptyData));
@@ -124,7 +124,7 @@ export const ProfileView = () => {
                 <CFormProvider methods={methods} onSubmit={handleSubmit}>
                     <div className="flex flex-col gap-3">
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-3">
-                            <header className="profile_header flex flex-col lg:flex-row gap-6 self-start w-full lg:w-max items-center border border-gray-200 rounded-[12px] px-8 py-4 shadow-md">
+                            <header className="profile_header flex flex-col lg:flex-row gap-0 lg:gap-6 self-start w-full lg:w-max items-center border border-gray-200 rounded-[12px] px-8 py-4 shadow-md">
                                 {/* Profile Picture Upload */}
                                 <div className="flex flex-col items-center gap-2 my-4">
                                     <div className="w-40 h-40 bg-gray-200 rounded-full relative group overflow-hidden">
@@ -168,14 +168,13 @@ export const ProfileView = () => {
                                 </div>
 
                                 <div className="self-center flex flex-col">
-                                    <h1 className="text-3xl font-semibold text-slate-800 italic text-center lg:text-left">
+                                    <p className="text-3xl font-semibold text-slate-800 italic text-center lg:text-left">
                                         {parsedData?.name || ""} {parsedData?.surname || ""}
-                                    </h1>
-                                    <h1 className="text-lg text-blue-950 font-medium italic flex flex-col items-start gap-0 uppercase text-center lg:text-left">
+                                    </p>
+                                    <p className="text-lg text-blue-950 font-medium italic flex flex-row lg:flex-col items-center lg:items-start gap-3 lg:gap-0 uppercase text-center lg:text-left">
                                         {parsedData?.position || ""}
                                         <span className="text-sm text-gray-400 font-light capitalize">{parsedData?.organisation || ""}</span>
-                                    </h1>
-
+                                    </p>
                                 </div>
                             </header>
 
