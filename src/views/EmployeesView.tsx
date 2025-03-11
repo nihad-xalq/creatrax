@@ -5,6 +5,7 @@ import { PageTitle } from "@/components/PageTitle";
 import { Employee } from "@/types/employeesTypes";
 import { useState } from "react";
 import Image from "next/image";
+import { MantineModal } from "@/components/ui/MantineModal";
 
 interface EmployeesViewProps {
   data: Employee[];
@@ -57,51 +58,77 @@ export const EmployeesView: React.FC<EmployeesViewProps> = ({ data }) => {
       {/* Employee Grid */}
       <ul className="grid grid-cols-1 gap-2 willFadeFromAbove">
         {filteredEmployees.slice(0, visibleCount).map((employee) => (
-          <li
+          <MantineModal
             key={employee.id}
-            className="py-4 bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300 flex flex-row justify-between"
-          >
-            <div className="px-6 py-0 flex flex-col lg:flex-row items-center gap-3 lg:gap-12">
-              <div className="flex items-center w-max min-w-max">
-                <div className="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-full font-bold text-lg shadow-md overflow-hidden">
-                  {employee.image ? (
-                    <Image
-                      src={employee.image}
-                      alt={employee.name}
-                      width={48}
-                      height={48}
-                      className="rounded-full object-cover"
-                    />
-                  ) : (
-                    employee.name[0]
-                  )}
-                </div>
-                <div className="ml-4">
-                  <h2 className="text-lg text-gray-900 font-semibold tracking-normal">
-                    {employee.name}
-                  </h2>
-                  <p className="text-sm text-gray-500">{employee.position}</p>
+            title={employee.name}
+            content={
+              <div
+                className="py-4 bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300 flex flex-row justify-between"
+              >
+                <div className="px-6 py-0 flex flex-col lg:flex-col items-center gap-3 lg:gap-6">
+                  <div className="flex items-center w-max min-w-max">
+                    <div className="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-full font-bold text-lg shadow-md overflow-hidden">
+                      {employee.image ? (
+                        <Image
+                          src={employee.image}
+                          alt={employee.name}
+                          width={48}
+                          height={48}
+                          className="rounded-full object-cover"
+                        />
+                      ) : (
+                        employee.name[0]
+                      )}
+                    </div>
+                    <div className="ml-4">
+                      <h2 className="text-lg text-gray-900 font-semibold tracking-normal">
+                        {employee.name}
+                      </h2>
+                      <p className="text-sm text-gray-500">{employee.position}</p>
+                    </div>
+                  </div>
+                  <p className="text-md text-gray-700 mb-0">
+                    {employee.bio}
+                  </p>
                 </div>
               </div>
-              <p className="text-md text-gray-700 mb-0">
-                {employee.bio}
-              </p>
-            </div>
-            {/* <div className="px-2 py-2 flex flex-col justify-center items-center gap-3 w-max min-w-max">
-              <Link
-                href={`/employees/${employee.id}`}
-                className="text-blue-500 text-sm hover:underline font-medium"
+            }
+            btnStyle="bg-white p-0.5 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200 w-full h-full flex"
+            triggerLabel={
+              <li
+                key={employee.id}
+                className="py-3 flex flex-row justify-between"
               >
-                Daha Ətraflı
-              </Link>
-              <Link
-                href={`mailto:${employee.email}`}
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-              >
-                Əlaqə Saxla
-              </Link>
-            </div> */}
-          </li>
+                <div className="px-4 py-0 flex flex-col lg:flex-row items-center gap-3 lg:gap-12">
+                  <div className="flex items-center w-max min-w-max">
+                    <div className="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-full font-bold text-lg shadow-md overflow-hidden">
+                      {employee.image ? (
+                        <Image
+                          src={employee.image}
+                          alt={employee.name}
+                          width={48}
+                          height={48}
+                          className="rounded-full object-cover"
+                        />
+                      ) : (
+                        employee.name[0]
+                      )}
+                    </div>
+                    <div className="ml-4 flex flex-col items-start gap-0">
+                      <h2 className="text-lg text-gray-900 font-semibold leading-tight">
+                        {employee.name}
+                      </h2>
+                      <p className="text-sm text-gray-500 font-normal">{employee.position}</p>
+                    </div>
+                  </div>
+                  <p className="text-md text-gray-700 font-medium mb-0">
+                    {employee.bio}
+                  </p>
+                </div>
+              </li>
+            }
+          />
+
         ))}
       </ul>
 
