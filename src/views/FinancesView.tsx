@@ -6,7 +6,7 @@ import { InputNumberField } from "@/components/form/InputNumberField";
 import { InputDatePicker } from "@/components/form/InputDatePicker";
 import { InputTextField } from "@/components/form/InputTextField";
 import { CFormProvider } from "@/components/form/CFormProvider";
-import { MantinePieChart } from "./Dashboard/MantinePieChart";
+import { MantineLineChart } from "./Dashboard/MantineLineChart";
 import { MantineModal } from "@/components/ui/MantineModal";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { PageTitle } from "@/components/PageTitle";
@@ -16,6 +16,9 @@ import { FaPlus } from "react-icons/fa";
 import { format } from "date-fns";
 import { useState } from "react";
 import * as yup from "yup";
+
+// FIXME: change this to dynamic data
+const budgetAmount: number = 32_000;
 
 const schema = yup.object().shape({
   actionType: yup.string().required("Bu xana vacibdir"),
@@ -51,7 +54,7 @@ export const FinancesView = () => {
     defaultValues: {
       // actionType: "Gəlir",
       actionPayer: "",
-      // actionAmount: 0,
+      actionAmount: 0,
       actionDescription: "",
       paymentDate: "",
       notes: "",
@@ -77,9 +80,32 @@ export const FinancesView = () => {
     methods.reset();
   };
 
-  const financeChartData = [
-    { name: "Gəlirlər", value: 40000, color: "indigo.6" },
-    { name: "Xərclər", value: 8000, color: "yellow.6" },
+  const moneyData = [
+    { date: "2020-01-27", Gəlirlər: 2839, Xərclər: 1671 },
+    { date: "2020-06-24", Gəlirlər: 2885, Xərclər: 4712 },
+    { date: "2020-07-31", Gəlirlər: 2903, Xərclər: 2094 },
+    { date: "2020-08-12", Gəlirlər: 1603, Xərclər: 1590 },
+    { date: "2020-08-18", Gəlirlər: 1759, Xərclər: 3403 },
+    { date: "2021-02-05", Gəlirlər: 2102, Xərclər: 3298 },
+    { date: "2021-03-15", Gəlirlər: 2451, Xərclər: 3849 },
+    { date: "2021-05-20", Gəlirlər: 2673, Xərclər: 4320 },
+    { date: "2021-06-08", Gəlirlər: 1980, Xərclər: 2756 },
+    { date: "2021-09-30", Gəlirlər: 2324, Xərclər: 3910 },
+    { date: "2022-01-14", Gəlirlər: 2795, Xərclər: 4021 },
+    { date: "2022-03-22", Gəlirlər: 1950, Xərclər: 2783 },
+    { date: "2022-07-06", Gəlirlər: 2550, Xərclər: 4695 },
+    { date: "2022-09-10", Gəlirlər: 2410, Xərclər: 4100 },
+    { date: "2022-12-25", Gəlirlər: 2995, Xərclər: 3502 },
+    { date: "2023-02-11", Gəlirlər: 2120, Xərclər: 3280 },
+    { date: "2023-04-28", Gəlirlər: 2658, Xərclər: 4123 },
+    { date: "2023-06-17", Gəlirlər: 2763, Xərclər: 4985 },
+    { date: "2023-07-23", Gəlirlər: 2890, Xərclər: 4701 },
+    { date: "2023-10-31", Gəlirlər: 3150, Xərclər: 4820 },
+    { date: "2024-01-05", Gəlirlər: 2790, Xərclər: 4050 },
+    { date: "2024-02-18", Gəlirlər: 2305, Xərclər: 3560 },
+    { date: "2024-03-06", Gəlirlər: 2420, Xərclər: 4098 },
+    { date: "2024-03-15", Gəlirlər: 2715, Xərclər: 4703 },
+    { date: "2024-03-29", Gəlirlər: 2990, Xərclər: 4952 },
   ];
 
   return (
@@ -233,9 +259,9 @@ export const FinancesView = () => {
       <div className="w-full border border-gray-200 rounded-[12px] p-5">
         <p className="flex flex-row items-baseline gap-3">
           <span className="text-2xl">Budget:</span>
-          <span className="text-4xl font-semibold">₼{32_000}</span>
+          <span className="text-4xl font-semibold">₼{budgetAmount}</span>
         </p>
-        <MantinePieChart data={financeChartData} />
+        <MantineLineChart data={moneyData} />
       </div>
     </section>
   );
