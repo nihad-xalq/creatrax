@@ -109,7 +109,7 @@ export const FinancesView = () => {
           </div>
           <div>
             <MantineModal
-              title="Yeni pul əlavə et"
+              title="Yeni tranzaksiya əlavə et"
               content={
                 <CFormProvider
                   methods={methods}
@@ -172,8 +172,9 @@ export const FinancesView = () => {
               }
               triggerLabel={
                 <>
-                  <FaPlus className="mr-2" />
-                  Tranzaksiya əlavə et
+                  {/* className="mr-2" */}
+                  <FaPlus />
+                  {/* Tranzaksiya əlavə et */}
                 </>
               }
               btnStyle="flex flex-row items-center gap-3 bg-slate-700 hover:bg-slate-800 text-white hover:text-white py-3 px-6 rounded-[12px] transition duration-150 cursor-pointer min-h-12"

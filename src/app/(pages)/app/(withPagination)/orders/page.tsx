@@ -194,7 +194,7 @@ export default function OrdersPage() {
             triggerLabel={
               <>
                 <FaPlus />
-                Add New Order
+                {/* Add New Order */}
               </>
             }
             btnStyle="bg-[rgba(31,41,55,1)] hover:bg-[rgba(31,41,55,0.9)] py-4 px-8 rounded-[12px] flex flex-row items-center gap-3 transition duration-200 text-white hover:text-white h-full"
