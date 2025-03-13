@@ -4,7 +4,7 @@ import { useState } from "react";
 type Range = "daily" | "weekly" | "monthly" | "yearly"
 
 export const MantineLineChart = ({ data }) => {
-  const [timeRange, setTimeRange] = useState<Range>("monthly");
+  const [timeRange, setTimeRange] = useState<Range>("daily");
 
   const getFilteredData = (): { date: string; Xərclər: number; Gəlirlər: number }[] => {
     const groupedData: Record<string, { date: string; Xərclər: number; Gəlirlər: number }> = {};
@@ -46,7 +46,7 @@ export const MantineLineChart = ({ data }) => {
     .filter((key) => key !== "date")
     .map((key, index) => ({
       name: key,
-      color: ["indigo.6", "teal.6", "blue.6", "red.6", "green.6"][index % 5],
+      color: ["teal.6", "red.6", "blue.6", "indigo.6", "green.6"][index % 5],
     }));
 
   return (
