@@ -134,7 +134,7 @@ export const ProfileView = () => {
                                                 alt="Profile Preview"
                                                 width={0}
                                                 height={0}
-                                                className="w-full h-full rounded-full object-contain"
+                                                className="w-full h-full rounded-full object-cover"
                                             />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center text-gray-500 text-base lg:text-sm">

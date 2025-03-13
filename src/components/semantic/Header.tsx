@@ -191,7 +191,7 @@ export const Header = () => {
                       width={0}
                       height={0}
                       sizes="100vw"
-                      className="w-12 lg:w-12 max-w-12 max-h-12 min-w-12 min-h-12 h-auto rounded-full"
+                      className="w-12 lg:w-12 max-w-12 max-h-12 min-w-12 min-h-12 h-auto rounded-full object-cover border border-gray-200"
                     /> : <div className="w-12 h-12 min-h-12 max-h-12 min-w-12 max-w-12 px-3 py-3 bg-gray-200 rounded-full flex flex-row items-center justify-center gap-0 font-semibold">
                       {shortUserName ? shortUserName : <CiUser className="w-6 h-6 text-gray-400 stroke-1" />}
                     </div>
