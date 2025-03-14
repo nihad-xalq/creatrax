@@ -24,6 +24,7 @@ const headerLinks: HeaderLinksTypes[] = [
   { title: "Müştərilər", href: "/app/clients" },
   { title: "İşçilər", href: "/app/employees" },
   { title: "Filiallar", href: "/app/branches" },
+  { title: "Xəbərlər", href: "/app/announcements", },
   { title: "Yardım Mərkəzi", href: "/info/guide", },
   { title: "Haqqımızda", href: "/info/about", },
   {

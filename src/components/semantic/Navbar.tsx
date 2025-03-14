@@ -1,6 +1,7 @@
 "use client";
 
 import { MdOutlinePrivacyTip } from "react-icons/md";
+import { TfiAnnouncement } from "react-icons/tfi";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { JSX } from "react";
@@ -34,6 +35,7 @@ const headerLinks: HeaderLinksTypes[] = [
       { title: "Müştərilər", href: "/app/clients", icon: <FaUsers /> },
       { title: "İşçilər", href: "/app/employees", icon: <FaUserTie /> },
       { title: "Filiallar", href: "/app/branches", icon: <FaBuilding /> },
+      { title: "Xəbərlər", href: "/app/announcements", icon: <TfiAnnouncement /> },
     ],
   },
   {
