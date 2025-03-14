@@ -1,3 +1,4 @@
+import { PageTitle } from "@/components/PageTitle";
 import { Announcement } from "@/types/announcementTypes";
 
 interface AnnouncementsViewProps {
@@ -8,7 +9,7 @@ export const AnnouncementsView = ({ data }: AnnouncementsViewProps) => {
     return (
         <section className="">
             <div className="">
-                <h1 className="text-2xl font-semibold mb-4">Xəbərlər</h1>
+                <PageTitle title="Xəbərlər" />
 
                 {data.length === 0 ? (
                     <p className="text-gray-600">Hazırda elan yoxdur.</p>
