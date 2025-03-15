@@ -24,7 +24,7 @@ export const Sidebar = () => {
         </div>
         <h1 className="text-lg font-bold uppercase tracking-wide">Socar</h1>
       </div> */}
-      <Logo styles="mb-12 mt-4" />
+      <Logo styles="mb-8 mt-2" />
 
       {/* Navbar Links */}
       <Navbar />

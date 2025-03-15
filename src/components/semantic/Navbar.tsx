@@ -1,17 +1,17 @@
 "use client";
 
 import { MdOutlinePrivacyTip } from "react-icons/md";
-import { TfiAnnouncement } from "react-icons/tfi";
+import { HiSpeakerphone } from "react-icons/hi";
 import { usePathname } from "next/navigation";
+import { SlQuestion } from "react-icons/sl";
+import { GrSystem } from "react-icons/gr";
 import Link from "next/link";
 import { JSX } from "react";
 import {
   FaClipboardList,
   FaUsers,
-  // FaChartBar,
   FaUserTie,
   FaBuilding,
-  FaQuestionCircle,
   FaMoneyBill,
   FaFile,
 } from "react-icons/fa";
@@ -38,20 +38,20 @@ const headerLinks: HeaderLinksTypes[] = [
       {
         title: "Xəbərlər",
         href: "/app/announcements",
-        icon: <TfiAnnouncement />,
+        icon: <HiSpeakerphone />,
       },
       { title: "Sənədlər", href: "/app/files", icon: <FaFile /> },
     ],
   },
   {
-    section: "Yardım və Dəstək",
+    section: "Digər",
     items: [
       {
         title: "Yardım Mərkəzi",
         href: "/info/guide",
-        icon: <FaQuestionCircle />,
+        icon: <SlQuestion />,
       },
-      { title: "Haqqımızda", href: "/info/about", icon: <FaQuestionCircle /> },
+      { title: "Haqqımızda", href: "/info/about", icon: <GrSystem /> },
       {
         title: "Məxfilik Siyasəti",
         href: "/info/privacy-policy",
