@@ -13,8 +13,8 @@ import {
   FaBuilding,
   FaQuestionCircle,
   FaMoneyBill,
+  FaFile,
 } from "react-icons/fa";
-
 
 interface HeaderLinksTypes {
   section: string;
@@ -35,13 +35,22 @@ const headerLinks: HeaderLinksTypes[] = [
       { title: "Müştərilər", href: "/app/clients", icon: <FaUsers /> },
       { title: "İşçilər", href: "/app/employees", icon: <FaUserTie /> },
       { title: "Filiallar", href: "/app/branches", icon: <FaBuilding /> },
-      { title: "Xəbərlər", href: "/app/announcements", icon: <TfiAnnouncement /> },
+      {
+        title: "Xəbərlər",
+        href: "/app/announcements",
+        icon: <TfiAnnouncement />,
+      },
+      { title: "Sənədlər", href: "/app/files", icon: <FaFile /> },
     ],
   },
   {
     section: "Yardım və Dəstək",
     items: [
-      { title: "Yardım Mərkəzi", href: "/info/guide", icon: <FaQuestionCircle /> },
+      {
+        title: "Yardım Mərkəzi",
+        href: "/info/guide",
+        icon: <FaQuestionCircle />,
+      },
       { title: "Haqqımızda", href: "/info/about", icon: <FaQuestionCircle /> },
       {
         title: "Məxfilik Siyasəti",
@@ -64,17 +73,18 @@ export const Navbar = () => {
             {section}
           </h3>
           {/* Links */}
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-col gap-1">
             {items.map(({ title, href, icon }) => {
               const isActive = pathname === href;
               return (
                 <li key={title}>
                   <Link
                     href={href}
-                    className={`flex items-center gap-3 w-full text-white text-[14px] font-[500] py-3 px-4 rounded-[12px] transition ${isActive
-                      ? "bg-[rgba(24,111,184,1)] font-semibold shadow-md hover:bg-none"
-                      : "hover:bg-white/10"
-                      }`}
+                    className={`flex items-center gap-3 w-full text-white text-[14px] font-[500] py-3 px-4 rounded-[12px] transition ${
+                      isActive
+                        ? "bg-[rgba(24,111,184,1)] font-semibold shadow-md hover:bg-none"
+                        : "hover:bg-white/10"
+                    }`}
                   >
                     <span className="text-lg">{icon}</span>
                     <span className="flex-1">{title}</span>
