@@ -52,13 +52,13 @@ interface NotificationsDataType {
 const dropdownData: DropdownDataTypes[] = [
   {
     id: 1,
-    label: "View Profile",
+    label: "Profilim",
     icon: <BsPerson style={{ width: rem(14), height: rem(14) }} />,
     link: "/app/profile",
   },
   {
     id: 4,
-    label: "Log out",
+    label: "Çıxış",
     icon: <CiLogout style={{ width: rem(14), height: rem(14) }} />,
     link: "/",
   },
@@ -69,28 +69,28 @@ const notificationsData: NotificationsDataType[] = [
     id: 1,
     label: "Yeni sifariş alındı",
     icon: <IoNotificationsOutline className="text-green-500" />,
-    createdAt: "15 mins ago",
+    createdAt: "15 dəq əvvəl",
     // link: "/app/notification-id",
   },
   {
     id: 2,
     label: "Layihə yeniləməsi",
     icon: <IoNotificationsOutline className="text-yellow-500" />,
-    createdAt: "30 mins ago",
+    createdAt: "30 dəq əvvəl",
     // link: "/app/notification-id",
   },
   {
     id: 3,
     label: "Görüş təyin edilib",
     icon: <IoNotificationsOutline className="text-blue-500" />,
-    createdAt: "1 hour ago",
+    createdAt: "1 saat əvvəl",
     // link: "/app/notification-id",
   },
   {
     id: 4,
     label: "Yeni müştəri qoşuldu",
     icon: <IoNotificationsOutline className="text-purple-500" />,
-    createdAt: "2 hours ago",
+    createdAt: "2 saat əvvəl",
     // link: "/app/notification-id",
   },
 ];
@@ -187,12 +187,12 @@ export const Header = () => {
           <div className="search_wrapper relative hidden sm:block">
             <input
               type="text"
-              placeholder="Sifarişi axtar..."
+              placeholder="Axtar..."
               className="text-sm border border-[rgba(227,227,227,1)] rounded-[12px] px-3 py-3 pl-9 w-full outline-none focus:ring-1 focus:ring-slate-400 focus:shadow-md transition duration-200"
             />
             <FiSearch className="absolute top-1/2 left-3 transform -translate-y-1/2 text-[rgba(136,136,136,1)]" />
           </div>
-          {/* <div className="border-r border-r-gray-300 h-5"></div> */}
+
           <div className="flex flex-row items-center gap-4 border-none xs:border-l xs:border-l-gray-300">
             <MantineDropdown
               triggerBtn={
@@ -253,6 +253,7 @@ export const Header = () => {
               dropdownWidth={200}
             />
           </div>
+
           {/* Burger Menu Button */}
           <button
             onClick={toggleMenu}

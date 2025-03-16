@@ -17,10 +17,11 @@ import { format } from "date-fns";
 import { useState } from "react";
 import * as yup from "yup";
 
-// FIXME: change this to dynamic data
-const budgetAmount: number = 32_000;
-const revenueAmount: number = 40_000;
-const expenseAmount: number = 8_000;
+interface BudgetRevenueExpenseDataTypes {
+  category: string;
+  amount: number;
+  color: string;
+}
 
 const schema = yup.object().shape({
   actionType: yup.string().required("Bu xana vacibdir"),
@@ -67,7 +68,7 @@ export const FinancesView = () => {
       actionDescription: "",
       paymentDate: "",
       notes: "",
-    }
+    },
   });
 
   const handleTabClick = (tab: "incomes" | "expenses") => setCurrentTab(tab);
@@ -82,9 +83,9 @@ export const FinancesView = () => {
       actionDescription: formData.actionDescription,
       paymentDate: format(formData.paymentDate, "dd/MM/yyyy"),
       notes: formData.notes,
-    }
+    };
 
-    console.log(payload)
+    console.log(payload);
 
     methods.reset();
   };
@@ -117,6 +118,12 @@ export const FinancesView = () => {
     { date: "2024-03-29", Gəlirlər: 2990, Xərclər: 4952 },
   ];
 
+  const budgetRevenueExpenseData: BudgetRevenueExpenseDataTypes[] = [
+    { category: "Gəlirlər", amount: 40_000, color: "text-green-700" },
+    { category: "Xərclər", amount: 8_000, color: "text-red-700" },
+    { category: "Büdcə", amount: 32_000, color: "text-blue-700" },
+  ];
+
   return (
     <section className="financesSection flex flex-col-reverse lg:flex-row justify-between items-start gap-6 w-full">
       <div className="w-full lg:w-1/2 flex flex-col items-center gap-3">
@@ -131,10 +138,11 @@ export const FinancesView = () => {
                   key={tab.key}
                   type="button"
                   className={`min-w-28 flex justify-center items-center gap-2 px-4 py-2.5 rounded-[9px] text-sm text-center font-medium transition-all
-                ${currentTab === tab.key
-                      ? "bg-[rgba(31,41,55,1)] text-white"
-                      : "text-[rgba(34,34,34,1)] hover:bg-gray-200"
-                    }
+                ${
+                  currentTab === tab.key
+                    ? "bg-[rgba(31,41,55,1)] text-white"
+                    : "text-[rgba(34,34,34,1)] hover:bg-gray-200"
+                }
               `}
                   onClick={() => handleTabClick(tab.key)}
                   disabled={currentTab === tab.key}
@@ -227,7 +235,9 @@ export const FinancesView = () => {
                   title={item.title}
                   content={
                     <div>
-                      <p className="text-sm text-gray-600 mb-3">{item.content}</p>
+                      <p className="text-sm text-gray-600 mb-3">
+                        {item.content}
+                      </p>
                       <div className="flex items-center justify-between text-gray-700">
                         <span className="bg-blue-950 py-1 px-2 rounded-[6px] text-white">
                           {/* Məbləğ:{" "} */}
@@ -241,9 +251,7 @@ export const FinancesView = () => {
                   }
                   btnStyle="bg-white p-1 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200 w-full h-full flex"
                   triggerLabel={
-                    <li
-                      className="p-1 w-full flex flex-row justify-between items-center"
-                    >
+                    <li className="p-1 w-full flex flex-row justify-between items-center">
                       <h2 className="text-base font-medium text-gray-800 mb-0.5">
                         {item.title}
                       </h2>
@@ -266,24 +274,21 @@ export const FinancesView = () => {
           </ul>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full">
-          <div className="w-full border border-gray-200 rounded-[12px] shadow-md">
-            <p className="flex flex-row justify-around lg:justify-center items-baseline gap-2 px-3 py-2">
-              <span className="base text-green-700 font-medium">Revenue:</span>
-              <span className="base font-medium">₼{revenueAmount}</span>
-            </p>
-          </div>
-          <div className="w-full border border-gray-200 rounded-[12px] shadow-md">
-            <p className="flex flex-row justify-around lg:justify-center items-baseline gap-2 px-3 py-2">
-              <span className="base text-red-700 font-medium">Expenses:</span>
-              <span className="base font-medium">₼{expenseAmount}</span>
-            </p>
-          </div>
-          <div className="w-full border border-gray-200 rounded-[12px] shadow-md">
-            <p className="flex flex-row justify-around lg:justify-center items-baseline gap-2 px-3 py-2">
-              <span className="base text-blue-700 font-medium">Budget:</span>
-              <span className="base font-medium">₼{budgetAmount}</span>
-            </p>
-          </div>
+          {budgetRevenueExpenseData.map((m) => {
+            return (
+              <div
+                key={m.category}
+                className="w-full border border-gray-200 rounded-[12px] shadow-md"
+              >
+                <p className="flex flex-row justify-around lg:justify-center items-baseline flex-wrap gap-1 px-3 py-2">
+                  <span className={`text-lg font-medium ${m.color}`}>
+                    {m.category}:
+                  </span>
+                  <span className="text-base font-medium"> ₼{m.amount}</span>
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
 

@@ -1,10 +1,10 @@
 import { LineChart } from "@mantine/charts";
 import { useState } from "react";
 
-type Range = "daily" | "weekly" | "monthly" | "yearly"
+type Range = "günlük" | "həftəlik" | "aylıq" | "illik"
 
 export const MantineLineChart = ({ data }) => {
-  const [timeRange, setTimeRange] = useState<Range>("daily");
+  const [timeRange, setTimeRange] = useState<Range>("günlük");
 
   const getFilteredData = (): { date: string; Xərclər: number; Gəlirlər: number }[] => {
     const groupedData: Record<string, { date: string; Xərclər: number; Gəlirlər: number }> = {};
@@ -14,17 +14,23 @@ export const MantineLineChart = ({ data }) => {
       let key: string;
 
       switch (timeRange) {
-        case "daily":
+        case "günlük":
           key = date;
           break;
-        case "weekly":
-          const startOfWeek = new Date(dateObj.setDate(dateObj.getDate() - dateObj.getDay())).toISOString().split("T")[0];
+        case "həftəlik":
+          const startOfWeek = new Date(
+            dateObj.setDate(dateObj.getDate() - dateObj.getDay())
+          )
+            .toISOString()
+            .split("T")[0];
           key = startOfWeek;
           break;
-        case "monthly":
-          key = `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, "0")}`;
+        case "aylıq":
+          key = `${dateObj.getFullYear()}-${String(
+            dateObj.getMonth() + 1
+          ).padStart(2, "0")}`;
           break;
-        case "yearly":
+        case "illik":
           key = `${dateObj.getFullYear()}`;
           break;
         default:
@@ -53,7 +59,7 @@ export const MantineLineChart = ({ data }) => {
     <div className="flex flex-col gap-4">
 
       <div className="time_range_buttons flex justify-end gap-2">
-        {(["daily", "weekly", "monthly", "yearly"] as Range[]).map((range) => (
+        {(["günlük", "həftəlik", "aylıq", "illik"] as Range[]).map((range) => (
           <button
             key={range}
             onClick={() => setTimeRange(range as Range)}

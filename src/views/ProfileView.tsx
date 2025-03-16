@@ -18,28 +18,28 @@ import * as yup from "yup";
 // make this dynamic
 const subscriptionPlans = [
   {
-    name: "Starter",
+    name: "Yeni başlayan",
     style:
       "bg-gray-100 border-gray-300 text-gray-800 shadow-sm hover:bg-gray-200",
   },
   {
-    name: "Growth",
+    name: "İrəliləyiş",
     style:
       "bg-green-100 border-green-300 text-green-800 shadow-md hover:bg-green-200",
   },
   {
-    name: "Business",
+    name: "Biznes",
     style:
       "bg-blue-100 border-blue-300 text-blue-800 shadow-lg hover:bg-blue-200",
   },
   {
-    name: "Enterprise",
+    name: "Korporativ ",
     style:
       "bg-purple-100 border-purple-300 text-purple-800 shadow-xl hover:bg-purple-200",
   },
 ];
 
-const selectedPlan = subscriptionPlans[2];
+const selectedPlan = subscriptionPlans[3];
 
 const schema = yup.object().shape({
   name: yup.string(),
@@ -280,7 +280,7 @@ export const ProfileView = () => {
                   <InputTextareaField
                     name="bio"
                     label="Haqqında"
-                    placeholder="Write something about yourself"
+                    placeholder="Özün haqda birşeylər yaz"
                   />
                 </div>
 
@@ -288,7 +288,7 @@ export const ProfileView = () => {
                   {/* Save Button */}
                   <input
                     type="submit"
-                    value="Save"
+                    value="Yadda Saxla"
                     disabled={!isDirty}
                     className={`w-full lg:w-full self-end py-4 px-4 lg:py-2 lg:px-4 rounded-[12px] transition duration-150 cursor-pointer
                                         ${
@@ -303,7 +303,7 @@ export const ProfileView = () => {
                     onClick={handleClearData}
                     className="block self-end text-red-500 hover:underline rounded-[12px] py-4 px-4 lg:py-2 lg:px-4"
                   >
-                    Clear Data
+                    Məlumatları təmizlə
                   </button>
                 </div>
               </div>

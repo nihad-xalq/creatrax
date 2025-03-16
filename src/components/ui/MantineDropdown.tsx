@@ -74,14 +74,14 @@ export const MantineDropdown: FC<IMantineDropdownProps> = ({
       <Menu.Dropdown className="-ml-8">
         {/* Filters (if enabled) */}
         {hasFilters && (
-          <div className="flex justify-between px-3 py-2 border-b text-gray-700 text-sm">
+          <div className="flex justify-between px-3 py-2 border-b text-gray-700 text-xs">
             <button
               onClick={() => setFilter("all")}
               className={`flex items-center gap-2 ${
                 filter === "all" ? "font-bold text-blue-500" : ""
               }`}
             >
-              All
+              Hamısı
             </button>
             <button
               onClick={() => setFilter("unread")}
@@ -89,7 +89,7 @@ export const MantineDropdown: FC<IMantineDropdownProps> = ({
                 filter === "unread" ? "font-bold text-green-500" : ""
               }`}
             >
-              Unread
+              Oxunmamış
             </button>
             <button
               onClick={() => setFilter("read")}
@@ -97,7 +97,7 @@ export const MantineDropdown: FC<IMantineDropdownProps> = ({
                 filter === "read" ? "font-bold text-gray-500" : ""
               }`}
             >
-              Read
+              Oxunmuş
             </button>
           </div>
         )}
@@ -105,7 +105,7 @@ export const MantineDropdown: FC<IMantineDropdownProps> = ({
         {/* List Items */}
         <div className="max-h-64 overflow-y-auto">
           {filteredData.length === 0 ? (
-            <p className="text-gray-500 text-center py-4">No items found</p>
+            <p className="text-gray-500 text-center py-4">Məlumat tapılmadı</p>
           ) : (
             filteredData.map(({ id, label, createdAt, icon, link }) => (
               <div
@@ -157,7 +157,7 @@ export const MantineDropdown: FC<IMantineDropdownProps> = ({
           <div className="border-t">
             <Link href={viewAllLink}>
               <button className="w-full text-center text-blue-500 py-2 hover:bg-gray-100">
-                View All
+                Hamısına bax
               </button>
             </Link>
           </div>

@@ -197,7 +197,7 @@ export const FilesView = () => {
             className="w-full focus:outline-none disabled:cursor-not-allowed"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            disabled={filteredFiles.length === 0}
+            // disabled={filteredFiles.length === 0}
             title={
               filteredFiles.length > 0
                 ? "Faylları axtarın"
