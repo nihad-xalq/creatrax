@@ -76,6 +76,11 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.mantine-UnstyledButton-root,
+.mantine-Button-label {
+  overflow: visible !important;
+}
+
 .financesSection {
   .mantine-Button-inner,
   .mantine-Button-label {
