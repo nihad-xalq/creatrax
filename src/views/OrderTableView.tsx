@@ -13,16 +13,19 @@ type OrderTableViewProps = {
 };
 
 interface OrderActionsDataType {
+  id: number;
   label: string;
   icon: React.ReactNode;
 }
 
 const orderActionsData: OrderActionsDataType[] = [
   {
+    id: 1,
     label: "Edit",
     icon: <MdEdit className="text-blue-500" />,
   },
   {
+    id: 2,
     label: "Delete",
     icon: <MdDelete className="text-red-500" />,
   },

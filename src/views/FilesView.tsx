@@ -13,6 +13,7 @@ import { PageTitle } from "@/components/PageTitle";
 import { useState, useEffect } from "react";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
+import Image from "next/image";
 
 const ALLOWED_FILE_TYPES = [
   "image/png",
@@ -228,9 +229,12 @@ export const FilesView = () => {
                 </button>
 
                 {file.type.startsWith("image/") ? (
-                  <img
+                  <Image
                     src={previewUrl}
                     alt={name}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
                     className="w-16 h-16 object-cover rounded-md"
                   />
                 ) : (
