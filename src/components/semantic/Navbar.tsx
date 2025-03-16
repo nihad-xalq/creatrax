@@ -80,7 +80,7 @@ export const Navbar = () => {
                 <li key={title}>
                   <Link
                     href={href}
-                    className={`flex items-center gap-3 w-full text-white text-[14px] font-[500] py-3 px-4 rounded-[12px] transition ${
+                    className={`flex items-center gap-3 w-full text-white text-[14px] font-[500] py-2 px-4 rounded-[12px] transition ${
                       isActive
                         ? "bg-[rgba(24,111,184,1)] font-semibold shadow-md hover:bg-none"
                         : "hover:bg-white/10"
