@@ -31,8 +31,8 @@ export const FilesView = () => {
   >([]);
   const [error, setError] = useState<string>("");
   const [selectedFiles, setSelectedFiles] = useState<Set<string>>(new Set());
-  const [searchQuery, setSearchQuery] = useState<string>(""); // User input state
-  const [debouncedQuery, setDebouncedQuery] = useState<string>(""); // Debounced search term
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [debouncedQuery, setDebouncedQuery] = useState<string>("");
 
   // **Debounce effect to delay search execution**
   useEffect(() => {
@@ -166,7 +166,7 @@ export const FilesView = () => {
       </div>
 
       <div
-        className={`flex flex-row ${
+        className={`flex flex-col-reverse lg:flex-row ${
           selectedFiles.size > 0 ? "justify-between" : "justify-end"
         } items-center gap-3`}
       >
@@ -189,7 +189,7 @@ export const FilesView = () => {
         )}
 
         {/* Search Bar with Debounce */}
-        <div className="willSimplyFadeIn flex items-center self-end border border-gray-300 rounded-md px-3 py-2 w-1/4">
+        <div className="willSimplyFadeIn flex items-center self-end border border-gray-300 rounded-md px-3 py-2 w-full lg:w-1/4">
           <FaSearch className="text-gray-500 mr-2" />
           <input
             type="text"
