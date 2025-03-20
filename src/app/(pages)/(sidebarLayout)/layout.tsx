@@ -2,7 +2,7 @@ import RootLayoutWrapper from "@/components/RootLayoutWrapper";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CreaTrax",
+  title: "Creatrax",
   description: "Track your data!",
 };
 

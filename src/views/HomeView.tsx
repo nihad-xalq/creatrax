@@ -1,34 +1,168 @@
+import Image from "next/image";
 import Link from "next/link";
 
-// TODO: extract navItems
-// TODO: extract whyUsItems
-// TODO: extract keyFeaturesItems
-// TODO: extract pricintItems
-// TODO: extract faqItems
+interface NavItem {
+  id: number;
+  title: string;
+  url: string;
+}
+const navItems: NavItem[] = [
+  { id: 1, title: "Niyə biz?", url: "#why_us_section" },
+  { id: 2, title: "Qiymətlər", url: "#pricing_section" },
+  { id: 3, title: "Tez-tez verilən suallar", url: "#faq_section" },
+  { id: 4, title: "Əlaqə", url: "/contact" },
+];
+
+interface WhyUsItem {
+  id: number;
+  title: string;
+  desc: string;
+}
+const whyUsItems: WhyUsItem[] = [
+  {
+    id: 1,
+    title: "Sadələşdirilmiş Sifariş İdarəetməsi",
+    desc: "Biznes sifarişlərinizi asanlıqla izləyin, idarə edin və optimallaşdırın.",
+  },
+  {
+    id: 2,
+    title: "Real Vaxtda Müştəri Analitikası",
+    desc: "Müştəri fəaliyyətini, seçimlərini və satışlarını bir platformada izləyin.",
+  },
+  {
+    id: 3,
+    title: "Avtomatlaşdırılmış Hesabatlar",
+    desc: "Biznes inkişafınız üçün güclü analitikalar və hesabatlar yaradın.",
+  },
+  {
+    id: 4,
+    title: "Təhlükəsiz və Ölçülənən",
+    desc: "Məlumatlarınız qorunur və Creatrax biznesiniz böyüdükcə genişlənir.",
+  },
+  {
+    id: 5,
+    title: "Çoxistifadəçili Əməkdaşlıq",
+    desc: "Komandanıza rol əsaslı giriş və əməkdaşlıq vasitələri ilə güc verin.",
+  },
+  {
+    id: 6,
+    title: "Fərdiləşdirilə bilən Həllər",
+    desc: "Portalı unikal biznes ehtiyaclarınıza uyğunlaşdırın.",
+  },
+];
+
+interface KeyIndicatorItem {
+  id: number;
+  value: string;
+  label: string;
+}
+const keyIndicatorItems: KeyIndicatorItem[] = [
+  {
+    id: 1,
+    value: "10K+",
+    label: "İdarə Edilən Müştərilər",
+  },
+  {
+    id: 2,
+    value: "50M+",
+    label: "Emal Edilmiş Sifarişlər",
+  },
+  {
+    id: 3,
+    value: "99.9%",
+    label: "Davamlı İşləmə Zəmanəti",
+  },
+];
+
+interface PricingItem {
+  id: number;
+  name: string;
+  price: string;
+  desc: string;
+}
+const pricingItems: PricingItem[] = [
+  {
+    id: 1,
+    name: "Başlanğıc",
+    price: "Pulsuz",
+    desc: "Creatrax funksiyalarına əsas giriş.",
+  },
+  {
+    id: 2,
+    name: "İnkişaf",
+    price: "$19/ay",
+    desc: "Böyüyən bizneslər üçün qabaqcıl alətlər.",
+  },
+  {
+    id: 3,
+    name: "Biznes",
+    price: "$49/ay",
+    desc: "Premium funksiyalara tam giriş.",
+  },
+  {
+    id: 4,
+    name: "Korporativ",
+    price: "Fərdi",
+    desc: "Böyük müəssisələr üçün xüsusi həllər.",
+  },
+];
+
+interface FaqItem {
+  id: number;
+  question: string;
+  answer: string;
+}
+const faqItems: FaqItem[] = [
+  {
+    id: 1,
+    question: "Creatrax nədir?",
+    answer:
+      "Creatrax sifarişləri, müştəriləri və biznes əməliyyatlarını idarə etməyə kömək edən biznes portalıdır.",
+  },
+  {
+    id: 2,
+    question: "Planımı fərdiləşdirə bilərəmmi?",
+    answer:
+      "Bəli! Xüsusi ehtiyacları olan bizneslər üçün fərdi qiymət təklif edirik.",
+  },
+  {
+    id: 3,
+    question: "Başlamaq üçün nə etməliyəm?",
+    answer:
+      "'Üzv ol' düyməsinə klikləyin və fərdi quraşdırma üçün bizimlə əlaqə saxlayın.",
+  },
+];
+
+const copyrights_text = `${new Date().getFullYear()} Creadive. Bütün hüquqlar qorunur.`;
 
 export const HomeView = () => {
   return (
     <div className="flex flex-col items-center justify-center text-gray-900 bg-gray-50">
-      <header className="py-5 w-full bg-gray-50 shadow-md">
+      <header className="py-3 w-full bg-gray-50 shadow-md">
         <div className="home_header_inner flex flex-row justify-between items-center w-[85%] lg:w-[70%] mx-auto">
-          {/* Logo Placeholder */}
-          <div className="text-xl font-bold text-gray-800">CreaTrax</div>
+          {/* Logo */}
+          <div>
+            <Image
+              src="/old-logo.svg"
+              alt="Creatrax Logo"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-[50%] h-auto"
+            />
+          </div>
 
           {/* Navigation Menu */}
           <nav>
             <ul className="flex flex-row items-center gap-6 text-gray-700 font-medium">
-              <li className="hover:text-blue-600 transition duration-200 cursor-pointer">
-                <a href="#why_us_section">Niyə biz?</a>
-              </li>
-              <li className="hover:text-blue-600 transition duration-200 cursor-pointer">
-                <a href="#pricing_section">Qiymətlər</a>
-              </li>
-              <li className="hover:text-blue-600 transition duration-200 cursor-pointer">
-                <a href="#faq_section">Tez-tez verilən suallar</a>
-              </li>
-              <li className="hover:text-blue-600 transition duration-200 cursor-pointer">
-                <a href="/contact">Əlaqə</a>
-              </li>
+              {navItems.map((item) => (
+                <li
+                  key={item.id}
+                  className="hover:text-blue-600 transition duration-200 cursor-pointer"
+                >
+                  <a href={item.url}>{item.title}</a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
@@ -69,40 +203,10 @@ export const HomeView = () => {
           Niyə Creatrax-i seçməlisiniz?
         </h2>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Sadələşdirilmiş Sifariş İdarəetməsi",
-              desc: "Biznes sifarişlərinizi asanlıqla izləyin, idarə edin və optimallaşdırın.",
-            },
-            {
-              title: "Real Vaxtda Müştəri Analitikası",
-              desc: "Müştəri fəaliyyətini, seçimlərini və satışlarını bir platformada izləyin.",
-            },
-            {
-              title: "Avtomatlaşdırılmış Hesabatlar",
-              desc: "Biznes inkişafınız üçün güclü analitikalar və hesabatlar yaradın.",
-            },
-            {
-              title: "Təhlükəsiz və Ölçülənən",
-              desc: "Məlumatlarınız qorunur və Creatrax biznesiniz böyüdükcə genişlənir.",
-            },
-            {
-              title: "Çoxistifadəçili Əməkdaşlıq",
-              desc: "Komandanıza rol əsaslı giriş və əməkdaşlıq vasitələri ilə güc verin.",
-            },
-            {
-              title: "Fərdiləşdirilə bilən Həllər",
-              desc: "Portalı unikal biznes ehtiyaclarınıza uyğunlaşdırın.",
-            },
-          ].map((feature, index) => (
-            <div
-              key={index}
-              className="p-6 border rounded-lg shadow-sm bg-white"
-            >
-              <h3 className="text-xl font-semibold text-blue-600">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600 mt-2">{feature.desc}</p>
+          {whyUsItems.map(({ id, title, desc }) => (
+            <div key={id} className="p-6 border rounded-lg shadow-sm bg-white">
+              <h3 className="text-xl font-semibold text-blue-600">{title}</h3>
+              <p className="text-gray-600 mt-2">{desc}</p>
             </div>
           ))}
         </div>
@@ -114,18 +218,12 @@ export const HomeView = () => {
           Dünya Biznesləri tərəfindən Etibar Edilir
         </h2>
         <div className="mt-10 flex flex-wrap justify-center gap-10 text-blue-600 font-bold text-4xl">
-          <div>
-            <span className="text-5xl">10K+</span>
-            <p className="text-gray-600 text-sm">İdarə Edilən Müştərilər</p>
-          </div>
-          <div>
-            <span className="text-5xl">50M+</span>
-            <p className="text-gray-600 text-sm">Emal Edilmiş Sifarişlər</p>
-          </div>
-          <div>
-            <span className="text-5xl">99.9%</span>
-            <p className="text-gray-600 text-sm">Davamlı İşləmə Zəmanəti</p>
-          </div>
+          {keyIndicatorItems.map(({ id, value, label }) => (
+            <div key={id} className="text-center">
+              <span className="text-5xl">{value}</span>
+              <p className="text-gray-600 text-sm">{label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -139,35 +237,14 @@ export const HomeView = () => {
           Sizə uyğun planı seçin və biznesinizi növbəti səviyyəyə aparın.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-8">
-          {[
-            {
-              name: "Başlanğıc",
-              price: "Pulsuz",
-              desc: "Creatrax funksiyalarına əsas giriş.",
-            },
-            {
-              name: "İnkişaf",
-              price: "$19/ay",
-              desc: "Böyüyən bizneslər üçün qabaqcıl alətlər.",
-            },
-            {
-              name: "Biznes",
-              price: "$49/ay",
-              desc: "Premium funksiyalara tam giriş.",
-            },
-            {
-              name: "Korporativ",
-              price: "Fərdi",
-              desc: "Böyük müəssisələr üçün xüsusi həllər.",
-            },
-          ].map((plan, index) => (
+          {pricingItems.map(({ id, name, price, desc }) => (
             <div
-              key={index}
+              key={id}
               className="p-6 border rounded-lg bg-white shadow-md max-w-xs text-center"
             >
-              <h3 className="text-2xl font-bold text-blue-600">{plan.name}</h3>
-              <p className="text-3xl font-semibold mt-2">{plan.price}</p>
-              <p className="text-gray-600 mt-2">{plan.desc}</p>
+              <h3 className="text-2xl font-bold text-blue-600">{name}</h3>
+              <p className="text-3xl font-semibold mt-2">{price}</p>
+              <p className="text-gray-600 mt-2">{desc}</p>
               <Link href="/contact">
                 <button className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-lg font-semibold transition">
                   Üzv ol
@@ -184,29 +261,10 @@ export const HomeView = () => {
           Tez-tez verilən suallar
         </h2>
         <div className="mt-8 space-y-6">
-          {[
-            {
-              question: "Creatrax nədir?",
-              answer:
-                "Creatrax sifarişləri, müştəriləri və biznes əməliyyatlarını idarə etməyə kömək edən biznes portalıdır.",
-            },
-            {
-              question: "Planımı fərdiləşdirə bilərəmmi?",
-              answer:
-                "Bəli! Xüsusi ehtiyacları olan bizneslər üçün fərdi qiymət təklif edirik.",
-            },
-            {
-              question: "Başlamaq üçün nə etməliyəm?",
-              answer:
-                "'Üzv ol' düyməsinə klikləyin və fərdi quraşdırma üçün bizimlə əlaqə saxlayın.",
-            },
-          ].map((faq, index) => (
-            <div
-              key={index}
-              className="p-4 border rounded-lg bg-white shadow-sm"
-            >
-              <h3 className="text-lg font-semibold">{faq.question}</h3>
-              <p className="text-gray-600 mt-2">{faq.answer}</p>
+          {faqItems.map(({ id, question, answer }) => (
+            <div key={id} className="p-4 border rounded-lg bg-white shadow-sm">
+              <h3 className="text-lg font-semibold">{question}</h3>
+              <p className="text-gray-600 mt-2">{answer}</p>
             </div>
           ))}
         </div>
@@ -214,9 +272,7 @@ export const HomeView = () => {
 
       {/* FOOTER */}
       <footer className="w-full bg-gray-100 py-6 text-center">
-        <p className="text-blue-900 text-sm">
-          &copy; {new Date().getFullYear()} Creadive. Bütün hüquqlar qorunur.
-        </p>
+        <p className="text-blue-900 text-xs">&copy; {copyrights_text}</p>
       </footer>
     </div>
   );

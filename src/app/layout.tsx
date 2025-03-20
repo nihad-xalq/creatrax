@@ -6,7 +6,7 @@ import "./globals.css";
 import { MantineProvider } from "@mantine/core";
 
 export const metadata: Metadata = {
-  title: "CreaTrax",
+  title: "Creatrax",
   description: "Track your data!",
 };
 

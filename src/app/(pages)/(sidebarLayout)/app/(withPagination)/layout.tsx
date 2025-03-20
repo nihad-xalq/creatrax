@@ -2,7 +2,7 @@ import { PaginationFooter } from "@/components/PaginationFooter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CreaTrax",
+  title: "Creatrax",
   description: "Track your data!",
 };
 

@@ -56,7 +56,7 @@ export const LoginView = () => {
                 Məlumatlarınızı daha rahat idarə edin!
               </h3>
               <p className="text-sm leading-relaxed">
-                CreaTrax, kiçik bizneslərə əməliyyatlarını asanlaşdırmaq üçün
+                Creatrax, kiçik bizneslərə əməliyyatlarını asanlaşdırmaq üçün
                 nəzərdə tutulmuş müasir bir platformadır.
               </p>
             </div>
