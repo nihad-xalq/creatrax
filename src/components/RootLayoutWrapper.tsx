@@ -3,7 +3,6 @@
 import { Sidebar } from "@/components/semantic/Sidebar";
 import { Header } from "@/components/semantic/Header";
 import { Main } from "@/components/semantic/Main";
-import { MantineProvider } from "@mantine/core";
 import { usePathname } from "next/navigation";
 
 export const RootLayoutWrapper = ({
@@ -13,18 +12,22 @@ export const RootLayoutWrapper = ({
 }>) => {
   const pathname = usePathname();
 
-  const isHome: boolean = pathname === "/";
+  // const isHome: boolean = pathname === "/";
+  {
+    /* {!isHome && <Sidebar />} */
+  }
+  {
+    /* {!isHome && <Header />} */
+  }
 
   return (
-    <MantineProvider>
-      <div className="flex flex-row justify-between">
-        {!isHome && <Sidebar />}
-        <div className="wrapper flex flex-col relative w-full">
-          {!isHome && <Header />}
-          <Main>{children}</Main>
-        </div>
+    <div className="flex flex-row justify-between">
+      <Sidebar />
+      <div className="wrapper flex flex-col relative w-full">
+        <Header />
+        <Main>{children}</Main>
       </div>
-    </MantineProvider>
+    </div>
   );
 };
 
