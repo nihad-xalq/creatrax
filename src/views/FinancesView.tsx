@@ -12,7 +12,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { PageTitle } from "@/components/PageTitle";
 import { financesData } from "@/lib/mockData";
 import { useForm } from "react-hook-form";
-import { FaPlus } from "react-icons/fa";
+import {
+  FaCalendarAlt,
+  FaExclamationTriangle,
+  FaPlus,
+  FaUsers,
+} from "react-icons/fa";
 import { format } from "date-fns";
 import { useState } from "react";
 import * as yup from "yup";
@@ -124,176 +129,219 @@ export const FinancesView = () => {
     { category: "Büdcə", amount: 32_000, color: "text-blue-700" },
   ];
 
-  return (
-    <section className="financesSection flex flex-col-reverse lg:flex-row justify-between items-start gap-6 w-full">
-      <div className="w-full lg:w-1/2 flex flex-col items-center gap-3">
-        <div className="about_inner border border-gray-300 rounded-[12px] p-3 w-full shadow-md">
-          <PageTitle title="Maliyyə Hesabatı" />
+  const customerIndicators = [
+    {
+      title: "Aktiv müştəri sayı",
+      value: 320,
+      color: "text-green-700",
+      icon: <FaUsers className="text-green-600" />,
+    },
+    {
+      title: "Cari aydakı müştəri sayı",
+      value: 45,
+      color: "text-blue-700",
+      icon: <FaCalendarAlt className="text-blue-600" />,
+    },
+    {
+      title: "Borclu müştərilər",
+      value: 12,
+      color: "text-red-700",
+      icon: <FaExclamationTriangle className="text-red-600" />,
+    },
+  ];
 
-          <div className="flex flex-col-reverse lg:flex-row items-center justify-between w-full mb-4">
-            {/* Tabs */}
-            <div className="flex gap-3 bg-[rgba(251,251,251,1)] w-max px-2 py-2 rounded-[9px] mx-auto lg:mx-0">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.key}
-                  type="button"
-                  className={`min-w-28 flex justify-center items-center gap-2 px-4 py-2.5 rounded-[9px] text-sm text-center font-medium transition-all
+  return (
+    <section className="financesSection flex flex-col-reverse lg:flex-col justify-between items-start gap-6 w-full">
+      <div className="flex flex-row items-stretch gap-3 w-full">
+        <div className="w-full lg:w-full flex flex-col items-center gap-3">
+          <div className="about_inner border border-gray-300 rounded-[12px] p-3 w-full shadow-md">
+            <PageTitle title="Maliyyə Hesabatı" />
+
+            <div className="flex flex-col-reverse lg:flex-row items-center justify-between w-full mb-4">
+              {/* Tabs */}
+              <div className="flex gap-3 bg-[rgba(251,251,251,1)] w-max px-2 py-2 rounded-[9px] mx-auto lg:mx-0">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.key}
+                    type="button"
+                    className={`min-w-28 flex justify-center items-center gap-2 px-4 py-2.5 rounded-[9px] text-sm text-center font-medium transition-all
                 ${
                   currentTab === tab.key
                     ? "bg-[rgba(31,41,55,1)] text-white"
                     : "text-[rgba(34,34,34,1)] hover:bg-gray-200"
                 }
               `}
-                  onClick={() => handleTabClick(tab.key)}
-                  disabled={currentTab === tab.key}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-            <div>
-              <MantineModal
-                title="Yeni tranzaksiya əlavə et"
-                content={
-                  <CFormProvider
-                    methods={methods}
-                    onSubmit={handleAddNewOrderSubmit}
+                    onClick={() => handleTabClick(tab.key)}
+                    disabled={currentTab === tab.key}
                   >
-                    <div className="flex flex-col items-center lg:items-end gap-3">
-                      <div className="inputs grid grid-cols-1 lg:grid-cols-1 gap-3 w-full">
-                        <InputSelectField
-                          name="actionType"
-                          label="Ödəmə növü"
-                          placeholder="Ödəmə növü seçin"
-                          defaultOptions={actionTypes.map((act) => ({
-                            id: act.value,
-                            name: act.value,
-                          }))}
-                        />
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+              <div>
+                <MantineModal
+                  title="Yeni tranzaksiya əlavə et"
+                  content={
+                    <CFormProvider
+                      methods={methods}
+                      onSubmit={handleAddNewOrderSubmit}
+                    >
+                      <div className="flex flex-col items-center lg:items-end gap-3">
+                        <div className="inputs grid grid-cols-1 lg:grid-cols-1 gap-3 w-full">
+                          <InputSelectField
+                            name="actionType"
+                            label="Ödəmə növü"
+                            placeholder="Ödəmə növü seçin"
+                            defaultOptions={actionTypes.map((act) => ({
+                              id: act.value,
+                              name: act.value,
+                            }))}
+                          />
 
-                        <InputTextField
-                          name="actionPayer"
-                          label="Ödəyən"
-                          placeholder="Creadive Agency"
-                          className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
-                        />
+                          <InputTextField
+                            name="actionPayer"
+                            label="Ödəyən"
+                            placeholder="Creadive Agency"
+                            className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
+                          />
 
-                        <InputNumberField
-                          name="actionAmount"
-                          label="Miqdar"
-                          placeholder="1000"
-                          className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
-                        />
+                          <InputNumberField
+                            name="actionAmount"
+                            label="Miqdar"
+                            placeholder="1000"
+                            className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
+                          />
 
-                        <InputTextField
-                          name="actionDescription"
-                          label="Ödənişin təsviri"
-                          placeholder="Test test test"
-                          className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
-                        />
+                          <InputTextField
+                            name="actionDescription"
+                            label="Ödənişin təsviri"
+                            placeholder="Test test test"
+                            className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
+                          />
 
-                        <InputDatePicker
-                          name="paymentDate"
-                          label="Ödəniş tarixi"
-                          placeholder="01.01.2001"
-                          className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
-                        />
+                          <InputDatePicker
+                            name="paymentDate"
+                            label="Ödəniş tarixi"
+                            placeholder="01.01.2001"
+                            className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
+                          />
 
-                        <InputTextareaField
-                          name="notes"
-                          label="Qeydlər"
-                          placeholder="Qeydləriniz"
-                          className="w-full border border-gray-300 p-3 rounded-[12px] text-sm min-h-[80px] max-h-[150px]"
+                          <InputTextareaField
+                            name="notes"
+                            label="Qeydlər"
+                            placeholder="Qeydləriniz"
+                            className="w-full border border-gray-300 p-3 rounded-[12px] text-sm min-h-[80px] max-h-[150px]"
+                          />
+                        </div>
+                        <input
+                          type="submit"
+                          value="Əlavə et"
+                          className="bg-[rgba(31,41,55,1)] hover:shadow-[0_0_3px_2px_rgba(31,41,55,0.5)] py-3 px-3 rounded-[12px] text-white text-sm cursor-pointer transition duration-150 w-full lg:w-max"
                         />
                       </div>
-                      <input
-                        type="submit"
-                        value="Əlavə et"
-                        className="bg-[rgba(31,41,55,1)] hover:shadow-[0_0_3px_2px_rgba(31,41,55,0.5)] py-3 px-3 rounded-[12px] text-white text-sm cursor-pointer transition duration-150 w-full lg:w-max"
-                      />
-                    </div>
-                  </CFormProvider>
-                }
-                triggerLabel={
-                  <>
-                    {/* className="mr-2" */}
-                    <FaPlus />
-                    {/* Tranzaksiya əlavə et */}
-                  </>
-                }
-                btnStyle="flex flex-row items-center gap-3 bg-slate-700 hover:bg-slate-800 text-white hover:text-white py-3 px-6 rounded-[12px] transition duration-150 cursor-pointer min-h-12"
-              />
+                    </CFormProvider>
+                  }
+                  triggerLabel={
+                    <>
+                      {/* className="mr-2" */}
+                      <FaPlus />
+                      {/* Tranzaksiya əlavə et */}
+                    </>
+                  }
+                  btnStyle="flex flex-row items-center gap-3 bg-slate-700 hover:bg-slate-800 text-white hover:text-white py-3 px-6 rounded-[12px] transition duration-150 cursor-pointer min-h-12"
+                />
+              </div>
             </div>
+
+            {/* Data Display */}
+            <ul className="grid gap-2 willFadeFromAbove">
+              {filteredData.length > 0 ? (
+                filteredData.map((item) => (
+                  <MantineModal
+                    key={item.id}
+                    title={item.title}
+                    content={
+                      <div>
+                        <p className="text-sm text-gray-600 mb-3">
+                          {item.content}
+                        </p>
+                        <div className="flex items-center justify-between text-gray-700">
+                          <span className="bg-blue-950 py-1 px-2 rounded-[6px] text-white">
+                            {/* Məbləğ:{" "} */}
+                            <span className="font-semibold">
+                              {item.amount} AZN
+                            </span>
+                          </span>
+                          <span className="text-gray-500">📅 {item.date}</span>
+                        </div>
+                      </div>
+                    }
+                    btnStyle="bg-white p-1 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200 w-full h-full flex"
+                    triggerLabel={
+                      <li className="p-1 w-full flex flex-row justify-between items-center">
+                        <h2 className="text-base font-medium text-gray-800 mb-0.5">
+                          {item.title}
+                        </h2>
+                        <div className="flex justify-end text-base text-gray-700 w-full">
+                          <span>
+                            <span className="text-blue-800 font-semibold">
+                              {item.amount} AZN
+                            </span>
+                          </span>
+                        </div>
+                      </li>
+                    }
+                  />
+                ))
+              ) : (
+                <p className="text-gray-500 text-center text-sm">
+                  Məlumat tapılmadı.
+                </p>
+              )}
+            </ul>
           </div>
 
-          {/* Data Display */}
-          <ul className="grid gap-2 willFadeFromAbove">
-            {filteredData.length > 0 ? (
-              filteredData.map((item) => (
-                <MantineModal
-                  key={item.id}
-                  title={item.title}
-                  content={
-                    <div>
-                      <p className="text-sm text-gray-600 mb-3">
-                        {item.content}
-                      </p>
-                      <div className="flex items-center justify-between text-gray-700">
-                        <span className="bg-blue-950 py-1 px-2 rounded-[6px] text-white">
-                          {/* Məbləğ:{" "} */}
-                          <span className="font-semibold">
-                            {item.amount} AZN
-                          </span>
-                        </span>
-                        <span className="text-gray-500">📅 {item.date}</span>
-                      </div>
-                    </div>
-                  }
-                  btnStyle="bg-white p-1 rounded-md border-l-4 border-blue-500 shadow-sm hover:shadow-md transition duration-200 w-full h-full flex"
-                  triggerLabel={
-                    <li className="p-1 w-full flex flex-row justify-between items-center">
-                      <h2 className="text-base font-medium text-gray-800 mb-0.5">
-                        {item.title}
-                      </h2>
-                      <div className="flex justify-end text-base text-gray-700 w-full">
-                        <span>
-                          <span className="text-blue-800 font-semibold">
-                            {item.amount} AZN
-                          </span>
-                        </span>
-                      </div>
-                    </li>
-                  }
-                />
-              ))
-            ) : (
-              <p className="text-gray-500 text-center text-sm">
-                Məlumat tapılmadı.
-              </p>
-            )}
-          </ul>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full">
-          {budgetRevenueExpenseData.map((m) => {
-            return (
+          {/* Revenue, Expense, and Budget Indicators */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            {budgetRevenueExpenseData.map((m) => (
               <div
                 key={m.category}
-                className="w-full border border-gray-200 rounded-[12px] shadow-md"
+                className="w-full border border-gray-200 rounded-[12px] shadow-md py-2 px-5 flex flex-col items-center justify-center gap-0 transition duration-200 hover:shadow-lg"
               >
-                <p className="flex flex-row justify-around lg:justify-center items-baseline flex-wrap gap-1 px-3 py-2">
-                  <span className={`text-lg font-medium ${m.color}`}>
-                    {m.category}:
-                  </span>
-                  <span className="text-base font-medium"> ₼{m.amount}</span>
-                </p>
+                <span className={`text-xl font-semibold ${m.color}`}>
+                  {m.category}
+                </span>
+                <span className="text-2xl font-bold text-gray-900">
+                  ₼{m.amount}
+                </span>
               </div>
-            );
-          })}
+            ))}
+          </div>
+        </div>
+
+        <div className="w-full lg:w-full border border-gray-200 rounded-[12px] p-5 shadow-md">
+          <MantineLineChart data={moneyData} />
         </div>
       </div>
 
-      <div className="w-full border border-gray-200 rounded-[12px] p-5 shadow-md">
-        <MantineLineChart data={moneyData} />
+      {/* Customer Indicators */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-6">
+        {customerIndicators.map((indicator) => (
+          <div
+            key={indicator.title}
+            className="w-full bg-white border border-gray-200 rounded-[12px] shadow-md p-6 flex flex-col items-center justify-center gap-3 transition duration-200 hover:shadow-lg"
+          >
+            <div
+              className={`flex items-center gap-3 text-5xl font-bold ${indicator.color}`}
+            >
+              {indicator.icon}
+              <span className="text-4xl">{indicator.value}</span>
+            </div>
+            <p className="text-gray-700 text-lg font-medium text-center">
+              {indicator.title}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );
