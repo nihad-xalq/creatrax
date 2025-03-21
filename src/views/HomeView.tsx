@@ -5,7 +5,6 @@ import { InputTextField } from "@/components/form/InputTextField";
 import { CFormProvider } from "@/components/form/CFormProvider";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import * as yup from "yup";
@@ -154,10 +153,6 @@ const faqItems: FaqItem[] = [
 const copyrights_text = `${new Date().getFullYear()} Creadive. Bütün hüquqlar qorunur.`;
 
 export const HomeView = () => {
-  const [activeContactTab, setActiveContactTab] = useState<
-    "contact" | "meeting"
-  >("contact");
-
   const methods = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
