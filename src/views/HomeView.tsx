@@ -1,5 +1,23 @@
+"use client";
+
+import { InputTextareaField } from "@/components/form/InputTextareaField";
+import { InputTextField } from "@/components/form/InputTextField";
+import { CFormProvider } from "@/components/form/CFormProvider";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+  fullname: yup.string().required("Bu xana vacibdir"),
+  companyName: yup.string().required("Bu xana vacibdir"),
+  email: yup.string().required("Bu xana vacibdir"),
+  message: yup.string().optional(),
+});
+
+type FormValues = yup.InferType<typeof schema>;
 
 interface NavItem {
   id: number;
@@ -10,7 +28,7 @@ const navItems: NavItem[] = [
   { id: 1, title: "Niyə biz?", url: "#why_us_section" },
   { id: 2, title: "Qiymətlər", url: "#pricing_section" },
   { id: 3, title: "Tez-tez verilən suallar", url: "#faq_section" },
-  { id: 4, title: "Əlaqə", url: "/contact" },
+  { id: 4, title: "Əlaqə", url: "#contact_cta_section" },
 ];
 
 interface WhyUsItem {
@@ -136,6 +154,18 @@ const faqItems: FaqItem[] = [
 const copyrights_text = `${new Date().getFullYear()} Creadive. Bütün hüquqlar qorunur.`;
 
 export const HomeView = () => {
+  const [activeContactTab, setActiveContactTab] = useState<
+    "contact" | "meeting"
+  >("contact");
+
+  const methods = useForm<FormValues>({
+    resolver: yupResolver(schema),
+  });
+
+  const handleSubmit = (formData: FormValues) => {
+    console.log(formData);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center text-gray-900 bg-gray-50">
       <header className="py-3 w-full bg-gray-50 shadow-md">
@@ -267,6 +297,36 @@ export const HomeView = () => {
               <p className="text-gray-600 mt-2">{answer}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* CONTACT US SECTION */}
+      <section className="w-full max-w-4xl px-6 py-16 text-center">
+        <h2 className="text-3xl font-bold text-gray-900">Əlaqə saxla</h2>
+        <p className="text-gray-600 mt-4 mb-4 max-w-xl mx-auto">
+          Creatrax ilə bağlı ətraflı məlumat almaq, qiymət təklifi və əməkdaşlıq
+          üçün bizimlə əlaqə saxlayın.
+        </p>
+
+        {/* className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 text-left" */}
+        <div className="w-2/3 mx-auto">
+          <CFormProvider onSubmit={handleSubmit} methods={methods}>
+            <div className="contact_form_wrapper flex flex-col items-center gap-3">
+              <InputTextField placeholder="Ad və Soyad" name="fullname" />
+              <InputTextField placeholder="Şirkət adı" name="companyName" />
+              <InputTextField placeholder="Email ünvanı" name="email" />
+              <InputTextareaField placeholder="Qeydləriniz" name="message" />
+
+              <div className="md:col-span-2">
+                <button
+                  type="submit"
+                  className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition"
+                >
+                  Müraciət et
+                </button>
+              </div>
+            </div>
+          </CFormProvider>
         </div>
       </section>
 

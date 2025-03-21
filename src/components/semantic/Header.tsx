@@ -60,7 +60,7 @@ const dropdownData: DropdownDataTypes[] = [
     id: 4,
     label: "Çıxış",
     icon: <CiLogout style={{ width: rem(14), height: rem(14) }} />,
-    link: "/",
+    link: "/login",
   },
 ];
 

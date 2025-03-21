@@ -9,7 +9,7 @@ export const Sidebar = () => {
   const handleLogOut = () => {
     // Add logout functionality here
 
-    router.push("/")
+    router.push("/login")
     // localStorage.removeItem("token");
     // router.push("/login");
   };

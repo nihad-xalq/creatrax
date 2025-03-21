@@ -207,7 +207,7 @@ export const FinancesView = () => {
 
                           <InputNumberField
                             name="actionAmount"
-                            label="Miqdar"
+                            label="Məbləğ"
                             placeholder="1000"
                             className="w-full border border-gray-300 p-3 rounded-[12px] text-sm"
                           />
