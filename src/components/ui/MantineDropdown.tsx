@@ -110,9 +110,12 @@ export const MantineDropdown: FC<IMantineDropdownProps> = ({
             filteredData.map(({ id, label, createdAt, icon, link }) => (
               <div
                 key={id}
-                className="flex items-center justify-between px-4 py-3 hover:bg-gray-100 text-sm"
+                className="flex items-center justify-between hover:bg-gray-100 text-sm"
               >
-                <Link href={link || "#"} className="flex flex-col">
+                <Link
+                  href={link || "#"}
+                  className="flex flex-col px-4 py-3 w-full"
+                >
                   <div
                     className={`flex items-center gap-2 ${
                       createdAt && label.includes("[Read]")
