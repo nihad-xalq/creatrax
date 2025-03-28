@@ -152,7 +152,7 @@ export const FinancesView = () => {
 
   return (
     <section className="financesSection flex flex-col-reverse lg:flex-col justify-between items-start gap-6 w-full">
-      <div className="flex flex-row items-stretch gap-3 w-full">
+      <div className="flex flex-col-reverse md:flex-row items-stretch gap-3 w-full">
         <div className="w-full lg:w-full flex flex-col items-center gap-3">
           <div className="about_inner border border-gray-300 rounded-[12px] p-3 w-full shadow-md">
             <PageTitle title="Maliyyə Hesabatı" />
@@ -302,7 +302,7 @@ export const FinancesView = () => {
           </div>
 
           {/* Revenue, Expense, and Budget Indicators */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-6 w-full">
             {budgetRevenueExpenseData.map((m) => (
               <div
                 key={m.category}
@@ -325,7 +325,7 @@ export const FinancesView = () => {
       </div>
 
       {/* Customer Indicators */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-6 w-full mt-6">
         {customerIndicators.map((indicator) => (
           <div
             key={indicator.title}
