@@ -301,7 +301,7 @@ export const HomeView = () => {
           {pricingItems.map(({ id, name, price, desc }) => (
             <li
               key={id}
-              className="p-6 border rounded-lg bg-white shadow-md max-w-max md:max-w-xs text-center"
+              className="p-6 border rounded-lg bg-white shadow-md w-full sm:w-max md:max-w-xs text-center"
             >
               <h3 className="text-2xl font-bold text-blue-600">{name}</h3>
               <p className="text-3xl font-semibold mt-2">{price}</p>
