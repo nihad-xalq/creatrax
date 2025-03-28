@@ -4,7 +4,9 @@ import { InputTextareaField } from "@/components/form/InputTextareaField";
 import { InputTextField } from "@/components/form/InputTextField";
 import { CFormProvider } from "@/components/form/CFormProvider";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { FiMenu, FiX } from "react-icons/fi";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import * as yup from "yup";
@@ -153,9 +155,13 @@ const faqItems: FaqItem[] = [
 const copyrights_text = `${new Date().getFullYear()} Creadive. Bütün hüquqlar qorunur.`;
 
 export const HomeView = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean | null>(false);
+
   const methods = useForm<FormValues>({
     resolver: yupResolver(schema),
   });
+
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const handleSubmit = (formData: FormValues) => {
     console.log(formData);
@@ -163,7 +169,7 @@ export const HomeView = () => {
 
   return (
     <div className="flex flex-col items-center justify-center text-gray-900 bg-gray-50">
-      <header className="py-3 w-full bg-gray-50 shadow-md">
+      <header className="py-3 w-full bg-gray-50 shadow-md relative">
         <div className="home_header_inner flex flex-row justify-between items-center w-[85%] lg:w-[70%] mx-auto">
           {/* Logo */}
           <div>
@@ -177,8 +183,8 @@ export const HomeView = () => {
             />
           </div>
 
-          {/* Navigation Menu */}
-          <nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:block">
             <ul className="flex flex-row items-center gap-6 text-gray-700 font-medium">
               {navItems.map((item) => (
                 <li
@@ -189,6 +195,42 @@ export const HomeView = () => {
                 </li>
               ))}
             </ul>
+          </nav>
+        </div>
+
+        {/* Burger Button */}
+        <button
+          className="absolute top-5 right-5 md:hidden text-2xl text-gray-800 z-[60]"
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+        >
+          {isMenuOpen ? <FiX /> : <FiMenu />}
+        </button>
+
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-40"
+            onClick={() => setIsMenuOpen(false)}
+          />
+        )}
+
+        {/* Mobile Sliding Panel */}
+        <div
+          className={`fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <nav className="flex flex-col gap-6 p-6 pt-20">
+            {navItems.map(({ id, title, url }) => (
+              <a
+                key={id}
+                href={url}
+                className="text-gray-800 hover:text-blue-600 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {title}
+              </a>
+            ))}
           </nav>
         </div>
       </header>
@@ -210,12 +252,12 @@ export const HomeView = () => {
         <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
           {/* <Link href="/contact"> */}
           <Link href="#pricing_section">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition w-full md:w-max">
               Üzv ol
             </button>
           </Link>
           <Link href="/login">
-            <button className="border border-gray-300 hover:border-gray-400 px-6 py-3 rounded-lg text-lg font-semibold transition">
+            <button className="border border-gray-300 hover:border-gray-400 px-6 py-3 rounded-lg text-lg font-semibold transition w-full md:w-max">
               Daxil ol
             </button>
           </Link>
@@ -227,7 +269,7 @@ export const HomeView = () => {
         <h2 className="text-3xl font-bold text-center">
           Niyə Creatrax-i seçməlisiniz?
         </h2>
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {whyUsItems.map(({ id, title, desc }) => (
             <div key={id} className="p-6 border rounded-lg shadow-sm bg-white">
               <h3 className="text-xl font-semibold text-blue-600">{title}</h3>
@@ -261,9 +303,9 @@ export const HomeView = () => {
         <p className="text-gray-600 mt-4">
           Sizə uyğun planı seçin və biznesinizi növbəti səviyyəyə aparın.
         </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-8">
+        <ul className="mt-10 flex flex-wrap justify-center gap-2">
           {pricingItems.map(({ id, name, price, desc }) => (
-            <div
+            <li
               key={id}
               className="p-6 border rounded-lg bg-white shadow-md max-w-xs text-center"
             >
@@ -271,13 +313,13 @@ export const HomeView = () => {
               <p className="text-3xl font-semibold mt-2">{price}</p>
               <p className="text-gray-600 mt-2">{desc}</p>
               <Link href="/contact">
-                <button className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-lg font-semibold transition">
+                <button className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-lg font-semibold transition w-full md:w-max">
                   Üzv ol
                 </button>
               </Link>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
       {/* FAQ SECTION */}
@@ -285,7 +327,7 @@ export const HomeView = () => {
         <h2 className="text-3xl font-bold text-center">
           Tez-tez verilən suallar
         </h2>
-        <div className="mt-8 space-y-6">
+        <div className="mt-8 flex flex-col gap-2">
           {faqItems.map(({ id, question, answer }) => (
             <div key={id} className="p-4 border rounded-lg bg-white shadow-sm">
               <h3 className="text-lg font-semibold">{question}</h3>
@@ -304,7 +346,7 @@ export const HomeView = () => {
         </p>
 
         {/* className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 text-left" */}
-        <div className="w-2/3 mx-auto">
+        <div className="w-full md:w-2/3 mx-auto">
           <CFormProvider onSubmit={handleSubmit} methods={methods}>
             <div className="contact_form_wrapper flex flex-col items-center gap-3">
               <InputTextField placeholder="Ad və Soyad" name="fullname" />
@@ -312,7 +354,7 @@ export const HomeView = () => {
               <InputTextField placeholder="Email ünvanı" name="email" />
               <InputTextareaField placeholder="Qeydləriniz" name="message" />
 
-              <div className="md:col-span-2">
+              <div className="md:col-span-2 w-full md:w-max">
                 <button
                   type="submit"
                   className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition"
