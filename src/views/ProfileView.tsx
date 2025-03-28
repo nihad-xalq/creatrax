@@ -284,7 +284,7 @@ export const ProfileView = () => {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 items-center gap-3 w-full lg:w-max">
+                <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-0 md:gap-3 w-full lg:w-max">
                   {/* Save Button */}
                   <input
                     type="submit"
