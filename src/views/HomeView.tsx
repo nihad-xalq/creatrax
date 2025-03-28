@@ -103,23 +103,17 @@ const pricingItems: PricingItem[] = [
   {
     id: 1,
     name: "Başlanğıc",
-    price: "Pulsuz",
-    desc: "Creatrax funksiyalarına əsas giriş.",
-  },
-  {
-    id: 2,
-    name: "İnkişaf",
-    price: "$19/ay",
+    price: "₼19/ay",
     desc: "Böyüyən bizneslər üçün qabaqcıl alətlər.",
   },
   {
-    id: 3,
+    id: 2,
     name: "Biznes",
-    price: "$49/ay",
+    price: "₼49/ay",
     desc: "Premium funksiyalara tam giriş.",
   },
   {
-    id: 4,
+    id: 3,
     name: "Korporativ",
     price: "Fərdi",
     desc: "Böyük müəssisələr üçün xüsusi həllər.",
@@ -307,7 +301,7 @@ export const HomeView = () => {
           {pricingItems.map(({ id, name, price, desc }) => (
             <li
               key={id}
-              className="p-6 border rounded-lg bg-white shadow-md max-w-xs text-center"
+              className="p-6 border rounded-lg bg-white shadow-md max-w-max md:max-w-xs text-center"
             >
               <h3 className="text-2xl font-bold text-blue-600">{name}</h3>
               <p className="text-3xl font-semibold mt-2">{price}</p>
