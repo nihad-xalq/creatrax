@@ -8,6 +8,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { Logo } from "@/components/reusable/Logo";
+import Image from "next/image";
 
 const schema = yup.object().shape({
   email: yup
@@ -52,6 +54,13 @@ export const LoginView = () => {
           {/* Visual Section */}
           <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-tl from-blue-500 to-blue-400 text-white p-8 justify-center items-center">
             <div className="text-center space-y-4">
+              <Image
+                src="/old-logo.svg"
+                alt="Creatrax"
+                width={0}
+                height={0}
+                className="w-2/3 mx-auto h-auto"
+              />
               <h3 className="text-2xl font-bold">
                 Məlumatlarınızı daha rahat idarə edin!
               </h3>
