@@ -84,7 +84,7 @@ export const NotificationsView = () => {
       <PageTitle title="Bildirişlər" />
 
       {/* Filter & Actions */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex flex-col md:flex-row gap-3 justify-between items-center mb-4">
         <div className="flex gap-3">
           <button
             className={`px-4 py-2 rounded-md text-sm ${
@@ -115,16 +115,19 @@ export const NotificationsView = () => {
         {notifications.length > 0 && (
           <div className="flex gap-3">
             <button
-              className="px-4 py-2 bg-green-500 text-white rounded-md text-sm hover:bg-green-600"
+              className="px-4 py-2 bg-green-500 text-white rounded-md text-sm hover:bg-green-600 flex flex-row items-center gap-2"
               onClick={markAllAsRead}
             >
-              Hamısını Oxundu Kimi İşarələ
+              Hamısını
+              <span className="hidden md:block">Oxundu Kimi İşarələ</span>
+              <FaCheckCircle />
             </button>
             <button
-              className="px-4 py-2 bg-red-500 text-white rounded-md text-sm hover:bg-red-600"
+              className="px-4 py-2 bg-red-500 text-white rounded-md text-sm hover:bg-red-600 flex flex-row items-center gap-2"
               onClick={deleteAll}
             >
-              Hamısını Sil
+              Hamısını<span className="hidden md:block">Sil</span>
+              <FaTrashAlt />
             </button>
           </div>
         )}
