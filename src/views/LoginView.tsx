@@ -7,9 +7,8 @@ import { CFormProvider } from "@/components/form/CFormProvider";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { Logo } from "@/components/reusable/Logo";
 import Image from "next/image";
+import * as yup from "yup";
 
 const schema = yup.object().shape({
   email: yup

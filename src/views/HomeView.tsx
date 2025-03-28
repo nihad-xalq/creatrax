@@ -155,7 +155,7 @@ export const HomeView = () => {
     resolver: yupResolver(schema),
   });
 
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  // const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const handleSubmit = (formData: FormValues) => {
     console.log(formData);
