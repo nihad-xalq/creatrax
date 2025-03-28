@@ -48,7 +48,7 @@ export const LoginView = () => {
   return (
     <section className="py-8 lg:py-12 flex items-center my-auto h-screen willFadeFromAbove">
       <div className="container mx-auto max-w-4xl px-2 lg:px-12">
-        <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-xl overflow-hidden">
+        <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-xl overflow-hidden border border-blue-200 md:border-none">
           {/* Visual Section */}
           <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-tl from-blue-500 to-blue-400 text-white p-8 justify-center items-center">
             <div className="text-center space-y-4">
