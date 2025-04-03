@@ -98,25 +98,47 @@ interface PricingItem {
   name: string;
   price: string;
   desc: string;
+  features: string[];
 }
 const pricingItems: PricingItem[] = [
   {
     id: 1,
     name: "Başlanğıc",
-    price: "₼19/ay",
+    price: "₼19",
     desc: "Böyüyən bizneslər üçün qabaqcıl alətlər.",
+    features: [
+      "Access to basic features",
+      "Basic reporting and analytics",
+      "Up to 10 individual users",
+      "10GB individual data each user",
+      "Basic chat and email support",
+    ],
   },
   {
     id: 2,
     name: "Biznes",
-    price: "₼49/ay",
+    price: "₼49",
     desc: "Premium funksiyalara tam giriş.",
+    features: [
+      "Access to basic features",
+      "Basic reporting and analytics",
+      "Up to 10 individual users",
+      "10GB individual data each user",
+      "Basic chat and email support",
+    ],
   },
   {
     id: 3,
     name: "Korporativ",
     price: "Fərdi",
     desc: "Böyük müəssisələr üçün xüsusi həllər.",
+    features: [
+      "Access to basic features",
+      "Basic reporting and analytics",
+      "Up to 10 individual users",
+      "10GB individual data each user",
+      "Basic chat and email support",
+    ],
   },
 ];
 
@@ -190,6 +212,21 @@ export const HomeView = () => {
               ))}
             </ul>
           </nav>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            {/* <Link href="/contact"> */}
+            <Link href="#pricing_section">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-lg font-semibold transition w-full md:w-max">
+                Üzv ol
+              </button>
+            </Link>
+            <Link href="/login">
+              <button className="border border-gray-300 hover:border-gray-400 px-6 py-2 rounded-lg text-lg font-semibold transition w-full md:w-max">
+                Daxil ol
+              </button>
+            </Link>
+          </div>
         </div>
 
         {/* Burger Button */}
@@ -231,31 +268,16 @@ export const HomeView = () => {
 
       {/* HERO SECTION */}
       <div className="w-full py-20 px-6 text-center bg-blue-50">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-          Creatrax –{" "}
-          <span className="text-blue-600">
-            Biznesinizi Asanlıqla İdarə Edin
-          </span>
+        <span className="text-sm text-[rgba(16,137,41,1)]">
+          Built for Growing Businesses
+        </span>
+        <h1 className="text-4xl md:text-5xl font-medium text-gray-900 w-[40%] mx-auto">
+          Manage Everything in One Intuitive Dashboard
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 mt-4">
-          İş axınınızı, sifarişlərinizi və müştəri idarəetmənizi asanlaşdırmaq
-          üçün güclü, intuitiv portal.
+        <p className="text-lg md:text-sm text-gray-600 font-normal mt-4">
+          Control workflows, track orders, and manage customer data through a
+          sleek and simple interface.
         </p>
-
-        {/* CTA Buttons */}
-        <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-          {/* <Link href="/contact"> */}
-          <Link href="#pricing_section">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition w-full md:w-max">
-              Üzv ol
-            </button>
-          </Link>
-          <Link href="/login">
-            <button className="border border-gray-300 hover:border-gray-400 px-6 py-3 rounded-lg text-lg font-semibold transition w-full md:w-max">
-              Daxil ol
-            </button>
-          </Link>
-        </div>
       </div>
 
       {/* KEY FEATURES */}
@@ -274,17 +296,30 @@ export const HomeView = () => {
       </section>
 
       {/* INDICATORS & METRICS */}
-      <section className="w-full bg-blue-50 py-16 text-center">
-        <h2 className="text-3xl font-bold text-gray-900">
-          Dünya Biznesləri tərəfindən Etibar Edilir
-        </h2>
-        <div className="mt-10 flex flex-wrap justify-center gap-10 text-blue-600 font-bold text-4xl">
-          {keyIndicatorItems.map(({ id, value, label }) => (
-            <div key={id} className="text-center">
-              <span className="text-5xl">{value}</span>
-              <p className="text-gray-600 text-sm">{label}</p>
+      <section className="w-full bg-[rgba(34,34,34,1)] py-16 text-center">
+        <div className="indicators_inner w-[80%] mx-auto flex flex-row justify-between items-center gap-3">
+          <div className="text-white">
+            <div className="flex flex-col items-start gap-2 w-[60%]">
+              <h2 className="text-3xl font-bold text-left">
+                Dünya Biznesləri tərəfindən Etibar Edilir
+              </h2>
+              <p className="text-left">
+                Control workflows, track orders, and manage customer data
+                through a sleek and simple interface.
+              </p>
             </div>
-          ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-white">
+            {keyIndicatorItems.map(({ id, value, label }) => (
+              <div
+                key={id}
+                className="text-center flex flex-col items-start gap-2"
+              >
+                <span className="text-5xl font-medium">{value}</span>
+                <p className="text-sm">{label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -297,20 +332,44 @@ export const HomeView = () => {
         <p className="text-gray-600 mt-4">
           Sizə uyğun planı seçin və biznesinizi növbəti səviyyəyə aparın.
         </p>
-        <ul className="mt-10 flex flex-wrap justify-center gap-2">
-          {pricingItems.map(({ id, name, price, desc }) => (
+        <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-2">
+          {pricingItems.map(({ id, name, price, desc, features }) => (
             <li
               key={id}
-              className="p-6 border rounded-lg bg-white shadow-md w-full sm:w-max md:max-w-xs text-center"
+              className="relative p-6 border rounded-lg bg-white shadow-md w-full text-center"
             >
-              <h3 className="text-2xl font-bold text-blue-600">{name}</h3>
-              <p className="text-3xl font-semibold mt-2">{price}</p>
-              <p className="text-gray-600 mt-2">{desc}</p>
+              {/* #TODO: change this check */}
+              {id === 2 && (
+                <div className="ribbon absolute -top-4 left-1/2 right-1/2 w-max -translate-x-1/2 bg-[rgba(204,228,227,1)] text-[rgba(1,162,156,1)] text-xs py-2 px-3 rounded-full">
+                  Most Popular
+                </div>
+              )}
+              <h3 className="text-lg text-left font-semibold text-slate-900 mb-8">
+                {name}
+              </h3>
+              <div className="flex flex-col items-start gap-2">
+                <span className="text-sm font-medium">Starts at</span>
+                <p>
+                  <span className="text-3xl font-medium mr-1">{price}</span>{" "}
+                  <span className="text-sm">per user / per month</span>
+                </p>
+                <p className="text-xs text-left">{desc}</p>
+              </div>
               <Link href="/contact">
-                <button className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg text-lg font-semibold transition w-full md:w-max">
-                  Üzv ol
+                <button className="mt-4 bg-[rgba(34,34,34,1)] hover:bg-[#070707] text-white px-5 py-2 rounded-lg font-semibold transition w-full md:w-full">
+                  Let&apos;s start
                 </button>
               </Link>
+              <div className="mt-3 flex flex-col items-start gap-3">
+                <span className="text-xs mt-5 mb-3">What&apos;s included</span>
+                <ul className="list-disc pl-6 flex flex-col gap-1">
+                  {features.map((feature, index) => (
+                    <li key={index} className="text-xs text-left font-medium">
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </li>
           ))}
         </ul>
