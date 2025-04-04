@@ -168,6 +168,40 @@ const faqItems: FaqItem[] = [
   },
 ];
 
+interface TestimonialItem {
+  id: number;
+  companyLogo: string;
+  companyName: string;
+}
+
+const testimonialItems: TestimonialItem[] = [
+  {
+    id: 1,
+    companyLogo: "/old-logo.svg",
+    companyName: "Company One",
+  },
+  {
+    id: 2,
+    companyLogo: "/old-logo.svg",
+    companyName: "Company Two",
+  },
+  {
+    id: 3,
+    companyLogo: "/old-logo.svg",
+    companyName: "Company Three",
+  },
+  {
+    id: 4,
+    companyLogo: "/old-logo.svg",
+    companyName: "Company Four",
+  },
+  {
+    id: 5,
+    companyLogo: "/old-logo.svg",
+    companyName: "Company Five",
+  },
+];
+
 const copyrights_text = `${new Date().getFullYear()} Creadive. Bütün hüquqlar qorunur.`;
 
 export const HomeView = () => {
@@ -247,9 +281,8 @@ export const HomeView = () => {
 
         {/* Mobile Sliding Panel */}
         <div
-          className={`fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-full w-3/4 max-w-xs bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           <nav className="flex flex-col gap-6 p-6 pt-20">
             {navItems.map(({ id, title, url }) => (
@@ -267,11 +300,11 @@ export const HomeView = () => {
       </header>
 
       {/* HERO SECTION */}
-      <div className="w-full py-20 px-6 text-center bg-blue-50">
+      <div className="w-full py-20 px-6 text-center flex flex-col items-center gap-3">
         <span className="text-sm text-[rgba(16,137,41,1)]">
           Built for Growing Businesses
         </span>
-        <h1 className="text-4xl md:text-5xl font-medium text-gray-900 w-[40%] mx-auto">
+        <h1 className="text-4xl md:text-5xl text-gray-900 font-normal tracking-wide max-w-3xl mx-auto">
           Manage Everything in One Intuitive Dashboard
         </h1>
         <p className="text-lg md:text-sm text-gray-600 font-normal mt-4">
@@ -279,6 +312,48 @@ export const HomeView = () => {
           sleek and simple interface.
         </p>
       </div>
+
+      {/* TESTIMONIALS SECTION */}
+      <section className="w-full py-16 px-6">
+        <h2 className="text-xl text-gray-900 text-center mb-12">
+          Hundreds of startups have already saved thousands of hours
+        </h2>
+        <div className="flex flex-wrap justify-center items-center gap-16 max-w-4xl mx-auto">
+          {testimonialItems.map(({ id, companyLogo, companyName }) => (
+            <Image
+              key={id}
+              src={companyLogo}
+              alt={`${companyName} Logo`}
+              width={120}
+              height={30}
+            // className="opacity-60 hover:opacity-100 transition-opacity"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* MAIN HERO SECTION */}
+      <section className="w-full bg-white py-20 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="flex flex-col gap-6">
+            <span className="text-sm text-[#108929]">Built for Growing Businesses</span>
+            <h2 className="text-4xl font-medium text-gray-900">
+              Manage Everything in One Intuitive Dashboard
+            </h2>
+            <p className="text-gray-600">
+              Control workflows, track orders, and manage customer data through a sleek and simple interface.
+            </p>
+            <div>
+              <button className="bg-[rgba(244,244,244,1)] text-black px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-[#c5c5c5] transition-colors">
+                Learn more
+              </button>
+            </div>
+          </div>
+          <div className="bg-gray-100 rounded-lg h-[400px]">
+            {/* Placeholder for dashboard image/screenshot */}
+          </div>
+        </div>
+      </section>
 
       {/* KEY FEATURES */}
       <section id="why_us_section" className="w-full max-w-6xl px-6 py-16">
