@@ -414,21 +414,21 @@ export const HomeView = () => {
       {/* PRICING & CTA SECTION */}
       <section
         id="pricing_section"
-        className="w-full max-w-6xl px-6 py-16 text-center"
+        className="w-full max-w-7xl px-6 py-16 text-center"
       >
         <h2 className="text-3xl font-bold">Creatrax-dən istifadəyə Başla</h2>
         <p className="text-gray-600 mt-4">
           Sizə uyğun planı seçin və biznesinizi növbəti səviyyəyə aparın.
         </p>
-        <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-2">
+        <ul className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
           {pricingItems.map(({ id, name, price, desc, features }) => (
             <li
               key={id}
-              className="relative p-6 border rounded-lg bg-white shadow-md w-full text-center"
+              className="relative p-6 rounded-lg bg-white shadow-sm w-full text-center flex flex-col justify-between"
             >
               {/* #TODO: change this check */}
               {id === 2 && (
-                <div className="ribbon absolute -top-4 left-1/2 right-1/2 w-max -translate-x-1/2 bg-[rgba(204,228,227,1)] text-[rgba(1,162,156,1)] text-xs py-2 px-3 rounded-full">
+                <div className="ribbon absolute -top-4 left-1/2 right-1/2 w-max -translate-x-1/2 bg-[rgba(204,228,227,1)] text-[rgba(1,162,156,1)] text-xs font-semibold py-2 px-3 rounded-full">
                   Most Popular
                 </div>
               )}
@@ -436,10 +436,14 @@ export const HomeView = () => {
                 {name}
               </h3>
               <div className="flex flex-col items-start gap-2">
-                <span className="text-sm font-medium">Starts at</span>
+                {id !== 3 && (
+                  <span className="text-sm font-medium">Starts at</span>
+                )}
                 <p>
                   <span className="text-3xl font-medium mr-1">{price}</span>{" "}
-                  <span className="text-sm">per user / per month</span>
+                  {id !== 3 && (
+                    <span className="text-sm">per user / per month</span>
+                  )}
                 </p>
                 <p className="text-xs text-left">{desc}</p>
               </div>
