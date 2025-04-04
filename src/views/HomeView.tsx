@@ -487,14 +487,14 @@ export const HomeView = () => {
                     className="flex-shrink-0 ml-4 w-10 h-8 rounded-lg bg-[rgba(34,34,34,1)] flex items-center justify-center"
                     aria-expanded={expandedFaqs[id]}
                     initial={false}
-                    // animate={{ rotate: expandedFaqs[id] ? 45 : 0 }}
                     transition={{ duration: 0.2, ease: "easeInOut" }}
                   >
-                    <svg
+                    <motion.svg
                       className="w-5 h-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="white"
+                      animate={{ rotate: expandedFaqs[id] ? 45 : 0 }}
                     >
                       <path
                         strokeLinecap="round"
@@ -502,7 +502,7 @@ export const HomeView = () => {
                         strokeWidth={2}
                         d="M12 4v16m8-8H4"
                       />
-                    </svg>
+                    </motion.svg>
                   </motion.button>
                 </div>
                 <AnimatePresence initial={false}>
