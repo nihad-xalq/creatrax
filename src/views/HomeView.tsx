@@ -10,6 +10,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import * as yup from "yup";
+import { motion, AnimatePresence } from "framer-motion";
 
 const schema = yup.object().shape({
   fullname: yup.string().required("Bu xana vacibdir"),
@@ -204,8 +205,13 @@ const testimonialItems: TestimonialItem[] = [
 
 const copyrights_text = `${new Date().getFullYear()} Creadive. Bütün hüquqlar qorunur.`;
 
+interface ExpandedState {
+  [key: number]: boolean;
+}
+
 export const HomeView = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean | null>(false);
+  const [expandedFaqs, setExpandedFaqs] = useState<ExpandedState>({});
 
   const methods = useForm<FormValues>({
     resolver: yupResolver(schema),
@@ -215,6 +221,13 @@ export const HomeView = () => {
 
   const handleSubmit = (formData: FormValues) => {
     console.log(formData);
+  };
+
+  const toggleFaq = (id: number) => {
+    setExpandedFaqs(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
   };
 
   return (
@@ -451,17 +464,61 @@ export const HomeView = () => {
       </section>
 
       {/* FAQ SECTION */}
-      <section id="faq_section" className="w-full max-w-6xl px-6 py-16">
-        <h2 className="text-3xl font-bold text-center">
-          Tez-tez verilən suallar
-        </h2>
-        <div className="mt-8 flex flex-col gap-2">
-          {faqItems.map(({ id, question, answer }) => (
-            <div key={id} className="p-4 border rounded-lg bg-white shadow-sm">
-              <h3 className="text-lg font-semibold">{question}</h3>
-              <p className="text-gray-600 mt-2">{answer}</p>
-            </div>
-          ))}
+      <section id="faq_section" className="w-full px-6 py-32 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-medium text-center mb-12">
+            Frequently asked questions
+          </h2>
+          <div className="mt-8 flex flex-col gap-2 max-w-3xl mx-auto">
+            {faqItems.map(({ id, question, answer }) => (
+              <motion.div
+                key={id}
+                className="bg-[rgb(249,249,249)] rounded-lg"
+                onClick={() => toggleFaq(id)}
+                initial={false}
+              >
+                <div className="flex justify-between items-center py-4 px-6 cursor-pointer">
+                  <h3 className="text-base font-medium text-gray-900">{question}</h3>
+                  <motion.button
+                    className="flex-shrink-0 ml-4 w-10 h-8 rounded-lg bg-[rgba(34,34,34,1)] flex items-center justify-center"
+                    aria-expanded={expandedFaqs[id]}
+                    initial={false}
+                    // animate={{ rotate: expandedFaqs[id] ? 45 : 0 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="white"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 4v16m8-8H4"
+                      />
+                    </svg>
+                  </motion.button>
+                </div>
+                <AnimatePresence initial={false}>
+                  {expandedFaqs[id] && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-4 text-base text-gray-600">
+                        {answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
