@@ -232,7 +232,7 @@ export const HomeView = () => {
 
   return (
     <div className="flex flex-col items-center justify-center text-gray-900 bg-gray-50">
-      <header className="py-3 w-full bg-gray-50 shadow-md relative">
+      <header className="py-3 w-full bg-[rgba(255,255,255,1)] shadow-md relative">
         <div className="home_header_inner flex flex-row justify-between items-center w-[85%] lg:w-[70%] mx-auto">
           {/* Logo */}
           <div>
@@ -264,12 +264,12 @@ export const HomeView = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             {/* <Link href="/contact"> */}
             <Link href="#pricing_section">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-lg font-semibold transition w-full md:w-max">
+              <button className="bg-[rgba(244,244,244,1)] hover:bg-[#e2e2e2] text-[rgba(34,34,34,1)] px-8 py-2.5 rounded-lg text-sm font-semibold transition w-full md:w-max">
                 Üzv ol
               </button>
             </Link>
             <Link href="/login">
-              <button className="border border-gray-300 hover:border-gray-400 px-6 py-2 rounded-lg text-lg font-semibold transition w-full md:w-max">
+              <button className="border bg-[rgba(34,34,34,1)] hover:bg-[rgba(34,34,34,1)] px-8 py-2.5 rounded-lg text-[rgba(255,255,255,1)] text-sm font-semibold transition w-full md:w-max">
                 Daxil ol
               </button>
             </Link>
@@ -444,7 +444,7 @@ export const HomeView = () => {
                 <p className="text-xs text-left">{desc}</p>
               </div>
               <Link href="/contact">
-                <button className="mt-4 bg-[rgba(34,34,34,1)] hover:bg-[#070707] text-white px-5 py-2 rounded-lg font-semibold transition w-full md:w-full">
+                <button className="mt-4 bg-[rgba(34,34,34,1)] hover:scale-105 text-white px-5 py-2 rounded-lg font-semibold transition w-full md:w-full">
                   Let&apos;s start
                 </button>
               </Link>
